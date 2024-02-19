@@ -2,25 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fb17811e-d9c6-400b-94a2-d01f34f0612b" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../DLTE_JAVA_001/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../DLTE_JAVA_001/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DLTE_JAVA_002/.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DLTE_JAVA_002/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DLTE_JAVA_002/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DLTE_JAVA_002/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DLTE_JAVA_002/DLTE_JAVA_002.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DLTE_JAVA_002/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DLTE_JAVA_002/src/main/java/basics/services/App.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DLTE_JAVA_002/src/test/java/basics/services/AppTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DLTE_JAVA_002/target/DLTE_JAVA_002-1.0-SNAPSHOT.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DLTE_JAVA_002/target/classes/basics/services/App.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DLTE_JAVA_002/target/maven-archiver/pom.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DLTE_JAVA_002/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DLTE_JAVA_002/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DLTE_JAVA_002/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DLTE_JAVA_002/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DLTE_JAVA_002/target/surefire-reports/TEST-basics.services.AppTest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DLTE_JAVA_002/target/surefire-reports/basics.services.AppTest.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DLTE_JAVA_002/target/test-classes/basics/services/AppTest.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,10 +46,24 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../DLTE_JAVA_001" />
   </component>
-  <component name="RunManager" selected="Application.Debits">
+  <component name="RunManager" selected="Application.InsuranceProvider">
     <configuration name="Debits" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="basics.service.Debits" />
+      <module name="DLTE_JAVA_002" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="basics.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="InsuranceProvider" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="basics.service.InsuranceProvider" />
       <module name="DLTE_JAVA_002" />
       <extension name="coverage">
         <pattern>
@@ -91,8 +88,23 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ValidateData" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="basics.service.ValidateData" />
+      <module name="DLTE_JAVA_002" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="basics.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.InsuranceProvider" />
+        <item itemvalue="Application.ValidateData" />
         <item itemvalue="Application.Debits" />
         <item itemvalue="Application.MinimumBalance" />
       </list>
@@ -122,6 +134,7 @@
       <updated>1708359132527</updated>
       <workItem from="1708359135506" duration="8077000" />
       <workItem from="1708371174959" duration="125000" />
+      <workItem from="1708373112736" duration="2005000" />
     </task>
     <servers />
   </component>
@@ -141,26 +154,26 @@
       <screen x="0" y="0" width="1536" height="816" />
     </state>
     <state x="498" y="199" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1536.816@0.0.1536.816" timestamp="1708364982425" />
-    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1708359379716">
+    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1708373510618">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.816@0.0.1536.816" timestamp="1708359379716" />
-    <state width="1493" height="208" key="GridCell.Tab.0.bottom" timestamp="1708370761039">
+    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.816@0.0.1536.816" timestamp="1708373510614" />
+    <state width="1493" height="208" key="GridCell.Tab.0.bottom" timestamp="1708375135277">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state width="1493" height="208" key="GridCell.Tab.0.bottom/0.0.1536.816@0.0.1536.816" timestamp="1708370761039" />
-    <state width="1493" height="208" key="GridCell.Tab.0.center" timestamp="1708370761039">
+    <state width="1493" height="208" key="GridCell.Tab.0.bottom/0.0.1536.816@0.0.1536.816" timestamp="1708375135277" />
+    <state width="1493" height="208" key="GridCell.Tab.0.center" timestamp="1708375135277">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state width="1493" height="208" key="GridCell.Tab.0.center/0.0.1536.816@0.0.1536.816" timestamp="1708370761039" />
-    <state width="1493" height="208" key="GridCell.Tab.0.left" timestamp="1708370761039">
+    <state width="1493" height="208" key="GridCell.Tab.0.center/0.0.1536.816@0.0.1536.816" timestamp="1708375135277" />
+    <state width="1493" height="208" key="GridCell.Tab.0.left" timestamp="1708375135277">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state width="1493" height="208" key="GridCell.Tab.0.left/0.0.1536.816@0.0.1536.816" timestamp="1708370761039" />
-    <state width="1493" height="208" key="GridCell.Tab.0.right" timestamp="1708370761039">
+    <state width="1493" height="208" key="GridCell.Tab.0.left/0.0.1536.816@0.0.1536.816" timestamp="1708375135277" />
+    <state width="1493" height="208" key="GridCell.Tab.0.right" timestamp="1708375135277">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state width="1493" height="208" key="GridCell.Tab.0.right/0.0.1536.816@0.0.1536.816" timestamp="1708370761039" />
+    <state width="1493" height="208" key="GridCell.Tab.0.right/0.0.1536.816@0.0.1536.816" timestamp="1708375135277" />
     <state x="477" y="237" key="com.intellij.ide.util.TipDialog" timestamp="1708371176901">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
