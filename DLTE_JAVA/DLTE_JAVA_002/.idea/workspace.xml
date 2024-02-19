@@ -1,13 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ff633a30-9f83-45c2-9ed0-a207a96dbfff" name="Default Changelist" comment="" />
+    <list default="true" id="fb17811e-d9c6-400b-94a2-d01f34f0612b" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DLTE_JAVA_002/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DLTE_JAVA_002/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DLTE_JAVA_002/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DLTE_JAVA_002/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DLTE_JAVA_002/DLTE_JAVA_002.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DLTE_JAVA_002/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DLTE_JAVA_002/src/main/java/basics/services/App.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DLTE_JAVA_002/src/test/java/basics/services/AppTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DLTE_JAVA_002/target/DLTE_JAVA_002-1.0-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DLTE_JAVA_002/target/classes/basics/services/App.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DLTE_JAVA_002/target/maven-archiver/pom.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DLTE_JAVA_002/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DLTE_JAVA_002/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DLTE_JAVA_002/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DLTE_JAVA_002/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DLTE_JAVA_002/target/surefire-reports/TEST-basics.services.AppTest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DLTE_JAVA_002/target/surefire-reports/basics.services.AppTest.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DLTE_JAVA_002/target/test-classes/basics/services/AppTest.class" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ProjectId" id="2cZVzuhqlm1JA4HlCcVoWQ2VJP0" />
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="2caocrL6hIjKNsv0V72PVrbmjnP" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -15,19 +60,30 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
   </component>
-  <component name="RunManager">
-    <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="basics.services.App" />
+  <component name="RunManager" selected="Application.Debits">
+    <configuration name="Debits" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="basics.service.Debits" />
       <module name="DLTE_JAVA_002" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="basics.services.*" />
+          <option name="PATTERN" value="basics.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MinimumBalance" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="basics.service.MinimumBalance" />
+      <module name="DLTE_JAVA_002" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="basics.service.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -37,7 +93,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.App" />
+        <item itemvalue="Application.Debits" />
+        <item itemvalue="Application.MinimumBalance" />
       </list>
     </recent_temporary>
   </component>
@@ -58,12 +115,13 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="ff633a30-9f83-45c2-9ed0-a207a96dbfff" name="Default Changelist" comment="" />
-      <created>1708319353717</created>
+      <changelist id="fb17811e-d9c6-400b-94a2-d01f34f0612b" name="Default Changelist" comment="" />
+      <created>1708359132527</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1708319353717</updated>
-      <workItem from="1708319357398" duration="1969000" />
+      <updated>1708359132527</updated>
+      <workItem from="1708359135506" duration="8077000" />
+      <workItem from="1708371174959" duration="125000" />
     </task>
     <servers />
   </component>
@@ -71,25 +129,45 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1493" height="208" key="GridCell.Tab.0.bottom" timestamp="1708327101523">
+    <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1708364992570">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state width="1493" height="208" key="GridCell.Tab.0.bottom/0.0.1536.816@0.0.1536.816" timestamp="1708327101523" />
-    <state width="1493" height="208" key="GridCell.Tab.0.center" timestamp="1708327101523">
+    <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.816@0.0.1536.816" timestamp="1708364992570" />
+    <state x="548" y="117" key="#com.intellij.ide.macro.MacrosDialog" timestamp="1708364991050">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state width="1493" height="208" key="GridCell.Tab.0.center/0.0.1536.816@0.0.1536.816" timestamp="1708327101523" />
-    <state width="1493" height="208" key="GridCell.Tab.0.left" timestamp="1708327101523">
+    <state x="548" y="117" key="#com.intellij.ide.macro.MacrosDialog/0.0.1536.816@0.0.1536.816" timestamp="1708364991050" />
+    <state x="498" y="199" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1708364982425">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state width="1493" height="208" key="GridCell.Tab.0.left/0.0.1536.816@0.0.1536.816" timestamp="1708327101523" />
-    <state width="1493" height="208" key="GridCell.Tab.0.right" timestamp="1708327101523">
+    <state x="498" y="199" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1536.816@0.0.1536.816" timestamp="1708364982425" />
+    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1708359379716">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state width="1493" height="208" key="GridCell.Tab.0.right/0.0.1536.816@0.0.1536.816" timestamp="1708327101523" />
-    <state x="249" y="0" key="SettingsEditor" timestamp="1708321033862">
+    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.816@0.0.1536.816" timestamp="1708359379716" />
+    <state width="1493" height="208" key="GridCell.Tab.0.bottom" timestamp="1708370761039">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state x="249" y="0" key="SettingsEditor/0.0.1536.816@0.0.1536.816" timestamp="1708321033862" />
+    <state width="1493" height="208" key="GridCell.Tab.0.bottom/0.0.1536.816@0.0.1536.816" timestamp="1708370761039" />
+    <state width="1493" height="208" key="GridCell.Tab.0.center" timestamp="1708370761039">
+      <screen x="0" y="0" width="1536" height="816" />
+    </state>
+    <state width="1493" height="208" key="GridCell.Tab.0.center/0.0.1536.816@0.0.1536.816" timestamp="1708370761039" />
+    <state width="1493" height="208" key="GridCell.Tab.0.left" timestamp="1708370761039">
+      <screen x="0" y="0" width="1536" height="816" />
+    </state>
+    <state width="1493" height="208" key="GridCell.Tab.0.left/0.0.1536.816@0.0.1536.816" timestamp="1708370761039" />
+    <state width="1493" height="208" key="GridCell.Tab.0.right" timestamp="1708370761039">
+      <screen x="0" y="0" width="1536" height="816" />
+    </state>
+    <state width="1493" height="208" key="GridCell.Tab.0.right/0.0.1536.816@0.0.1536.816" timestamp="1708370761039" />
+    <state x="477" y="237" key="com.intellij.ide.util.TipDialog" timestamp="1708371176901">
+      <screen x="0" y="0" width="1536" height="816" />
+    </state>
+    <state x="477" y="237" key="com.intellij.ide.util.TipDialog/0.0.1536.816@0.0.1536.816" timestamp="1708371176901" />
+    <state x="209" y="117" key="new project wizard" timestamp="1708359405722">
+      <screen x="0" y="0" width="1536" height="816" />
+    </state>
+    <state x="209" y="117" key="new project wizard/0.0.1536.816@0.0.1536.816" timestamp="1708359405722" />
   </component>
 </project>
