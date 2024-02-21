@@ -1,4 +1,4 @@
-DLTE_JAVA_001 Contents:
+**DLTE_JAVA_001 Contents:**
     <br>Command line interfaces for banking services like:<br>
         * Income Tax information.</br>
         * Internet Banking service.<br>
@@ -13,7 +13,7 @@ DLTE_JAVA_001 Contents:
         * MinimumBalance.java provides the minimum balance out of 20 transactions.<br>
         * SIPcalc.java provides the user with Principal Amount, Estimate Return and Total Amount of the policy.<br>
         * ValidateData validates the data provided in Insuranceprovider.java using Regular Expressions.<br>
-<br>DLTE_JAVA_003 Contents:<br>
+<br>**DLTE_JAVA_003 Contents:**<br>
     Exploration of OOPs concepts with sample programs:<br>
         * CreditCard.java has all the private members of Class creditCard which is encapsulated having sensetive credentials of credit card user.<br>
         * CustomerSupport.java processes the data of Creditcard.java to perform certain operations, filtering, updating, sorting.<br>
