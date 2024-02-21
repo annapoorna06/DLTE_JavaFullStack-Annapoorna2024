@@ -2,8 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fb17811e-d9c6-400b-94a2-d01f34f0612b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../DLTE_JAVA_003/src/main/java/store/oops/CreditCard.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DLTE_JAVA_003/src/main/java/store/oops/CustomerSupport.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../DLTE_JAVA_001/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../DLTE_JAVA_001/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/basics/service/ValidateData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/basics/service/ValidateData.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,7 +49,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../DLTE_JAVA_001" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RunManager" selected="Application.InsuranceProvider">
     <configuration name="Debits" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -135,6 +138,7 @@
       <workItem from="1708359135506" duration="8077000" />
       <workItem from="1708371174959" duration="125000" />
       <workItem from="1708373112736" duration="2005000" />
+      <workItem from="1708438843156" duration="1540000" />
     </task>
     <servers />
   </component>
