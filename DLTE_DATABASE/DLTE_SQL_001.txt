@@ -1,0 +1,14 @@
+* create table Transaction(transaction_id number primary key, transaction_date date not null, transaction_to varchar(225) not null, transaction_amount number not null, transaction_remarks varchar(225) not null);
+
+* insert into Transaction values(1, '11-Feb-2024', 'Arundhathi', 993,'Family');
+  insert into Transaction values(2, '23-Feb-2024', 'Annapoorna', 673,'Education');
+  insert into Transaction values(3, '15-Feb-2024', 'Akshira', 873,'Friend');
+  insert into Transaction values(4, '02-Mar-2024', 'Annapoorna', 6703,'Friend');
+  insert into Transaction values(5, '02-Feb-2024', 'Annapoorna', 5000,'Emergency');
+
+1) select * from Transaction where transaction_date between '10-Feb-2024' and '25-Mar-2024';
+2) select min(transaction_amount) from Transaction;
+3) select max(transaction_amount) from Transaction;
+4) select count(transaction_to) from Transaction where transaction_to=' ';
+5) select * from Transaction where transaction_remarks='Friend';
+
