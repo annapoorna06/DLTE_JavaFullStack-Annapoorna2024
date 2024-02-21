@@ -1,6 +1,6 @@
 DLTE_JAVA_001 Contents:
     Command line interfaces for banking services like:
-        * Income Tax information.
+       <br> * Income Tax information.</br>
         * Internet Banking service.
         * Mobile Banking service.
         * Personal Information.
