@@ -3,14 +3,14 @@ Steps to create user with privileges:
 * create user annapoorna identified by mite;
 * grant select on transaction to annapoorna;
 
-* create user annapoorna identified by mite;
-* grant delete on transaction to annapoorna;
+* create user arundhathi identified by nayak;
+* grant delete on transaction to arundhathi;
 
-* create user annapoorna identified by mite;
-* grant selete on transaction to annapoorna;
+* create user akshira identified by hegde;
+* grant selete on transaction to akshira;
 
-* create user annapoorna identified by mite;
-* grant insert on transaction to annapoorna;
+* create user akshatha identified by password;
+* grant insert on transaction to akshatha;
 
-* create user annapoorna identified by mite;
-* grant update on transaction to annapoorna;
+* create user raksha identified by mite;
+* grant update on transaction to raksha;
