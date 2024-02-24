@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact name="DLTE_JAVA_004:jar">
+    <output-path>$PROJECT_DIR$/src/main</output-path>
+    <root id="root">
+      <element id="archive" name="DLTE_JAVA_004.jar">
+        <element id="directory" name="META-INF">
+          <element id="file-copy" path="$PROJECT_DIR$/src/main/META-INF/MANIFEST.MF" />
+        </element>
+        <element id="module-output" name="DLTE_JAVA_004" />
+      </element>
+    </root>
+  </artifact>
+</component>

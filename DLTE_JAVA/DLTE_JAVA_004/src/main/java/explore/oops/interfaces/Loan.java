@@ -63,4 +63,8 @@ public class Loan {
                 ", borrowerContact='" + borrowerContact + '\'' +
                 '}';
     }
+     class MyAccount{
+        public String Name;
+
+    }
 }
