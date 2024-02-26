@@ -9,13 +9,13 @@ import java.util.logging.Logger;
 public class GPay extends Account{
     private String upiPin;
     private String username;
-    ResourceBundle resourceBundle=ResourceBundle.getBundle("application");
+    ResourceBundle resourceBundle=ResourceBundle.getBundle("account");
     Logger logger=Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
-    public GPay(int accountNumber, double accountbalance, String accountHolder, String upiPin, String username, ResourceBundle resourceBundle, Logger logger) {
+    public GPay(int accountNumber, double accountbalance, String accountHolder, String upiPin) {
         super(accountNumber, accountbalance, accountHolder);
         this.upiPin = upiPin;
-        this.username = username;
+        this.username = accountHolder;
     }
     public boolean validateUpiPin(String enteredUpiPin) throws MyBankException{
         if (!upiPin.equals(enteredUpiPin)){
@@ -24,7 +24,7 @@ public class GPay extends Account{
         }
         return true;
     }
-    public void payBill(String billName, double billAmount, String billType, String upiPin){
+    public void payBill(String billName, double billAmount, String billType, String upiPin) throws MyBankException {
         try{
             validateUpiPin(upiPin);
             if (getAccountBalance()>=billAmount){
@@ -36,6 +36,7 @@ public class GPay extends Account{
             }
         } catch (MyBankException exception) {
             logger.log(Level.WARNING, exception.toString());
+            throw exception;
         }
     }
     public String getUsername(){

@@ -2,6 +2,8 @@ Steps to create user with privileges:
 
 * create user annapoorna identified by mite;
 * grant select on transaction to annapoorna;
+* connect annapoorna/mite;
+* update transaction 
 
 * create user arundhathi identified by nayak;
 * grant delete on transaction to arundhathi;
