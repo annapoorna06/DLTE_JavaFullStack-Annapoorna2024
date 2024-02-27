@@ -1,0 +1,26 @@
+Steps to create user with privileges:
+
+* create user annapoorna identified by mite;
+* grant select on transaction to annapoorna;
+* connect annapoorna/mite;
+* select * from transaction; 
+
+* create user arundhathi identified by nayak;
+* grant delete on transaction to arundhathi;
+* connect arundhathi/nayak;
+* delete from table transaction where transaction remarks='Family';
+
+* create user akshira identified by hegde;
+* grant selete on transaction to akshira;
+* connect akshira/hegde;
+* select * from transaction;
+
+* create user akshatha identified by password;
+* grant insert on transaction to akshatha;
+* connect akshatha/password;
+* insert into transaction values(6, '04Feb2024', 'Akshatha', 'Friend');
+
+* create user raksha identified by mite;
+* grant update on transaction to raksha;
+* connect raksha/mite;
+* update transaction set transaction_to='Bharathi' where transaction_id=4;
