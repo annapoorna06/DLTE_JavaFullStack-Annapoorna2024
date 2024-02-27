@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fb17811e-d9c6-400b-94a2-d01f34f0612b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../DLTE_JAVA_003/src/main/java/store/oops/CreditCard.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../DLTE_JAVA_003/src/main/java/store/oops/CustomerSupport.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DLTE_JAVA_001/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../DLTE_JAVA_001/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/basics/service/ValidateData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/basics/service/ValidateData.java" afterDir="false" />
-    </list>
+    <list default="true" id="fb17811e-d9c6-400b-94a2-d01f34f0612b" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -35,7 +29,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
   <component name="ProjectId" id="2caocrL6hIjKNsv0V72PVrbmjnP" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -49,7 +43,11 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/target" />
+    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RunManager" selected="Application.InsuranceProvider">
     <configuration name="Debits" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -139,6 +137,7 @@
       <workItem from="1708371174959" duration="125000" />
       <workItem from="1708373112736" duration="2005000" />
       <workItem from="1708438843156" duration="1540000" />
+      <workItem from="1709014439747" duration="1245000" />
     </task>
     <servers />
   </component>
@@ -154,14 +153,14 @@
       <screen x="0" y="0" width="1536" height="816" />
     </state>
     <state x="548" y="117" key="#com.intellij.ide.macro.MacrosDialog/0.0.1536.816@0.0.1536.816" timestamp="1708364991050" />
-    <state x="498" y="199" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1708364982425">
+    <state x="498" y="199" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1709014468917">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state x="498" y="199" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1536.816@0.0.1536.816" timestamp="1708364982425" />
-    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1708373510618">
+    <state x="498" y="199" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1536.816@0.0.1536.816" timestamp="1709014468917" />
+    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1709015526260">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.816@0.0.1536.816" timestamp="1708373510614" />
+    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.816@0.0.1536.816" timestamp="1709015526260" />
     <state width="1493" height="208" key="GridCell.Tab.0.bottom" timestamp="1708375135277">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
@@ -178,13 +177,17 @@
       <screen x="0" y="0" width="1536" height="816" />
     </state>
     <state width="1493" height="208" key="GridCell.Tab.0.right/0.0.1536.816@0.0.1536.816" timestamp="1708375135277" />
+    <state x="249" y="0" key="SettingsEditor" timestamp="1709015351985">
+      <screen x="0" y="0" width="1536" height="816" />
+    </state>
+    <state x="249" y="0" key="SettingsEditor/0.0.1536.816@0.0.1536.816" timestamp="1709015351985" />
     <state x="477" y="237" key="com.intellij.ide.util.TipDialog" timestamp="1708371176901">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
     <state x="477" y="237" key="com.intellij.ide.util.TipDialog/0.0.1536.816@0.0.1536.816" timestamp="1708371176901" />
-    <state x="209" y="117" key="new project wizard" timestamp="1708359405722">
+    <state x="209" y="117" key="new project wizard" timestamp="1709015689461">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state x="209" y="117" key="new project wizard/0.0.1536.816@0.0.1536.816" timestamp="1708359405722" />
+    <state x="209" y="117" key="new project wizard/0.0.1536.816@0.0.1536.816" timestamp="1709015689461" />
   </component>
 </project>
