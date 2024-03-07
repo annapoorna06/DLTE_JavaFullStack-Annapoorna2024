@@ -9,18 +9,19 @@ import java.util.logging.Logger;
 import static java.lang.System.exit;
 
 public class CustomerSupport {
+    Logger logger=Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
+
     public static void main(String[] args) {
         ResourceBundle resourceBundle=ResourceBundle.getBundle("application");
         Logger logger=Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
         CreditCard[] mybank={
-                new CreditCard(23567876543L,"Annapoo",new Date(2024,1,20),8674,42000,new Date(2024,03,11),new Date(2024,03,8),1234),
+                new CreditCard(23567876543L,"Annapoorna",new Date(2024,1,20),8674,42000,new Date(2024,03,11),new Date(2024,03,8),1234),
                 new CreditCard(33567876543L,"Akshira",new Date(2024,12,5),5674,50000,new Date(2024,06,4),new Date(2024,01,11),2234),
-                new CreditCard(43567876543L,"Aru",new Date(2024,1,8),7674,62000,new Date(2024,06,5),new Date(2024,05,18),6223),
+                new CreditCard(43567876543L,"Arundhathi",new Date(2024,1,8),7674,62000,new Date(2024,06,5),new Date(2024,05,18),6223),
                 new CreditCard(53567876543L,"Divija",new Date(2024,2,6),2674,750000,new Date(2025,01,23),new Date(2024,12,19),3234),
                 new CreditCard(63567876543L,"Eeksha",new Date(2024,12,2),1674,7000,new Date(2025,03,11),new Date(2024,06,13),4234)
         };
         CustomerSupport support=new CustomerSupport();
-        System.out.println("---------WELCOME TO MYBANK------------");
         Scanner scanner=new Scanner(System.in);
         System.out.println("1.Filter based on the given Limit");
         System.out.println("2.Filter based on the date of bill payment");
@@ -66,6 +67,7 @@ public class CustomerSupport {
         }
         if(flag==0){
             System.out.println("No customers found");
+            //logger.log(Level.INFO,cardException.toString());
             throw new MyBankCreditCardException();
         }
     }

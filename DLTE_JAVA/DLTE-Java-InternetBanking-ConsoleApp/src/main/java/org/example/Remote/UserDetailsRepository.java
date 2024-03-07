@@ -9,5 +9,8 @@ public interface UserDetailsRepository {
     void save(UserDetails userDetails);
     void addUsers();
     void update(UserDetails userDetails);
-    boolean verifyPassword(String username, String password);
+    Object verifyPassword(String username, String password);
+   // UserDetails getUserDetailsByUsername(String username);
+
+    List<UserDetails> getAllUserDetails();
 }
