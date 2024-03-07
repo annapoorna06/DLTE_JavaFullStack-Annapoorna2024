@@ -10,7 +10,7 @@ import java.util.logging.FileHandler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
-
+//all the methods implemented for various operations
 public class UserDetailsFileRepository implements UserDetailsRepository {
     private String filePath;
     private ResourceBundle resourceBundle = ResourceBundle.getBundle("userdetails");
@@ -21,14 +21,12 @@ public class UserDetailsFileRepository implements UserDetailsRepository {
     public UserDetailsFileRepository(String url) {
         filePath = url;
         userDetailsList = new ArrayList<>();
-
         try {
             File file = new File(filePath);
             if (!file.exists()) {
                 file.createNewFile();
                 // If the file doesn't exist, create a new file
             }
-
             FileHandler fileHandler = new FileHandler("User-details-logs.txt",true);
             SimpleFormatter simpleFormatter = new SimpleFormatter();
             fileHandler.setFormatter(simpleFormatter);
@@ -53,7 +51,7 @@ public class UserDetailsFileRepository implements UserDetailsRepository {
             ioException.printStackTrace();
         }
     }
-
+//hardcoded arraylist to write into file
     @Override
     public void addUsers() {
         readFromFile();
@@ -80,16 +78,14 @@ public class UserDetailsFileRepository implements UserDetailsRepository {
         logger.log(Level.INFO, userDetails.getuserName() + resourceBundle.getString("user.saved"));
         System.out.println(userDetails.getuserName() + resourceBundle.getString("user.saved"));
     }
-
+//update method to update all the user account details
     @Override
     public void update(UserDetails userDetails) {
         readFromFile();
-
         UserDetails matched = userDetailsList.stream()
                 .filter(each -> each.getuserName().equals(userDetails.getuserName()))
                 .findFirst()
                 .orElse(null);
-
         if (matched == null) {
             logger.log(Level.WARNING, userDetails.getuserName() + resourceBundle.getString("user.notExists"));
             throw new UserDetailsException(resourceBundle.getString("user.noMatches"));
@@ -101,6 +97,7 @@ public class UserDetailsFileRepository implements UserDetailsRepository {
         logger.log(Level.FINE, resourceBundle.getString("user.update.ok"));
         System.out.println(resourceBundle.getString("user.update.ok"));
     }
+    //verify user to validate login
 @Override
 public Object verifyPassword(String username, String password) {
     readFromFile();

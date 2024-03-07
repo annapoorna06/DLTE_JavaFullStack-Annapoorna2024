@@ -25,28 +25,27 @@ public class App {
     private static UserDetails userDetails;
     private static Logger logger = Logger.getLogger(UserDetailsFileRepository.class.getName());
     public static void main(String[] args) {
+
         int option;
         String username, password;
-
         storageTarget = new FileStorageTarget();
         services = new UserDetailsServices(storageTarget);
-
+        //login menu starts
         System.out.println(resourceBundle.getString("app.login.menu"));
         option = scanner.nextInt();
         services.callAddUsers();
         if (option == 1) {
+            //login validation of user
             System.out.println("Enter Your Username");
             username = scanner.next();
             System.out.println("Enter Password");
             password = scanner.next();
             userDetails=services.callVerifyPassword(username, password);
             if (userDetails!=null) {
-               // userDetails = new UserDetails("annapoorna","anna@123",new Date(2002,7,6),"karkala","anna@123",9876543210L); // Initialize userDetails here
-
+                //if user validated moves on to the dashbard
                 while (true) {
                     System.out.println(resourceBundle.getString("app.dashboard.menu"));
                     option = scanner.nextInt();
-
                     switch (option) {
                         case 1:
                             updateUserDetails();
@@ -57,38 +56,19 @@ public class App {
                         default:
                             System.out.println("Invalid option. Please try again.");
                     }
-                }
+                }//end of while(46)
             } else {
                 System.out.println("Login failed. Exiting...");
             }
         }
-    }
-
+    }//end of main(27)
+//method to read new credentials of users and update them
     private static void updateUserDetails() {
-        System.out.println("Enter the details you wish to update among (password, address, email, phone)");
+        System.out.println("Enter the details you wish to update among \npassword\n address\n email\n phone");
         String userInput = scanner.next();
         String[] properties = userInput.split(",");
         int size = properties.length;
-
         for (int index = 0; index < size; index++) {
-            try {
-                if (properties[index].equalsIgnoreCase("phone")) {
-                    System.out.println("Enter the new phone number ");
-                    userDetails.setphoneNumber(scanner.nextLong());
-                }
-            } catch (NullPointerException e) {
-                e.printStackTrace();
-            }
-            if (properties[index].equalsIgnoreCase("address")) {
-                System.out.println("Enter the new address");
-                scanner.nextLine();
-                userDetails.setaddress(scanner.nextLine());
-            }
-            if (properties[index].equalsIgnoreCase("email")) {
-                System.out.println("Enter the email ");
-                scanner.nextLine();
-                userDetails.setemailId(scanner.nextLine());
-            }
             if (properties[index].equalsIgnoreCase("password")) {
                 System.out.println("Enter the old password");
                 scanner.nextLine();
@@ -101,18 +81,35 @@ public class App {
                     exit(0);
                 }
             }
-        }
+            if (properties[index].equalsIgnoreCase("address")) {
+                System.out.println("Enter the new address");
+                scanner.nextLine();
+                userDetails.setaddress(scanner.nextLine());
+            }
+
+            if (properties[index].equalsIgnoreCase("email")) {
+                System.out.println("Enter the email ");
+                scanner.nextLine();
+                userDetails.setemailId(scanner.nextLine());
+            }
+            try {
+                if (properties[index].equalsIgnoreCase("phone")) {
+                    System.out.println("Enter the new phone number ");
+                    userDetails.setphoneNumber(scanner.nextLong());
+                }
+            } catch (NullPointerException e) {
+                e.printStackTrace();
+            }
+        }//end of for(72)
 
         try {
             services.callUpdate(userDetails);
-            //System.out.println("User details updated successfully.");
             logger.log(Level.INFO, userDetails.getuserName() + resourceBundle.getString("user.update.done"));
         } catch (UserDetailsException e) {
             System.out.println("Failed to update user details: " + e.getMessage());
-
         }
-    }
-}
+    }//end of updateUserDetails method(66)
+}//end of public class App(19)
 
 
 

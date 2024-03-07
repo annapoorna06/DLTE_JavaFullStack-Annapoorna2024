@@ -2,6 +2,7 @@ package org.example;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Implementation implements MyBank {
 
@@ -30,9 +31,12 @@ public class Implementation implements MyBank {
 
     @Override
     public void addNewLoan(ArrayList<Loans> loans, Loans newLoan) {
+        //changes made!!
+        loans=readLoansFromFile("debits.txt");
         loans.add(newLoan);
         writeLoansToFile( loans,"debits.txt");
     }
+
 
     @Override
 

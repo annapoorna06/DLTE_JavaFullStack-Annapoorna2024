@@ -13,33 +13,25 @@ public class UserDetailsServices {
     public UserDetailsServices(StorageTarget storageTarget) {
         userDetailsRepository = storageTarget.getUserDetailsRepository();
     }
-    public UserDetails getUserDetailsByUsername(String username) {
-        try {
-            List<UserDetails> userDetailsList = storageTarget.getUserDetailsRepository().getAllUserDetails();
-
-            return userDetailsList.stream()
-                    .filter(userDetails -> userDetails.getuserName().equals(username))
-                    .findFirst()
-                    .orElse(null);
-        } catch (Exception e) {
-            e.printStackTrace();
-            return null;
-        }
-    }
+//    public UserDetails getUserDetailsByUsername(String username) {
+//        try {
+//            List<UserDetails> userDetailsList = storageTarget.getUserDetailsRepository().getAllUserDetails();
+//
+//            return userDetailsList.stream()
+//                    .filter(userDetails -> userDetails.getuserName().equals(username))
+//                    .findFirst()
+//                    .orElse(null);
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//            return null;
+//        }
+//    }
     public void callAddUsers() {
         try {
             userDetailsRepository.addUsers();
         } catch (Exception e) {
         }
     }
-
-//    public void callSave(UserDetails userDetails) {
-//        try {
-//            userDetailsRepository.save(userDetails);
-//        } catch (UserDetailsException userDetailsException) {
-//            throw userDetailsException;
-//        }
-//    }
 
     public void callUpdate(UserDetails userDetails) {
         try {

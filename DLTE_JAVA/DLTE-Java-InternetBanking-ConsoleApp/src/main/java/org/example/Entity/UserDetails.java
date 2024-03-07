@@ -2,6 +2,7 @@ package org.example.Entity;
 
 import java.io.Serializable;
 import java.util.Date;
+//class for initializing all the user details
     public class UserDetails implements Serializable {
         private String userName;
         private String password;
@@ -9,7 +10,7 @@ import java.util.Date;
         private String address;
         private String emailId;
         private long phoneNumber;
-
+// constructor
         public UserDetails(String userName, String password, Date dateOfBirth, String address, String emailId, long phoneNumber) {
             this.userName = userName;
             this.password = password;
@@ -30,7 +31,7 @@ import java.util.Date;
                     ", phoneNumber=" + phoneNumber +
                     '}';
         }
-
+//getters and setters
         public String getuserName() {
             return userName;
         }
