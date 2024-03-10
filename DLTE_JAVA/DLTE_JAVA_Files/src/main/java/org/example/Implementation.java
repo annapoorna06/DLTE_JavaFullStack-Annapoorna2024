@@ -37,9 +37,7 @@ public class Implementation implements MyBank {
         writeLoansToFile( loans,"debits.txt");
     }
 
-
     @Override
-
     public ArrayList<Loans> checkAvailableLoans(ArrayList<Loans> loans) {
         ArrayList<Loans> availableLoans = new ArrayList<>();
         loans = readLoansFromFile("debits.txt");
@@ -50,7 +48,6 @@ public class Implementation implements MyBank {
         }
         return availableLoans;
     }
-
 
     @Override
     public ArrayList<Loans> checkClosedLoans(ArrayList<Loans> loans) {

@@ -32,7 +32,6 @@ public class MyBankDatabase<T> implements Activity {
         }
     }
 
-
     public static void main(String[] args) throws IOException, ClassNotFoundException {
         MyBankDatabase<CreditCard> storeCardData= new MyBankDatabase<>();
         storeCardData.bankDataBase=new ArrayList<>(10);
