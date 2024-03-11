@@ -1,19 +1,14 @@
-
 package org.example;
-
 import org.example.Entity.UserDetails;
 import org.example.Exceptions.UserDetailsException;
 import org.example.Middleware.FileStorageTarget;
 import org.example.Middleware.UserDetailsFileRepository;
 import org.example.Remote.StorageTarget;
 import org.example.Services.UserDetailsServices;
-
-import java.util.Date;
 import java.util.ResourceBundle;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
 import static java.lang.System.exit;
 
 public class App {
@@ -42,13 +37,16 @@ public class App {
             password = scanner.next();
             userDetails=services.callVerifyPassword(username, password);
             if (userDetails!=null) {
-                //if user validated moves on to the dashbard
+                //if user validated moves on to the dashboard
                 while (true) {
                     System.out.println(resourceBundle.getString("app.dashboard.menu"));
                     option = scanner.nextInt();
                     switch (option) {
                         case 1:
                             updateUserDetails();
+                            break;
+                        case 2: case 3: case 4: case 5:
+                            System.out.println("Site under construction!!!");
                             break;
                         case 6:
                             System.out.println("Thank You for choosing our Bank");

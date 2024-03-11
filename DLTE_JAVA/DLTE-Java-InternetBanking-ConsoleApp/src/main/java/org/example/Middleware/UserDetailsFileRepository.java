@@ -3,6 +3,7 @@ package org.example.Middleware;
 import org.example.Entity.UserDetails;
 import org.example.Exceptions.UserDetailsException;
 import org.example.Remote.UserDetailsRepository;
+import org.slf4j.LoggerFactory;
 
 import java.io.*;
 import java.util.*;
@@ -71,10 +72,8 @@ public class UserDetailsFileRepository implements UserDetailsRepository {
             logger.log(Level.WARNING, userDetails.getuserName() + resourceBundle.getString("user.exists"));
             throw new UserDetailsException(resourceBundle.getString("user.exists"));
         }
-
         userDetailsList.add(userDetails);
         writeIntoFile();
-
         logger.log(Level.INFO, userDetails.getuserName() + resourceBundle.getString("user.saved"));
         System.out.println(userDetails.getuserName() + resourceBundle.getString("user.saved"));
     }
@@ -95,7 +94,7 @@ public class UserDetailsFileRepository implements UserDetailsRepository {
         writeIntoFile();
         System.out.println("Credential updated for "+userDetails.getuserName());
         logger.log(Level.FINE, resourceBundle.getString("user.update.ok"));
-        System.out.println(resourceBundle.getString("user.update.ok"));
+        //System.out.println(resourceBundle.getString("user.update.ok"));
     }
     //verify user to validate login
 @Override
@@ -136,11 +135,5 @@ public Object verifyPassword(String username, String password) {
         }
     }
     return null;
-}
-
-    @Override
-    public List<UserDetails> getAllUserDetails() {
-        readFromFile();
-        return new ArrayList<>(userDetailsList);
     }
 }

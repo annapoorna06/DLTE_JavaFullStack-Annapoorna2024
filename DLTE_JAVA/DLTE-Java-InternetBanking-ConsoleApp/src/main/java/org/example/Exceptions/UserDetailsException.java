@@ -1,7 +1,7 @@
 package org.example.Exceptions;
 
 import java.util.ResourceBundle;
-// exception class to handle all the userdefined exceptions
+// exception class to handle all the user defined exceptions
 public class UserDetailsException extends RuntimeException {
     public UserDetailsException(){
         super(ResourceBundle.getBundle("userdetails").getString("user.exception"));

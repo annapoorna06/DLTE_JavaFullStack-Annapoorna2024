@@ -1,0 +1,28 @@
+create table users(username varchar(255) primary key, upi varchar(255),
+ mobile_number integer, email varchar(255));
+
+
+create table wallet(wallet_id integer primary key, username varchar(255), wallet_type varchar2(255), constraint fk_username foreign key(username)re
+ferences users(username));
+
+
+create sequence wallet_id_seq start with 1 increment by 1;
+
+
+
+create or replace trigger wallet_id_trigger
+    before insert on wallet
+    for each row
+    begin
+     select wallet_id_seq.nextval into:new.wallet_id from dual;
+    end;
+    /
+
+
+create table recharge_info(recharge_id integer primary key, username va
+rchar(255), recharge_date DATE, recharge_provider varchar(255), recharge_to
+varchar(255), recharge_amount integer, constraint fk_recharge_username forei
+gn key(username) references users(username));
+
+
+create sequence recharge_id_seq start with 1 increment by 1;
