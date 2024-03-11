@@ -56,7 +56,7 @@ public class UserDetailsFileRepository implements UserDetailsRepository {
     @Override
     public void addUsers() {
         readFromFile();
-        userDetailsList.add(new UserDetails("annapoornapai", "annap@123", new Date(2002, 7, 6), "karkala", "annapoorna@gmail.com", 9876543210L));
+        userDetailsList.add(new UserDetails("annapoornapai", "anna", new Date(2002, 7, 6), "karkala", "annapoorna@gmail.com", 9876543210L));
         userDetailsList.add(new UserDetails("sinchanavenu", "sinchanav@123", new Date(2002, 8, 5), "mulki", "sinchanaa@gmail.com", 9876547680L));
         userDetailsList.add(new UserDetails("shreyam", "shre@123", new Date(2002, 11, 12), "moodbidri", "shreya@gmail.com", 9876512345L));
         userDetailsList.add(new UserDetails("akshatha", "aksh@123", new Date(2002, 11, 20), "karkala", "akshatha@gmail.com", 9765443210L));
@@ -64,19 +64,19 @@ public class UserDetailsFileRepository implements UserDetailsRepository {
         writeIntoFile();
     }
 
-    @Override
-    public void save(UserDetails userDetails) {
-        readFromFile();
-
-        if (userDetailsList.stream().anyMatch(u -> u.getuserName().equals(userDetails.getuserName()))) {
-            logger.log(Level.WARNING, userDetails.getuserName() + resourceBundle.getString("user.exists"));
-            throw new UserDetailsException(resourceBundle.getString("user.exists"));
-        }
-        userDetailsList.add(userDetails);
-        writeIntoFile();
-        logger.log(Level.INFO, userDetails.getuserName() + resourceBundle.getString("user.saved"));
-        System.out.println(userDetails.getuserName() + resourceBundle.getString("user.saved"));
-    }
+//    @Override
+//    public void save(UserDetails userDetails) {
+//        readFromFile();
+//
+//        if (userDetailsList.stream().anyMatch(u -> u.getuserName().equals(userDetails.getuserName()))) {
+//            logger.log(Level.WARNING, userDetails.getuserName() + resourceBundle.getString("user.exists"));
+//            throw new UserDetailsException(resourceBundle.getString("user.exists"));
+//        }
+//        userDetailsList.add(userDetails);
+//        writeIntoFile();
+//        logger.log(Level.INFO, userDetails.getuserName() + resourceBundle.getString("user.saved"));
+//        System.out.println(userDetails.getuserName() + resourceBundle.getString("user.saved"));
+//    }
 //update method to update all the user account details
     @Override
     public void update(UserDetails userDetails) {

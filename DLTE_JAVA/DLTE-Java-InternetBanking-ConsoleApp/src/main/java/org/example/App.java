@@ -60,7 +60,7 @@ public class App {
             }
         }
     }//end of main(27)
-//method to read new credentials of users and update them
+    //method to read new credentials of users and update them
     private static void updateUserDetails() {
         System.out.println("Enter the details you wish to update among \npassword\n address\n email\n phone");
         String userInput = scanner.next();
@@ -108,6 +108,3 @@ public class App {
         }
     }//end of updateUserDetails method(66)
 }//end of public class App(19)
-
-
-
