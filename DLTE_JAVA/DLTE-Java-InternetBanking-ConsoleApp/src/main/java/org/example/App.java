@@ -5,6 +5,9 @@ import org.example.Middleware.FileStorageTarget;
 import org.example.Middleware.UserDetailsFileRepository;
 import org.example.Remote.StorageTarget;
 import org.example.Services.UserDetailsServices;
+
+import java.nio.channels.ScatteringByteChannel;
+import java.util.InputMismatchException;
 import java.util.ResourceBundle;
 import java.util.Scanner;
 import java.util.logging.Level;
@@ -45,7 +48,11 @@ public class App {
                         case 1:
                             updateUserDetails();
                             break;
-                        case 2: case 3: case 4: case 5:
+                        case 2:
+                            System.out.println("Your details are:");
+                            displayUserDetails();
+                            break;
+                        case 3: case 4: case 5:
                             System.out.println("Site under construction!!!");
                             break;
                         case 6:
@@ -60,6 +67,12 @@ public class App {
             }
         }
     }//end of main(27)
+
+    private static void displayUserDetails() {
+        System.out.println("Username:"+userDetails.getuserName()+"\nDate of Birth:"+userDetails.getdateOfBirth()+"\nPhone Number:"+userDetails.getphoneNumber()+"\nAddress:"+userDetails.getaddress()
+        +"\nEmail Id:"+userDetails.getemailId());
+    }
+
     //method to read new credentials of users and update them
     private static void updateUserDetails() {
         System.out.println("Enter the details you wish to update among \npassword\n address\n email\n phone");
@@ -80,23 +93,50 @@ public class App {
                 }
             }
             if (properties[index].equalsIgnoreCase("address")) {
-                System.out.println("Enter the new address");
+                System.out.println("Enter the password");
                 scanner.nextLine();
-                userDetails.setaddress(scanner.nextLine());
+                if (userDetails.getpassword().equals(scanner.nextLine())) {
+                    System.out.println("Enter the new address");
+                    userDetails.setaddress(scanner.nextLine());
+                }
+                else{
+                    System.out.println(resourceBundle.getString("wrong.password"));
+                    updateUserDetails();
+                }
             }
 
             if (properties[index].equalsIgnoreCase("email")) {
-                System.out.println("Enter the email ");
+                System.out.println("Enter the password");
                 scanner.nextLine();
-                userDetails.setemailId(scanner.nextLine());
+                if (userDetails.getpassword().equals(scanner.nextLine())) {
+                    System.out.println("Enter the email ");
+                    userDetails.setemailId(scanner.nextLine());
+                }
+                else{
+                    System.out.println(resourceBundle.getString("wrong.password"));
+                    updateUserDetails();
+                }
             }
+            while(true){
             try {
                 if (properties[index].equalsIgnoreCase("phone")) {
-                    System.out.println("Enter the new phone number ");
-                    userDetails.setphoneNumber(scanner.nextLong());
+                    System.out.println("Enter the password");
+                    scanner.nextLine();
+                    if (userDetails.getpassword().equals(scanner.nextLine())) {
+                        System.out.println("Enter the new phone number ");
+                        userDetails.setphoneNumber(scanner.nextLong());
+                    }
+                    else{
+                        System.out.println(resourceBundle.getString("wrong.password"));
+                        updateUserDetails();
+                    }
                 }
             } catch (NullPointerException e) {
                 e.printStackTrace();
+            }
+            catch (InputMismatchException inputmismatchException) {
+                System.out.println(resourceBundle.getString("input.number"));
+            }
             }
         }//end of for(72)
 
@@ -106,5 +146,6 @@ public class App {
         } catch (UserDetailsException e) {
             System.out.println("Failed to update user details: " + e.getMessage());
         }
-    }//end of updateUserDetails method(66)
+    }
+    //end of updateUserDetails method(66)
 }//end of public class App(19)
