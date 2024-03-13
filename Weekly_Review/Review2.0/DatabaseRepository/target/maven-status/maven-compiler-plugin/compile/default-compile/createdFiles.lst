@@ -1,0 +1,6 @@
+org\databaseRepository\Details\InputEmployeeDetails.class
+org\databaseRepository\Details\EmployeePermanentAddress.class
+org\databaseRepository\Details\EmployeeTemporaryAddress.class
+org\databaseRepository\Details\Employee.class
+org\databaseRepository\DatabaseImplementation.class
+org\databaseRepository\App.class

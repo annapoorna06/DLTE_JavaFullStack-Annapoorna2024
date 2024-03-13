@@ -104,3 +104,27 @@ Mar 12, 2024 5:48:01 PM org.example.Middleware.UserDetailsFileRepository verifyP
 WARNING: Login failed.
 Mar 12, 2024 5:48:04 PM org.example.Middleware.UserDetailsFileRepository verifyPassword
 INFO: Login Successful
+Mar 13, 2024 7:46:34 PM org.example.Middleware.UserDetailsDatabaseRepository verifyPassword
+WARNING: username.not.found
+Mar 13, 2024 7:47:17 PM org.example.Middleware.UserDetailsDatabaseRepository verifyPassword
+WARNING: username.locked
+Mar 13, 2024 7:48:50 PM org.example.Middleware.UserDetailsDatabaseRepository verifyPassword
+WARNING: username.locked
+Mar 13, 2024 7:50:27 PM org.example.Middleware.UserDetailsDatabaseRepository verifyPassword
+WARNING: username.not.found
+Mar 13, 2024 7:50:47 PM org.example.Middleware.UserDetailsDatabaseRepository verifyPassword
+WARNING: username.locked
+Mar 13, 2024 7:57:59 PM org.example.Middleware.UserDetailsDatabaseRepository verifyPassword
+WARNING: username.not.found
+Mar 13, 2024 7:58:36 PM org.example.Middleware.UserDetailsDatabaseRepository verifyPassword
+WARNING: username.locked
+Mar 13, 2024 8:12:05 PM org.example.Middleware.UserDetailsDatabaseRepository update
+INFO: Credential updated for sinchana
+Mar 13, 2024 8:21:40 PM org.example.Middleware.UserDetailsDatabaseRepository update
+INFO: Credential updated for sinchana
+Mar 13, 2024 8:25:53 PM org.example.Middleware.UserDetailsDatabaseRepository update
+INFO: Credential updated for sinchana
+Mar 13, 2024 8:26:12 PM org.example.Middleware.UserDetailsDatabaseRepository update
+INFO: Credential updated for sinchana
+Mar 13, 2024 8:26:31 PM org.example.Middleware.UserDetailsDatabaseRepository update
+INFO: Credential updated for sinchana

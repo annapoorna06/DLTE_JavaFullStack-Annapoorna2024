@@ -96,7 +96,7 @@ public class UserDetailsFileRepository implements UserDetailsRepository {
         logger.log(Level.FINE, resourceBundle.getString("user.update.ok"));
         //System.out.println(resourceBundle.getString("user.update.ok"));
     }
-    //verify user to validate login
+
 @Override
 public Object verifyPassword(String username, String password) {
     readFromFile();
