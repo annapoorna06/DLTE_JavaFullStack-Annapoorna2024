@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="org.example.AppTest" time="0.062" tests="1" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="org.example.AppTest" time="0.022" tests="1" errors="0" skipped="0" failures="0">
   <properties>
     <property name="sun.desktop" value="windows"/>
     <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
@@ -18,7 +18,7 @@
     <property name="user.country" value="IN"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.boot.library.path" value="C:\Program Files\RedHat\java-1.8.0-openjdk-1.8.0.292-2\jre\bin"/>
-    <property name="sun.java.command" value="C:\Users\xxpaiija\AppData\Local\Temp\surefire3196927322718542395\surefirebooter10805339076201814.jar C:\Users\xxpaiija\AppData\Local\Temp\surefire3196927322718542395 2024-03-13T19-50-08_574-jvmRun1 surefire4231295480837272809tmp surefire_08293919885597395756tmp"/>
+    <property name="sun.java.command" value="C:\Users\xxpaiija\AppData\Local\Temp\surefire5516016443012380159\surefirebooter4035884810368214967.jar C:\Users\xxpaiija\AppData\Local\Temp\surefire5516016443012380159 2024-03-14T10-03-28_799-jvmRun1 surefire8215013535662177533tmp surefire_0868978057914932282tmp"/>
     <property name="surefire.test.class.path" value="C:\DLTE_JavaFullStack-Annapoorna2024\DLTE_JAVA\DLTE-JAVA-InternetBanking-ConsoleApp-DAO\target\test-classes;C:\DLTE_JavaFullStack-Annapoorna2024\DLTE_JAVA\DLTE-JAVA-InternetBanking-ConsoleApp-DAO\target\classes;C:\Users\xxpaiija\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\xxpaiija\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;C:\Users\xxpaiija\.m2\repository\com\oracle\database\jdbc\ojdbc6\11.2.0.4\ojdbc6-11.2.0.4.jar;C:\Users\xxpaiija\.m2\repository\com\oracle\database\jdbc\ucp\11.2.0.4\ucp-11.2.0.4.jar;C:\Users\xxpaiija\.m2\repository\com\oracle\database\security\oraclepki\11.2.0.4\oraclepki-11.2.0.4.jar;C:\Users\xxpaiija\.m2\repository\com\oracle\database\security\osdt_cert\11.2.0.4\osdt_cert-11.2.0.4.jar;C:\Users\xxpaiija\.m2\repository\com\oracle\database\security\osdt_core\11.2.0.4\osdt_core-11.2.0.4.jar;C:\Users\xxpaiija\.m2\repository\com\oracle\database\ha\simplefan\11.2.0.4\simplefan-11.2.0.4.jar;C:\Users\xxpaiija\.m2\repository\com\oracle\database\ha\ons\11.2.0.4\ons-11.2.0.4.jar;C:\Users\xxpaiija\.m2\repository\ch\qos\logback\logback-classic\1.3.14\logback-classic-1.3.14.jar;C:\Users\xxpaiija\.m2\repository\ch\qos\logback\logback-core\1.3.14\logback-core-1.3.14.jar;C:\Users\xxpaiija\.m2\repository\org\slf4j\slf4j-api\2.0.7\slf4j-api-2.0.7.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
     <property name="user.home" value="C:\Users\xxpaiija"/>
@@ -31,7 +31,7 @@
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
-    <property name="surefire.real.class.path" value="C:\Users\xxpaiija\AppData\Local\Temp\surefire3196927322718542395\surefirebooter10805339076201814.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\xxpaiija\AppData\Local\Temp\surefire5516016443012380159\surefirebooter4035884810368214967.jar"/>
     <property name="sun.boot.class.path" value="C:\Program Files\RedHat\java-1.8.0-openjdk-1.8.0.292-2\jre\lib\resources.jar;C:\Program Files\RedHat\java-1.8.0-openjdk-1.8.0.292-2\jre\lib\rt.jar;C:\Program Files\RedHat\java-1.8.0-openjdk-1.8.0.292-2\jre\lib\sunrsasign.jar;C:\Program Files\RedHat\java-1.8.0-openjdk-1.8.0.292-2\jre\lib\jsse.jar;C:\Program Files\RedHat\java-1.8.0-openjdk-1.8.0.292-2\jre\lib\jce.jar;C:\Program Files\RedHat\java-1.8.0-openjdk-1.8.0.292-2\jre\lib\charsets.jar;C:\Program Files\RedHat\java-1.8.0-openjdk-1.8.0.292-2\jre\lib\jfr.jar;C:\Program Files\RedHat\java-1.8.0-openjdk-1.8.0.292-2\jre\classes"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
@@ -61,5 +61,5 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="52.0"/>
   </properties>
-  <testcase name="shouldAnswerWithTrue" classname="org.example.AppTest" time="0.003"/>
+  <testcase name="shouldAnswerWithTrue" classname="org.example.AppTest" time="0"/>
 </testsuite>

@@ -1,4 +1,5 @@
 org\example\Middleware\UserDetailsFileRepository.class
+org\example\Entity\Transactions.class
 org\example\Exceptions\UserDetailsException.class
 org\example\Middleware\FileStorageTarget.class
 org\example\Remote\StorageTarget.class

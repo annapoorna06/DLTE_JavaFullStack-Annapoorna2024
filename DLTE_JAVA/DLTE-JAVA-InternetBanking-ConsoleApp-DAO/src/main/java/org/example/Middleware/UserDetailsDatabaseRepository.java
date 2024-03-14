@@ -1,5 +1,6 @@
 package org.example.Middleware;
 
+import org.example.Entity.Transactions;
 import org.example.Entity.UserDetails;
 import org.example.Exceptions.UserDetailsException;
 import org.example.Remote.UserDetailsRepository;
@@ -18,7 +19,8 @@ public class UserDetailsDatabaseRepository implements UserDetailsRepository {
     private Connection connection;
     private ResourceBundle resourceBundle = ResourceBundle.getBundle("userdetails");
     private Logger logger = Logger.getLogger(UserDetailsDatabaseRepository.class.getName());
-
+    private PreparedStatement preparedStatement;
+    private ResultSet resultSet;
     public UserDetailsDatabaseRepository(Connection connection) {
         try{
             this.connection=connection;
@@ -115,6 +117,64 @@ public class UserDetailsDatabaseRepository implements UserDetailsRepository {
         }
         scanner.close();
         return null;
+    }
+
+
+    @Override
+    public List<Transactions> findAll() {
+        ArrayList<Transactions> transactionArrayList=new ArrayList<>();
+        try{
+            String query="select * from transactions";
+            preparedStatement=connection.prepareStatement(query);
+            resultSet = preparedStatement.executeQuery();
+            while(resultSet.next()){
+                Date date=resultSet.getDate(2);
+                if(date!=null)
+                transactionArrayList.add(new Transactions(date,resultSet.getLong(1),resultSet.getString(5),resultSet.getDouble(3),resultSet.getDouble(4)));
+            }
+        }
+        catch (SQLException sqlException){
+            System.out.println(sqlException);
+        }
+        return transactionArrayList;
+    }
+
+    @Override
+    public List<Transactions> findAllUsers(String username) {
+        ArrayList<Transactions> transactionArrayList=new ArrayList<>();
+        try{
+            String query="select * from transactions where username=?";
+            preparedStatement=connection.prepareStatement(query);
+            preparedStatement.setString(1,username);
+            resultSet = preparedStatement.executeQuery();
+            while(resultSet.next()){
+                transactionArrayList.add(new Transactions(resultSet.getDate(2),resultSet.getLong(1),resultSet.getString(5),resultSet.getDouble(3),resultSet.getDouble(4)));
+            }
+        }
+        catch (SQLException sqlException){
+            System.out.println(sqlException);
+        }
+        return transactionArrayList;
+    }
+
+
+    @Override
+    public List<Transactions> findAllByDate(Date date, String username) {
+        ArrayList<Transactions> transactionArrayList=new ArrayList<>();
+        try{
+            String query="select * from transactions where username=? and transaction_date=?";
+            preparedStatement=connection.prepareStatement(query);
+            preparedStatement.setString(1,username);
+            preparedStatement.setDate(2, (java.sql.Date) date);
+            resultSet = preparedStatement.executeQuery();
+            while(resultSet.next()){
+                transactionArrayList.add(new Transactions(resultSet.getDate(2),resultSet.getLong(1),resultSet.getString(5),resultSet.getDouble(3),resultSet.getDouble(4)));
+            }
+        }
+        catch (SQLException sqlException){
+            System.out.println(sqlException);
+        }
+        return transactionArrayList;
     }
 
 }
