@@ -49,7 +49,7 @@ public class UpdateAccount extends HttpServlet {
                 resp.getWriter().println(resourceBundle.getString("user.not.found"));
             }
         }
-    }
+    
 
     @Override
     protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
