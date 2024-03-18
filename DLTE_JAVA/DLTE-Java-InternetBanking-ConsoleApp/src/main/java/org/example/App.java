@@ -27,15 +27,24 @@ public class App {
     private static ResourceBundle resourceBundle = ResourceBundle.getBundle("application");
 
     public static void main(String[] args) {
-
-        int option;
         String username, password;
         storageTarget = new DatabaseTarget();
         services = new UserDetailsServices(storageTarget);
 
         System.out.println(resourceBundle.getString("app.login.menu"));
-        option = scanner.nextInt();
-
+        int option=0;
+        boolean validate=false;
+        do {
+            try {
+                option = scanner.nextInt();
+                validate = true;
+            }
+            // checking for input format
+            catch (InputMismatchException inputMismatchException) {
+                System.out.println("Enter in number");
+                scanner.nextLine();
+            }
+        }while (!validate);
         if (option == 1) {
             System.out.println("Enter Your Username");
             username = scanner.next();
@@ -54,7 +63,9 @@ public class App {
                             System.out.println("Your details are:");
                             displayUserDetails();
                             break;
-                        case 3: case 4: case 5:
+                        case 3:
+                        case 4:
+                        case 5:
                             System.out.println("Site under construction!!!");
                             break;
                         case 6:
@@ -161,6 +172,9 @@ public class App {
                     updateUserDetails();
                 }
             }
+            else
+                System.out.println("choose from the given option: ");
+                updateUserDetails();
         }
 
         try {

@@ -3,7 +3,6 @@ package org.example.Services;
 import org.example.Entity.Transactions;
 import org.example.Entity.UserDetails;
 import org.example.Exceptions.UserDetailsException;
-import org.example.Middleware.UserDetailsDatabaseRepository;
 import org.example.Remote.StorageTarget;
 import org.example.Remote.UserDetailsRepository;
 
