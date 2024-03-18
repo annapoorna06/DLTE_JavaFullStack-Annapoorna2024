@@ -31,20 +31,29 @@ public class App {
         storageTarget = new DatabaseTarget();
         services = new UserDetailsServices(storageTarget);
 
-        System.out.println(resourceBundle.getString("app.login.menu"));
+       // System.out.println(resourceBundle.getString("app.login.menu"));
         int option=0;
         boolean validate=false;
         do {
+            System.out.println(resourceBundle.getString("app.login.menu"));
             try {
                 option = scanner.nextInt();
-                validate = true;
+                 if(option!=1) {
+                    System.out.println(resourceBundle.getString("under.construction"));
+                    validate=false;
+
+                }
+                 else{
+                     validate = true;
+                 }
             }
             // checking for input format
             catch (InputMismatchException inputMismatchException) {
-                System.out.println("Enter in number");
+                System.out.println(resourceBundle.getString("input.number"));
                 scanner.nextLine();
             }
         }while (!validate);
+
         if (option == 1) {
             System.out.println("Enter Your Username");
             username = scanner.next();
@@ -66,7 +75,7 @@ public class App {
                         case 3:
                         case 4:
                         case 5:
-                            System.out.println("Site under construction!!!");
+                            System.out.println(resourceBundle.getString("under.construction"));
                             break;
                         case 6:
                             System.out.println("Thank You for choosing our Bank");
@@ -79,6 +88,7 @@ public class App {
                 System.out.println("Login failed. Exiting...");
             }
         }
+
     }
 
     private static void displayUserDetails() {
@@ -87,7 +97,7 @@ public class App {
     }
 
     private static void updateUserDetails() {
-        System.out.println("Enter the details you wish to update among \npassword\n address\n email\n phone");
+        System.out.println("Enter the details you wish to update among\npassword\naddress\nemail\nphone");
         String userInput = scanner.next();
         String[] properties = userInput.split(",");
         int size = properties.length;
