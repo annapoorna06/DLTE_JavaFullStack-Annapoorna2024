@@ -97,13 +97,54 @@ public class UserDetailsFileRepository implements UserDetailsRepository {
         //System.out.println(resourceBundle.getString("user.update.ok"));
     }
 
+//@Override
+//public Object verifyPassword(String username, String password) {
+//    readFromFile();
+//    UserDetails account = userDetailsList.stream()
+//                .filter(each -> each.getuserName().equals(username))
+//                .findFirst()
+//                .orElse(null);
+//    try {
+//        if (account == null) {
+//            System.out.println(resourceBundle.getString("username.not.found"));
+//            logger.log(Level.WARNING, resourceBundle.getString("username.not.found"));
+//            return null;
+//        } else if (!account.getpassword().equals(password)) {
+//            logger.log(Level.WARNING, resourceBundle.getString("password.not.matched"));
+//            System.out.println(resourceBundle.getString("password.not.matched"));
+//            throw new UserDetailsException();
+//        } else
+//            return account;
+//    }catch(UserDetailsException userDetailsException){
+//        for(int attempts=2;attempts<=3;){
+//            System.out.println(resourceBundle.getString("login.fail")+" Only "+(3-attempts+1)+" attempts left");
+//            logger.log(Level.WARNING,resourceBundle.getString("login.fail"));
+//            System.out.println(userDetailsException);
+//            System.out.println("Enter Username:");
+//            String user=scanner.next();
+//            String pass=scanner.next();
+//            if(account.getuserName().equals(user)&&account.getpassword().equals(pass)){
+//                System.out.println(resourceBundle.getString("login.success"));
+//                logger.log(Level.INFO,resourceBundle.getString("login.success"));
+//                return account;
+//            }else{
+//                //   System.out.println(resourceBundle.getString("accounts.login.fail")+" Only "+(3-attempts)+" attempts left");;
+//                attempts++;
+//            }if(attempts>3) {
+//                System.out.println(resourceBundle.getString("accounts.no.more.attempts"));
+//                logger.log(Level.WARNING,resourceBundle.getString("accounts.no.more.attempts"));
+//            }
+//        }
+//    }
+//    return null;
+//    }
 @Override
 public Object verifyPassword(String username, String password) {
     readFromFile();
     UserDetails account = userDetailsList.stream()
-                .filter(each -> each.getuserName().equals(username))
-                .findFirst()
-                .orElse(null);
+            .filter(each -> each.getuserName().equals(username))
+            .findFirst()
+            .orElse(null);
     try {
         if (account == null) {
             System.out.println(resourceBundle.getString("username.not.found"));
@@ -113,27 +154,33 @@ public Object verifyPassword(String username, String password) {
             logger.log(Level.WARNING, resourceBundle.getString("password.not.matched"));
             System.out.println(resourceBundle.getString("password.not.matched"));
             throw new UserDetailsException();
-        } else
+        } else {
             return account;
-    }catch(UserDetailsException userDetailsException){
-        for(int attempts=2;attempts<=3;){
-            System.out.println(resourceBundle.getString("login.fail")+" Only "+(3-attempts+1)+" attempts left");
-            logger.log(Level.WARNING,resourceBundle.getString("login.fail"));
+        }
+    } catch (UserDetailsException userDetailsException) {
+        int attempts = 1;
+        while (attempts <= 3) {
+            System.out.println(resourceBundle.getString("login.fail") + " Only " + (4 - attempts) + " attempts left");
+            logger.log(Level.WARNING, resourceBundle.getString("login.fail"));
             System.out.println(userDetailsException);
-            String pass=scanner.next();
-            if(account.getpassword().equals(pass)){
+            System.out.println("Enter Username:");
+            String user = scanner.next();
+            System.out.println("Enter Password:");
+            String pass = scanner.next();
+            if (account.getuserName().equals(user) && account.getpassword().equals(pass)) {
                 System.out.println(resourceBundle.getString("login.success"));
-                logger.log(Level.INFO,resourceBundle.getString("login.success"));
+                logger.log(Level.INFO, resourceBundle.getString("login.success"));
                 return account;
-            }else{
-                //   System.out.println(resourceBundle.getString("accounts.login.fail")+" Only "+(3-attempts)+" attempts left");;
+            } else {
                 attempts++;
-            }if(attempts>3) {
-                System.out.println(resourceBundle.getString("accounts.no.more.attempts"));
-                logger.log(Level.WARNING,resourceBundle.getString("accounts.no.more.attempts"));
+                if (attempts > 3) {
+                    System.out.println(resourceBundle.getString("accounts.no.more.attempts"));
+                    logger.log(Level.WARNING, resourceBundle.getString("accounts.no.more.attempts"));
+                }
             }
         }
     }
     return null;
-    }
+}
+
 }

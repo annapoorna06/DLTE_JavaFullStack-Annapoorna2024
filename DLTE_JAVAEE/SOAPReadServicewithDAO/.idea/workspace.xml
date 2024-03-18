@@ -7,23 +7,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3f7f5418-c992-49d0-9e66-e00b221aa774" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../RMIDemo/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../RMIDemo/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../DLTE_JAVA/DLTE-JAVA-InternetBanking-ConsoleApp-DAO.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DLTE_JAVAEE_RestfulWebserviceForDAO/target/DLTE_JAVAEE_RestfulWebserviceForDAO.war" beforeDir="false" afterPath="$PROJECT_DIR$/../DLTE_JAVAEE_RestfulWebserviceForDAO/target/DLTE_JAVAEE_RestfulWebserviceForDAO.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DLTE_JAVAEE_RestfulWebserviceForDAO/target/DLTE_JAVAEE_RestfulWebserviceForDAO/META-INF/MANIFEST.MF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DLTE_JAVAEE_RestfulWebserviceForDAO/target/DLTE_JAVAEE_RestfulWebserviceForDAO/WEB-INF/classes/exception.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../DLTE_JAVAEE_RestfulWebserviceForDAO/target/DLTE_JAVAEE_RestfulWebserviceForDAO/WEB-INF/classes/exception.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DLTE_JAVAEE_RestfulWebserviceForDAO/target/DLTE_JAVAEE_RestfulWebserviceForDAO/WEB-INF/classes/rest/UpdateAccount.class" beforeDir="false" afterPath="$PROJECT_DIR$/../DLTE_JAVAEE_RestfulWebserviceForDAO/target/DLTE_JAVAEE_RestfulWebserviceForDAO/WEB-INF/classes/rest/UpdateAccount.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DLTE_JAVAEE_RestfulWebserviceForDAO/target/DLTE_JAVAEE_RestfulWebserviceForDAO/WEB-INF/lib/DLTE-JAVA-InternetBanking-ConsoleApp-DAO-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../DLTE_JAVAEE_RestfulWebserviceForDAO/target/DLTE_JAVAEE_RestfulWebserviceForDAO/WEB-INF/lib/DLTE-JAVA-InternetBanking-ConsoleApp-DAO-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DLTE_JAVAEE_RestfulWebserviceForDAO/target/classes/exception.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../DLTE_JAVAEE_RestfulWebserviceForDAO/target/classes/exception.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DLTE_JAVAEE_RestfulWebserviceForDAO/target/classes/rest/UpdateAccount.class" beforeDir="false" afterPath="$PROJECT_DIR$/../DLTE_JAVAEE_RestfulWebserviceForDAO/target/classes/rest/UpdateAccount.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DLTE_JAVAEE_RestfulWebserviceForDAO/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/../DLTE_JAVAEE_RestfulWebserviceForDAO/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DLTE_JAVAEE_RestfulWebserviceForDAO/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/../DLTE_JAVAEE_RestfulWebserviceForDAO/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../RMIDemo/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../RMIDemo/RMIDemo.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../RMIDemo/RMIDemo.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../RMIDemo/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../RMIDemo/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SOAPReadServicewithDAOClient/SOAPReadServicewithDAOClient.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../DLTE_SPRING/DLTE_SPRING_001/DLTE_SPRING_001.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../DLTE_JAVA/DLTE-JAVA-InternetBanking-ConsoleApp-DAO/src/main/java/org/example/Middleware/UserDetailsDatabaseRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../DLTE_JAVA/DLTE-JAVA-InternetBanking-ConsoleApp-DAO/src/main/java/org/example/Middleware/UserDetailsDatabaseRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../DLTE_JAVA/DLTE-JAVA-InternetBanking-ConsoleApp-DAO/src/test/java/org/example/AppTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../DLTE_JAVA/DLTE-JAVA-InternetBanking-ConsoleApp-DAO/src/test/java/org/example/AppTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../DLTE_JAVA/DLTE-JAVA-InternetBanking-ConsoleApp-DAO/target/DLTE-JAVA-InternetBanking-ConsoleApp-DAO-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../../DLTE_JAVA/DLTE-JAVA-InternetBanking-ConsoleApp-DAO/target/DLTE-JAVA-InternetBanking-ConsoleApp-DAO-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../DLTE_JAVA/DLTE-JAVA-InternetBanking-ConsoleApp-DAO/target/classes/org/example/Middleware/UserDetailsDatabaseRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../DLTE_JAVA/DLTE-JAVA-InternetBanking-ConsoleApp-DAO/target/classes/org/example/Middleware/UserDetailsDatabaseRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../DLTE_JAVA/DLTE-JAVA-InternetBanking-ConsoleApp-DAO/target/surefire-reports/TEST-org.example.AppTest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../DLTE_JAVA/DLTE-JAVA-InternetBanking-ConsoleApp-DAO/target/surefire-reports/org.example.AppTest.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../DLTE_JAVA/DLTE-JAVA-InternetBanking-ConsoleApp-DAO/target/test-classes/org/example/AppTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../DLTE_JAVA/DLTE-Java-InternetBanking-ConsoleApp/User-details-logs.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../DLTE_JAVA/DLTE-Java-InternetBanking-ConsoleApp/User-details-logs.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../DLTE_JAVA/DLTE-Java-InternetBanking-ConsoleApp/src/main/java/org/example/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../DLTE_JAVA/DLTE-Java-InternetBanking-ConsoleApp/src/main/java/org/example/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../DLTE_JAVA/DLTE-Java-InternetBanking-ConsoleApp/src/main/java/org/example/Middleware/UserDetailsFileRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../DLTE_JAVA/DLTE-Java-InternetBanking-ConsoleApp/src/main/java/org/example/Middleware/UserDetailsFileRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../DLTE_JAVA/DLTE-Java-InternetBanking-ConsoleApp/target/DLTE-Java-InternetBanking-ConsoleApp-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../../DLTE_JAVA/DLTE-Java-InternetBanking-ConsoleApp/target/DLTE-Java-InternetBanking-ConsoleApp-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../DLTE_JAVA/DLTE-Java-InternetBanking-ConsoleApp/target/classes/org/example/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../DLTE_JAVA/DLTE-Java-InternetBanking-ConsoleApp/target/classes/org/example/App.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../DLTE_JAVA/DLTE-Java-InternetBanking-ConsoleApp/target/surefire-reports/TEST-org.example.AppTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../DLTE_JAVA/DLTE-Java-InternetBanking-ConsoleApp/target/surefire-reports/TEST-org.example.AppTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../DLTE_JAVA/DLTE-Java-InternetBanking-ConsoleApp/target/surefire-reports/org.example.AppTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../DLTE_JAVA/DLTE-Java-InternetBanking-ConsoleApp/target/surefire-reports/org.example.AppTest.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SOAPReadServicewithDAO.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/SOAPReadServicewithDAO.war" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,9 +49,10 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../DLTE_JAVA/DLTE-JAVA-InternetBanking-ConsoleApp-DAO" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RunManager" selected="Application.EndPoint">
     <configuration name="EndPoint" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -140,8 +141,8 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="JBoss Server.JBoss 18.1.2.Final-redhat-00001" />
       <item itemvalue="Application.EndPoint" />
+      <item itemvalue="JBoss Server.JBoss 18.1.2.Final-redhat-00001" />
     </list>
     <recent_temporary>
       <list>
@@ -158,11 +159,6 @@
               <path>
                 <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
                 <item name="JBoss Server" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-              </path>
-              <path>
-                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-                <item name="JBoss Server" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-                <item name="Finished" type="7427dc5b:ServiceModel$ServiceGroupNode" />
               </path>
             </expand>
             <select />
@@ -183,6 +179,7 @@
       <updated>1710443522148</updated>
       <workItem from="1710443526313" duration="279000" />
       <workItem from="1710692268667" duration="1707000" />
+      <workItem from="1710762185191" duration="1066000" />
     </task>
     <servers />
   </component>
@@ -194,25 +191,29 @@
       <screen x="0" y="0" width="1536" height="816" />
     </state>
     <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.816@0.0.1536.816" timestamp="1710693757745" />
-    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1710693094732">
+    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1710762298448">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.816@0.0.1536.816" timestamp="1710693094732" />
-    <state width="1493" height="208" key="GridCell.Tab.0.bottom" timestamp="1710693989654">
+    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.816@0.0.1536.816" timestamp="1710762298448" />
+    <state width="1493" height="208" key="GridCell.Tab.0.bottom" timestamp="1710765962096">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state width="1493" height="208" key="GridCell.Tab.0.bottom/0.0.1536.816@0.0.1536.816" timestamp="1710693989654" />
-    <state width="1493" height="208" key="GridCell.Tab.0.center" timestamp="1710693989654">
+    <state width="1493" height="208" key="GridCell.Tab.0.bottom/0.0.1536.816@0.0.1536.816" timestamp="1710765962096" />
+    <state width="1493" height="208" key="GridCell.Tab.0.center" timestamp="1710765962096">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state width="1493" height="208" key="GridCell.Tab.0.center/0.0.1536.816@0.0.1536.816" timestamp="1710693989654" />
-    <state width="1493" height="208" key="GridCell.Tab.0.left" timestamp="1710693989654">
+    <state width="1493" height="208" key="GridCell.Tab.0.center/0.0.1536.816@0.0.1536.816" timestamp="1710765962096" />
+    <state width="1493" height="208" key="GridCell.Tab.0.left" timestamp="1710765962096">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state width="1493" height="208" key="GridCell.Tab.0.left/0.0.1536.816@0.0.1536.816" timestamp="1710693989654" />
-    <state width="1493" height="208" key="GridCell.Tab.0.right" timestamp="1710693989654">
+    <state width="1493" height="208" key="GridCell.Tab.0.left/0.0.1536.816@0.0.1536.816" timestamp="1710765962096" />
+    <state width="1493" height="208" key="GridCell.Tab.0.right" timestamp="1710765962096">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state width="1493" height="208" key="GridCell.Tab.0.right/0.0.1536.816@0.0.1536.816" timestamp="1710693989654" />
+    <state width="1493" height="208" key="GridCell.Tab.0.right/0.0.1536.816@0.0.1536.816" timestamp="1710765962096" />
+    <state x="209" y="117" key="new project wizard" timestamp="1710762309131">
+      <screen x="0" y="0" width="1536" height="816" />
+    </state>
+    <state x="209" y="117" key="new project wizard/0.0.1536.816@0.0.1536.816" timestamp="1710762309131" />
   </component>
 </project>

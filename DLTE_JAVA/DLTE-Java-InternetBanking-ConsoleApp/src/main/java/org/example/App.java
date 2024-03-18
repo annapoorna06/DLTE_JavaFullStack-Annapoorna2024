@@ -3,6 +3,7 @@ package org.example;
 import org.example.Entity.UserDetails;
 import org.example.Exceptions.UserDetailsException;
 import org.example.Middleware.DatabaseTarget;
+import org.example.Middleware.FileStorageTarget;
 import org.example.Middleware.UserDetailsFileRepository;
 import org.example.Remote.StorageTarget;
 import org.example.Services.UserDetailsServices;
@@ -29,6 +30,7 @@ public class App {
     public static void main(String[] args) {
         String username, password;
         storageTarget = new DatabaseTarget();
+        //storageTarget=new FileStorageTarget();
         services = new UserDetailsServices(storageTarget);
 
        // System.out.println(resourceBundle.getString("app.login.menu"));
@@ -163,28 +165,35 @@ public class App {
                 break;
             }
 
-
-            if (properties[index].equalsIgnoreCase("phone")) {
-                System.out.println("Enter the password");
-                scanner.nextLine();
-                if (userDetails.getpassword().equals(scanner.nextLine())) {
-                    System.out.println("Enter the new phone number ");
-                    long newPhone = scanner.nextLong();
-                    Matcher matcher = phonePattern.matcher(String.valueOf(newPhone)); // Converted newPhone to String for matcher
-                    if (matcher.matches()) {
-                        userDetails.setphoneNumber(newPhone);
+            try {
+                if (properties[index].equalsIgnoreCase("phone")) {
+                    System.out.println("Enter the password");
+                    scanner.nextLine();
+                    if (userDetails.getpassword().equals(scanner.nextLine())) {
+                        System.out.println("Enter the new phone number ");
+                        long newPhone = scanner.nextLong();
+                        Matcher matcher = phonePattern.matcher(String.valueOf(newPhone)); // Converted newPhone to String for matcher
+                        if (matcher.matches()) {
+                            userDetails.setphoneNumber(newPhone);
+                        } else {
+                            System.out.println("Invalid phone number format. Please enter a 10-digit phone number.");
+                            updateUserDetails();
+                        }
                     } else {
-                        System.out.println("Invalid phone number format. Please enter a 10-digit phone number.");
+                        System.out.println(resourceBundle.getString("wrong.password"));
                         updateUserDetails();
                     }
-                } else {
-                    System.out.println(resourceBundle.getString("wrong.password"));
+
+                }
+                else{
+                    System.out.println("choose from the given option: ");
                     updateUserDetails();
                 }
-            }
-            else
-                System.out.println("choose from the given option: ");
+            }catch (InputMismatchException e) {
+                System.out.println(resourceBundle.getString("input.number"));
+                scanner.nextLine(); // Clear the invalid input
                 updateUserDetails();
+            }
         }
 
         try {

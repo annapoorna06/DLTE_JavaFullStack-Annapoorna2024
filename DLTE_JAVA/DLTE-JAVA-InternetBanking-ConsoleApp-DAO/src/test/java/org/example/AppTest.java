@@ -45,9 +45,9 @@ public class AppTest
         UserDetails userDetails=new UserDetails("annapoornapai","anna",new Date("06/07/2002"),"karkala","annapoorna@gmail.com",6363276256L);
         // When
         when(mockDatabaseRepository.verifyPassword(username, password)).thenReturn(false);
-        //boolean result = services.callVerifyPassword(userDetails.getuserName(), userDetails.getpassword());
+        boolean result = services.callVerifyPassword(userDetails.getuserName(), userDetails.getpassword());
         // Then
-        //assertFalse(result);
+        assertFalse(result);
     }
 
     @Test

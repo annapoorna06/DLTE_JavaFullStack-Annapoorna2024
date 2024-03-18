@@ -74,50 +74,105 @@ public class UserDetailsDatabaseRepository implements UserDetailsRepository {
             e.printStackTrace();
         }
     }
-    @Override
-    public Object verifyPassword(String username, String password) {
-        int attempts = 3; // Number of attempts allowed
-        Scanner scanner = new Scanner(System.in);
+//    @Override
+//    public Object verifyPassword(String username, String password) {
+//        int attempts = 3; // Number of attempts allowed
+//        Scanner scanner = new Scanner(System.in);
+//
+//        while (attempts > 0) {
+//            try {
+//                PreparedStatement statement = connection.prepareStatement("SELECT * FROM UserDetails WHERE username=?");
+//                statement.setString(1, username);
+//                ResultSet resultSet = statement.executeQuery();
+//                if (resultSet.next()) {
+//                    String storedPassword = resultSet.getString("password");
+//                    if (password.equals(storedPassword)) {
+//                        UserDetails userDetails = new UserDetails(
+//                                resultSet.getString("username"),
+//                                resultSet.getString("password"),
+//                                resultSet.getDate("dob"),
+//                                resultSet.getString("address"),
+//                                resultSet.getString("email"),
+//                                resultSet.getLong("phone")
+//                        );
+//                        System.out.println(resourceBundle.getString("login.success"));
+//                        return userDetails;
+//                    } else {
+//                        attempts--;
+//                        if (attempts == 0) {
+//                            logger.log(Level.WARNING, "username.locked");
+//                            throw new UserDetailsException("Too many failed attempts. Account locked.");
+//                        }
+//                        System.out.println("Incorrect password. Attempts left: " + attempts);
+//                        System.out.print("Enter password: ");
+//                        password = scanner.nextLine();
+//                    }
+//                } else {
+//                    logger.log(Level.WARNING, "username.not.found");
+//                    throw new UserDetailsException("Username not found.");
+//                }
+//            } catch (SQLException e) {
+//                e.printStackTrace();
+//            }
+//        }
+//        scanner.close();
+//        return null;
+//    }
+@Override
+public Object verifyPassword(String username, String password) {
+    int attempts = 3; // Number of attempts allowed
+    Scanner scanner = new Scanner(System.in);
 
-        while (attempts > 0) {
-            try {
-                PreparedStatement statement = connection.prepareStatement("SELECT * FROM UserDetails WHERE username=?");
-                statement.setString(1, username);
-                ResultSet resultSet = statement.executeQuery();
-                if (resultSet.next()) {
-                    String storedPassword = resultSet.getString("password");
-                    if (password.equals(storedPassword)) {
-                        UserDetails userDetails = new UserDetails(
-                                resultSet.getString("username"),
-                                resultSet.getString("password"),
-                                resultSet.getDate("dob"),
-                                resultSet.getString("address"),
-                                resultSet.getString("email"),
-                                resultSet.getLong("phone")
-                        );
-                        System.out.println(resourceBundle.getString("login.success"));
-                        return userDetails;
-                    } else {
-                        attempts--;
-                        if (attempts == 0) {
-                            logger.log(Level.WARNING, "username.locked");
-                            throw new UserDetailsException("Too many failed attempts. Account locked.");
-                        }
-                        System.out.println("Incorrect password. Attempts left: " + attempts);
-                        System.out.print("Enter password: ");
-                        password = scanner.nextLine();
-                    }
+    while (attempts > 0) {
+        try {
+            PreparedStatement statement = connection.prepareStatement("SELECT * FROM UserDetails WHERE username=?");
+            statement.setString(1, username);
+            ResultSet resultSet = statement.executeQuery();
+            if (resultSet.next()) {
+                String storedPassword = resultSet.getString("password");
+                if (password.equals(storedPassword)) {
+                    UserDetails userDetails = new UserDetails(
+                            resultSet.getString("username"),
+                            resultSet.getString("password"),
+                            resultSet.getDate("dob"),
+                            resultSet.getString("address"),
+                            resultSet.getString("email"),
+                            resultSet.getLong("phone")
+                    );
+                    System.out.println(resourceBundle.getString("login.success"));
+                    return userDetails;
                 } else {
-                    logger.log(Level.WARNING, "username.not.found");
-                    throw new UserDetailsException("Username not found.");
+                    attempts--;
+                    if (attempts == 0) {
+                        logger.log(Level.WARNING, "username.locked");
+                        throw new UserDetailsException("Too many failed attempts. Account locked.");
+                    }
+                    System.out.println("Incorrect password. Attempts left: " + attempts);
+                    System.out.print("Enter username: ");
+                    username = scanner.nextLine();
+                    System.out.print("Enter password: ");
+                    password = scanner.nextLine();
                 }
-            } catch (SQLException e) {
-                e.printStackTrace();
+            } else {
+                attempts--;
+                if (attempts == 0) {
+                    logger.log(Level.WARNING, "username.locked");
+                    throw new UserDetailsException("Too many failed attempts. Account locked.");
+                }
+                System.out.println("Username not found. Attempts left: " + attempts);
+                System.out.print("Enter username: ");
+                username = scanner.nextLine();
+                System.out.print("Enter password: ");
+                password = scanner.nextLine();
             }
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
-        scanner.close();
-        return null;
     }
+    scanner.close();
+    return null;
+}
+
 
 
     @Override
