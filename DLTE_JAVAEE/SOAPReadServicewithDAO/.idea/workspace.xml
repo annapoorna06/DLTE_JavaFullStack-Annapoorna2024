@@ -7,23 +7,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3f7f5418-c992-49d0-9e66-e00b221aa774" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../SOAPReadServicewithDAOClient/SOAPReadServicewithDAOClient.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../DLTE_SPRING/DLTE_SPRING_001/DLTE_SPRING_001.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../DLTE_JAVA/DLTE-JAVA-InternetBanking-ConsoleApp-DAO/src/main/java/org/example/Middleware/UserDetailsDatabaseRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../DLTE_JAVA/DLTE-JAVA-InternetBanking-ConsoleApp-DAO/src/main/java/org/example/Middleware/UserDetailsDatabaseRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../DLTE_JAVA/DLTE-JAVA-InternetBanking-ConsoleApp-DAO/src/test/java/org/example/AppTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../DLTE_JAVA/DLTE-JAVA-InternetBanking-ConsoleApp-DAO/src/test/java/org/example/AppTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../DLTE_JAVA/DLTE-JAVA-InternetBanking-ConsoleApp-DAO/target/DLTE-JAVA-InternetBanking-ConsoleApp-DAO-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../../DLTE_JAVA/DLTE-JAVA-InternetBanking-ConsoleApp-DAO/target/DLTE-JAVA-InternetBanking-ConsoleApp-DAO-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../DLTE_JAVA/DLTE-JAVA-InternetBanking-ConsoleApp-DAO/target/classes/org/example/Middleware/UserDetailsDatabaseRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../DLTE_JAVA/DLTE-JAVA-InternetBanking-ConsoleApp-DAO/target/classes/org/example/Middleware/UserDetailsDatabaseRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../DLTE_JAVA/DLTE-JAVA-InternetBanking-ConsoleApp-DAO/target/surefire-reports/TEST-org.example.AppTest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../DLTE_JAVA/DLTE-JAVA-InternetBanking-ConsoleApp-DAO/target/surefire-reports/org.example.AppTest.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../DLTE_JAVA/DLTE-JAVA-InternetBanking-ConsoleApp-DAO/target/test-classes/org/example/AppTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../DLTE_JAVA/DLTE-Java-InternetBanking-ConsoleApp/User-details-logs.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../DLTE_JAVA/DLTE-Java-InternetBanking-ConsoleApp/User-details-logs.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../DLTE_JAVA/DLTE-Java-InternetBanking-ConsoleApp/src/main/java/org/example/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../DLTE_JAVA/DLTE-Java-InternetBanking-ConsoleApp/src/main/java/org/example/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../DLTE_JAVA/DLTE-Java-InternetBanking-ConsoleApp/src/main/java/org/example/Middleware/UserDetailsFileRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../DLTE_JAVA/DLTE-Java-InternetBanking-ConsoleApp/src/main/java/org/example/Middleware/UserDetailsFileRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../DLTE_JAVA/DLTE-Java-InternetBanking-ConsoleApp/target/DLTE-Java-InternetBanking-ConsoleApp-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../../DLTE_JAVA/DLTE-Java-InternetBanking-ConsoleApp/target/DLTE-Java-InternetBanking-ConsoleApp-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../DLTE_JAVA/DLTE-Java-InternetBanking-ConsoleApp/target/classes/org/example/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../DLTE_JAVA/DLTE-Java-InternetBanking-ConsoleApp/target/classes/org/example/App.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../DLTE_JAVA/DLTE-Java-InternetBanking-ConsoleApp/target/surefire-reports/TEST-org.example.AppTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../DLTE_JAVA/DLTE-Java-InternetBanking-ConsoleApp/target/surefire-reports/TEST-org.example.AppTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../DLTE_JAVA/DLTE-Java-InternetBanking-ConsoleApp/target/surefire-reports/org.example.AppTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../DLTE_JAVA/DLTE-Java-InternetBanking-ConsoleApp/target/surefire-reports/org.example.AppTest.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SOAPReadServicewithDAOClient/src/main/java/org/example/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SOAPReadServicewithDAOClient/src/main/java/org/example/App.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -180,6 +165,7 @@
       <workItem from="1710443526313" duration="279000" />
       <workItem from="1710692268667" duration="1707000" />
       <workItem from="1710762185191" duration="1066000" />
+      <workItem from="1710772144538" duration="914000" />
     </task>
     <servers />
   </component>
