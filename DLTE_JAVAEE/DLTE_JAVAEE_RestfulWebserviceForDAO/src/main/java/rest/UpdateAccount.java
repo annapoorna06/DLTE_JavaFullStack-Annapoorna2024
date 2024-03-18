@@ -30,6 +30,7 @@ public class UpdateAccount extends HttpServlet {
         resourceBundle = ResourceBundle.getBundle("exception");
         logger = LoggerFactory.getLogger(UpdateAccount.class);
     }
+<<<<<<< HEAD
 //        @Override
 //        protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 //            resp.setContentType("application/json");
@@ -50,6 +51,28 @@ public class UpdateAccount extends HttpServlet {
 //            }
 //        }
 
+=======
+        @Override
+        protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+            resp.setContentType("application/json");
+            try{
+                Gson gson=new Gson();
+                UserDetails userDetails = gson.fromJson(req.getReader(), UserDetails.class);
+                UserDetailsServices.calladdusers(userDetails);
+                resp.setStatus(HttpServletResponse.SC_OK);
+                resp.getWriter().println(resourceBundle.getString("user.saved"));
+            }
+            catch(NumberFormatException numberFormatException){
+                resp.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+                resp.getWriter().println(numberFormatException);
+            }
+            catch (UserDetailsException userDetailsException){
+                resp.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+                resp.getWriter().println(resourceBundle.getString("user.not.found"));
+            }
+        }
+    
+>>>>>>> 1cfdd82c1af8e185458f90860ea3c1177360e60d
 
     @Override
     protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
