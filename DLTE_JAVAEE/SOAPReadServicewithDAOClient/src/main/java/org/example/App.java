@@ -5,6 +5,8 @@ import service.Transactions;
 import java.util.List;
 
 public class App {
+    public static List<Transactions> transactions;
+
     public static void main(String[] args) {
         TransactionByUsernameService transactionByUsernameService=new TransactionByUsernameService();
         TransactionByUsername transactionByUsername=transactionByUsernameService.getTransactionByUsernamePort();

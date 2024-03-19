@@ -48,6 +48,9 @@ public class Transactions {
     protected long transactionID;
     protected String username;
 
+    public Transactions(String annapoornapai, String transaction1) {
+    }
+
     /**
      * Gets the value of the amount property.
      * 
