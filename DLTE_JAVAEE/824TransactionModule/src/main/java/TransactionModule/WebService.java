@@ -14,7 +14,7 @@ import java.util.stream.Stream;
 
 @WebServlet("/transaction/*")
 public class WebService extends HttpServlet {
-    ArrayList<Transaction> allTransaction = (ArrayList<Transaction>) Stream.of(
+    public ArrayList<Transaction> allTransaction = (ArrayList<Transaction>) Stream.of(
             new Transaction(new Date("1/20/2024"), 5000, "Annapoorna", "Friend"),
             new Transaction(new Date("6/10/2024"), 100, "Arundhathi", "Friend"),
             new Transaction(new Date("7/15/2023"), 65, "Akshira", "Education"),
@@ -25,7 +25,7 @@ public class WebService extends HttpServlet {
     //doget and doPut methods overridden
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String requestMaxAmount = req.getParameter("Maximum");
         String requestMinAmount = req.getParameter("Minimum");
         if (requestMaxAmount != null && requestMinAmount != null) {
@@ -49,7 +49,7 @@ public class WebService extends HttpServlet {
         }
     }
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Gson gson = new Gson();
         Transaction transaction = gson.fromJson(req.getReader(), Transaction.class);
         allTransaction.add(transaction);
