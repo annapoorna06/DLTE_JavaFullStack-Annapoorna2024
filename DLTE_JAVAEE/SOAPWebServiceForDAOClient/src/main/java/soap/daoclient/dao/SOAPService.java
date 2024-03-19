@@ -100,4 +100,5 @@ public interface SOAPService {
         @WebParam(name = "Long1", partName = "Long1")
         long long1);
 
+    Object getSOAPServicePort();
 }

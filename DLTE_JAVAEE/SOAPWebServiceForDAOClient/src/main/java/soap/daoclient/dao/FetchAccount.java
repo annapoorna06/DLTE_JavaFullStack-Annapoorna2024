@@ -29,4 +29,15 @@ import javax.xml.bind.annotation.XmlType;
 public class FetchAccount {
 
 
+    public void create(String username, String password, String dateOfBirth, String address, String email, long phoneNumber) {
+    }
+
+    public void setuserName(String username) {
+    }
+
+    public Object findUser(String username) {
+    }
+
+    public Object getuserDetailsList() {
+    }
 }
