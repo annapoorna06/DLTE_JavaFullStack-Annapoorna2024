@@ -95,9 +95,9 @@ public class AppTest {
         when(fetchAccount.getuserDetailsList()).thenReturn(accounts);
 
         // Mocking service response for update process
-        String newPassword = "newPassword";
-        String newAddress = "newAddress";
-        String newEmail = "newEmail@example.com";
+        String newPassword = "annap@12";
+        String newAddress = "karkala";
+        String newEmail = "annap@gmail.com";
         Long newPhoneNumber = 9876543210L;
 
         verify(fetchAccount).findUser(username);
