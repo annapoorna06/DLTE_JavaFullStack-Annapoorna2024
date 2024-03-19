@@ -38,14 +38,14 @@ public class UserDetailsDatabaseRepository implements UserDetailsRepository {
 //    public void addUsers() {
 //        try {
 //            PreparedStatement statement = connection.prepareStatement("INSERT INTO UserDetails(username, password, dob, address, email, phone) VALUES (?, ?, ?, ?, ?, ?)");
-////            statement.setString(1, "annapoornapai");
-////            statement.setString(2, "anna");
-////            statement.setDate(3, new java.sql.Date(new Date(2002, 7, 6).getTime()));
-////            statement.setString(4, "karkala");
-////            statement.setString(5, "annapoorna@gmail.com");
-////            statement.setLong(6, 9876543210L);
-////            statement.executeUpdate();
-////            statement.close();
+//            statement.setString(1, "annapoornapai");
+//            statement.setString(2, "anna");
+//            statement.setDate(3, new java.sql.Date(new Date(2002, 7, 6).getTime()));
+//            statement.setString(4, "karkala");
+//            statement.setString(5, "annapoorna@gmail.com");
+//            statement.setLong(6, 9876543210L);
+//            statement.executeUpdate();
+//            statement.close();
 //            logger.log(Level.INFO, "Users added successfully to the database.");
 //        } catch (SQLException e) {
 //            e.printStackTrace();

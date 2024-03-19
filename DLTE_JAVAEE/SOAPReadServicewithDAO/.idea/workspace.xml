@@ -7,8 +7,54 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3f7f5418-c992-49d0-9e66-e00b221aa774" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../SOAPWebServiceforDAO/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SOAPWebServiceforDAO/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SOAPWebServiceforDAO/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SOAPWebServiceforDAO/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SOAPWebServiceforDAO/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SOAPWebServiceforDAO/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SOAPWebServiceforDAO/src/main/java/soap/dao/EndPoint.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SOAPWebServiceforDAO/src/main/java/soap/dao/FetchAccount.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SOAPWebServiceforDAO/src/main/java/soap/dao/SOAPService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Weekly_Review/ReviewDatabase/Console/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Weekly_Review/ReviewDatabase/Console/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Weekly_Review/ReviewDatabase/Console/src/main/java/org/example/App.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Weekly_Review/ReviewDatabase/Console/src/main/java/org/example/ConsoleAppNew.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Weekly_Review/ReviewDatabase/Console/src/main/java/org/example/ConsoleInterface.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Weekly_Review/ReviewDatabase/Console/src/main/java/org/example/ValidationofData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Weekly_Review/ReviewDatabase/Console/src/main/java/org/example/pojo/Employee.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Weekly_Review/ReviewDatabase/Console/src/main/java/org/example/pojo/EmployeeAddress.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Weekly_Review/ReviewDatabase/Console/src/main/java/org/example/pojo/EmployeebasicDetails.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Weekly_Review/ReviewDatabase/Console/src/main/java/org/example/pojo/InputEmployeeDetails.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Weekly_Review/ReviewDatabase/Console/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Weekly_Review/ReviewDatabase/DatabaseApplication/src/main/java/exception/EmployeeException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Weekly_Review/ReviewDatabase/DatabaseApplication/src/main/java/org/example/App.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Weekly_Review/ReviewDatabase/DatabaseApplication/src/main/java/org/example/DatabaseRepositoryImplementation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Weekly_Review/ReviewDatabase/DatabaseApplication/src/main/java/org/example/details/Employee.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Weekly_Review/ReviewDatabase/DatabaseApplication/src/main/java/org/example/details/EmployeeAddress.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Weekly_Review/ReviewDatabase/DatabaseApplication/src/main/java/org/example/details/EmployeebasicDetails.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Weekly_Review/ReviewDatabase/DatabaseApplication/src/main/java/org/example/details/InputEmployeeDetails.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Weekly_Review/ReviewDatabase/DatabaseApplication/src/main/resources/Database.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Weekly_Review/ReviewDatabase/DatabaseApplication/src/main/resources/logback.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../DLTE_JAVA/DLTE-JAVA-InternetBanking-ConsoleApp-DAO/src/main/java/org/example/Middleware/UserDetailsDatabaseRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../DLTE_JAVA/DLTE-JAVA-InternetBanking-ConsoleApp-DAO/src/main/java/org/example/Middleware/UserDetailsDatabaseRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../DLTE_JAVA/DLTE-JAVA-InternetBanking-ConsoleApp-DAO/src/main/java/org/example/Remote/UserDetailsRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../DLTE_JAVA/DLTE-JAVA-InternetBanking-ConsoleApp-DAO/src/main/java/org/example/Remote/UserDetailsRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../DLTE_JAVA/DLTE-JAVA-InternetBanking-ConsoleApp-DAO/src/main/java/org/example/Services/UserDetailsServices.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../DLTE_JAVA/DLTE-JAVA-InternetBanking-ConsoleApp-DAO/src/main/java/org/example/Services/UserDetailsServices.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../DLTE_JAVA/DLTE-JAVA-InternetBanking-ConsoleApp-DAO/src/test/java/org/example/AppTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../DLTE_JAVA/DLTE-JAVA-InternetBanking-ConsoleApp-DAO/src/test/java/org/example/AppTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../DLTE_JAVA/DLTE-JAVA-InternetBanking-ConsoleApp-DAO/target/DLTE-JAVA-InternetBanking-ConsoleApp-DAO-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../../DLTE_JAVA/DLTE-JAVA-InternetBanking-ConsoleApp-DAO/target/DLTE-JAVA-InternetBanking-ConsoleApp-DAO-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../DLTE_JAVA/DLTE-JAVA-InternetBanking-ConsoleApp-DAO/target/classes/org/example/Middleware/UserDetailsDatabaseRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../DLTE_JAVA/DLTE-JAVA-InternetBanking-ConsoleApp-DAO/target/classes/org/example/Middleware/UserDetailsDatabaseRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../DLTE_JAVA/DLTE-JAVA-InternetBanking-ConsoleApp-DAO/target/classes/org/example/Remote/UserDetailsRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../DLTE_JAVA/DLTE-JAVA-InternetBanking-ConsoleApp-DAO/target/classes/org/example/Remote/UserDetailsRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../DLTE_JAVA/DLTE-JAVA-InternetBanking-ConsoleApp-DAO/target/classes/org/example/Services/UserDetailsServices.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../DLTE_JAVA/DLTE-JAVA-InternetBanking-ConsoleApp-DAO/target/classes/org/example/Services/UserDetailsServices.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DLTE_JAVAEE_RestfulWebserviceForDAO/src/main/java/rest/UpdateAccount.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DLTE_JAVAEE_RestfulWebserviceForDAO/src/main/java/rest/UpdateAccount.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SOAPReadServicewithDAOClient/src/main/java/org/example/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SOAPReadServicewithDAOClient/src/main/java/org/example/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/service/EndPoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/EndPoint.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/service/EndPoint.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/service/EndPoint.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Weekly_Review/untitled/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Weekly_Review/untitled/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Weekly_Review/untitled/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Weekly_Review/untitled/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Weekly_Review/untitled/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Weekly_Review/untitled/src/main/webapp/WEB-INF/web.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Weekly_Review/untitled/src/main/webapp/index.jsp" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -165,7 +211,10 @@
       <workItem from="1710443526313" duration="279000" />
       <workItem from="1710692268667" duration="1707000" />
       <workItem from="1710762185191" duration="1066000" />
-      <workItem from="1710772144538" duration="914000" />
+      <workItem from="1710772144538" duration="1258000" />
+      <workItem from="1710776135873" duration="339000" />
+      <workItem from="1710820004702" duration="3134000" />
+      <workItem from="1710844340144" duration="3224000" />
     </task>
     <servers />
   </component>
@@ -177,29 +226,33 @@
       <screen x="0" y="0" width="1536" height="816" />
     </state>
     <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.816@0.0.1536.816" timestamp="1710693757745" />
-    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1710762298448">
+    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1710776450147">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.816@0.0.1536.816" timestamp="1710762298448" />
-    <state width="1493" height="208" key="GridCell.Tab.0.bottom" timestamp="1710765962096">
+    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.816@0.0.1536.816" timestamp="1710776450147" />
+    <state width="1493" height="208" key="GridCell.Tab.0.bottom" timestamp="1710827516999">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state width="1493" height="208" key="GridCell.Tab.0.bottom/0.0.1536.816@0.0.1536.816" timestamp="1710765962096" />
-    <state width="1493" height="208" key="GridCell.Tab.0.center" timestamp="1710765962096">
+    <state width="1493" height="208" key="GridCell.Tab.0.bottom/0.0.1536.816@0.0.1536.816" timestamp="1710827516999" />
+    <state width="1493" height="208" key="GridCell.Tab.0.center" timestamp="1710827516999">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state width="1493" height="208" key="GridCell.Tab.0.center/0.0.1536.816@0.0.1536.816" timestamp="1710765962096" />
-    <state width="1493" height="208" key="GridCell.Tab.0.left" timestamp="1710765962096">
+    <state width="1493" height="208" key="GridCell.Tab.0.center/0.0.1536.816@0.0.1536.816" timestamp="1710827516999" />
+    <state width="1493" height="208" key="GridCell.Tab.0.left" timestamp="1710827516999">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state width="1493" height="208" key="GridCell.Tab.0.left/0.0.1536.816@0.0.1536.816" timestamp="1710765962096" />
-    <state width="1493" height="208" key="GridCell.Tab.0.right" timestamp="1710765962096">
+    <state width="1493" height="208" key="GridCell.Tab.0.left/0.0.1536.816@0.0.1536.816" timestamp="1710827516999" />
+    <state width="1493" height="208" key="GridCell.Tab.0.right" timestamp="1710827516999">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state width="1493" height="208" key="GridCell.Tab.0.right/0.0.1536.816@0.0.1536.816" timestamp="1710765962096" />
-    <state x="209" y="117" key="new project wizard" timestamp="1710762309131">
+    <state width="1493" height="208" key="GridCell.Tab.0.right/0.0.1536.816@0.0.1536.816" timestamp="1710827516999" />
+    <state x="477" y="237" key="com.intellij.ide.util.TipDialog" timestamp="1710776152793">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state x="209" y="117" key="new project wizard/0.0.1536.816@0.0.1536.816" timestamp="1710762309131" />
+    <state x="477" y="237" key="com.intellij.ide.util.TipDialog/0.0.1536.816@0.0.1536.816" timestamp="1710776152793" />
+    <state x="209" y="117" key="new project wizard" timestamp="1710776475171">
+      <screen x="0" y="0" width="1536" height="816" />
+    </state>
+    <state x="209" y="117" key="new project wizard/0.0.1536.816@0.0.1536.816" timestamp="1710776475171" />
   </component>
 </project>
