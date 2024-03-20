@@ -52,7 +52,7 @@ public class App
                 }
 
                 break;
-            case 3:case 3:
+            case 3:
                 String userToUpdate = "annapoornapai"; // Example username to update
                 // Fetch the user details
                 List<FetchAccount> accountsToUpdate = fetchAccount.findUser(userToUpdate).getuserDetailsList();
@@ -69,7 +69,7 @@ public class App
                     Long newPhoneNumber = 6363276256L;
                     // Update the account
                     update(
-                            accountToUpdate.getuserName(),//(cannot chnage)
+                            accountToUpdate.getuserName,//(cannot chnage)
                             accountToUpdate.getpassword(), // Existing password
                             null, //dateOfBirth remains unchanged(cannot change)
                             accountToUpdate.getaddress(), // Existing address
