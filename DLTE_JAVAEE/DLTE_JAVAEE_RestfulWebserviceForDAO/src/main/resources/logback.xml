@@ -9,7 +9,7 @@
 
     <!-- Define file appender -->
     <appender name="myLogs" class="ch.qos.logback.core.FileAppender">
-        <file>log/app.log</file> <!-- Define log file name and path -->
+        <file>log\app.log</file> <!-- Define log file name and path -->
         <encoder>
             <pattern>%d{HH:mm:ss.SSS} %highlight([%thread]) %-5level %logger{36} - %highlight(%msg) %n</pattern>
         </encoder>
