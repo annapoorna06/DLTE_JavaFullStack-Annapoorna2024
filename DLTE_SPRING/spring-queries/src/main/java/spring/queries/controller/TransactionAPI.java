@@ -24,7 +24,7 @@ public class TransactionAPI {
         return transactionServices.findAllByUserAndType(name, type);
     }
     //TransactionAmount by using HQL
-    @GetMapping("/findByAmountRange/{amount1}/{amount2}")
+    @GetMapping("/ /{amount1}/{amount2}")
     public List<Transactions> callFindByAmountRange(@PathVariable("amount1") double amount1, @PathVariable("amount2") double amount2){
         return transactionServices.findAllByRange(amount1,amount2);
     }

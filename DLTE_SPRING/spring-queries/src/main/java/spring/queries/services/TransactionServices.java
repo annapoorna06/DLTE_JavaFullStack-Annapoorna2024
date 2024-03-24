@@ -12,6 +12,7 @@ public class TransactionServices {
     @Autowired
     TranactionRemote tranactionRemote;
     public Transactions newTransactions(Transactions transactions){
+
         return tranactionRemote.save(transactions);
     }
     public List<Transactions> findAllByUserAndType(String user, String type){
