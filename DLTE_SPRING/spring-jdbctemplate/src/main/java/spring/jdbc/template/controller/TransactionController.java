@@ -26,7 +26,7 @@ public class TransactionController  {
         return transactionService.findByReceiver(receiver);
     }
     @GetMapping("/amount/{amount}")
-    //retrieving list of transactions by entering amount using http://localhost:8082/Transactions/amount/{amount}
+    //retrieving list of transactions by entering amount using http://localhost:1002/Transactions/amount/{amount}
     public List<Transactions> findByAmount(@PathVariable Long amount) {
         return transactionService.findByAmount(amount);
     }
