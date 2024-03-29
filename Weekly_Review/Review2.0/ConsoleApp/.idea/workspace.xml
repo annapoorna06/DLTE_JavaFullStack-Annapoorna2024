@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="68bcff05-2247-4f3a-9757-745f9d8abefb" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../../../DLTE_JAVA/DLTE-Java-InternetBanking-ConsoleApp/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../DLTE_JAVA/DLTE-Java-InternetBanking-ConsoleApp/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../DLTE_JAVA/DLTE-Java-InternetBanking-ConsoleApp/src/main/java/org/example/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../DLTE_JAVA/DLTE-Java-InternetBanking-ConsoleApp/src/main/java/org/example/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../DLTE_JAVA/DLTE-Java-InternetBanking-ConsoleApp/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../../../DLTE_JAVA/DLTE-Java-InternetBanking-ConsoleApp/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../DLTE_JAVAEE/DemoWeb/target/DLTE_JAVAEE/DemoWeb.war" beforeDir="false" afterPath="$PROJECT_DIR$/../../../DLTE_JAVAEE/DemoWeb/target/DLTE_JAVAEE/DemoWeb.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../FileStorage.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../My_App.zip" beforeDir="false" />
-    </list>
+    <list default="true" id="68bcff05-2247-4f3a-9757-745f9d8abefb" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -38,6 +31,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RunManager">
     <configuration name="ConsoleApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -82,6 +76,7 @@
       <option name="presentableId" value="Default" />
       <updated>1710268748962</updated>
       <workItem from="1710268751882" duration="12035000" />
+      <workItem from="1711362118308" duration="149000" />
     </task>
     <servers />
   </component>

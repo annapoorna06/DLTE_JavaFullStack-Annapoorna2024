@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b92d3142-42cb-4803-959e-2690aa2b83f4" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../../../DLTE_JAVA/DLTE-Java-InternetBanking-ConsoleApp/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../DLTE_JAVA/DLTE-Java-InternetBanking-ConsoleApp/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../DLTE_JAVA/DLTE-Java-InternetBanking-ConsoleApp/src/main/java/org/example/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../DLTE_JAVA/DLTE-Java-InternetBanking-ConsoleApp/src/main/java/org/example/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../DLTE_JAVA/DLTE-Java-InternetBanking-ConsoleApp/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../../../DLTE_JAVA/DLTE-Java-InternetBanking-ConsoleApp/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../DLTE_JAVAEE/DemoWeb/target/DLTE_JAVAEE/DemoWeb.war" beforeDir="false" afterPath="$PROJECT_DIR$/../../../DLTE_JAVAEE/DemoWeb/target/DLTE_JAVAEE/DemoWeb.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../FileStorage.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../My_App.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ConsoleApp/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ConsoleApp/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,6 +33,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../ReviewDatabase/DatabaseApplication" />
   </component>
   <component name="ServiceViewManager">
     <option name="viewStates">
@@ -62,6 +58,7 @@
       <option name="presentableId" value="Default" />
       <updated>1710268476648</updated>
       <workItem from="1710268496758" duration="12016000" />
+      <workItem from="1711362121032" duration="167000" />
     </task>
     <servers />
   </component>
@@ -73,6 +70,10 @@
       <screen x="0" y="0" width="1536" height="816" />
     </state>
     <state x="574" y="128" key="#com.intellij.ide.util.MemberChooser/0.0.1536.816@0.0.1536.816" timestamp="1710310819374" />
+    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1711362287579">
+      <screen x="0" y="0" width="1536" height="816" />
+    </state>
+    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.816@0.0.1536.816" timestamp="1711362287579" />
     <state width="1493" height="75" key="GridCell.Tab.0.bottom" timestamp="1710322385602">
       <screen x="0" y="0" width="1536" height="816" />
     </state>

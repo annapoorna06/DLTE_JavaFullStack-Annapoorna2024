@@ -1,0 +1,6 @@
+frontend\console\ValidationofData.class
+frontend\console\App.class
+frontend\console\ConsoleAppNew.class
+frontend\console\pojo\EmployeeAddressConsole.class
+frontend\console\pojo\EmployeebasicDetailsConsole.class
+frontend\console\pojo\EmployeeConsole.class

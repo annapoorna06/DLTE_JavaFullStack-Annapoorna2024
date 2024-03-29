@@ -21,7 +21,7 @@ public class ValidationofData {
         Matcher matcher = pattern.matcher(Long.toString(phoneNumber));
         return matcher.matches();
     }
-    public boolean isValidPin(int pin) {
+    public static boolean isValidPin(int pin) {
         String pinString = String.valueOf(pin);
         return pinString.length() == 6;
     }

@@ -9,12 +9,17 @@
 
     <!-- Define file appender -->
     <appender name="myLogs" class="ch.qos.logback.core.FileAppender">
-        <file>C:\DLTE_JavaFullStack-Annapoorna2024\Weekly_Review\app.log</file> <!-- Define log file name and path -->
+        <file>C:\DLTE_JavaFullStack-Annapoorna2024\Weekly_Review\log\app.log</file> <!-- Define log file name and path -->
         <encoder>
             <pattern>%d{HH:mm:ss.SSS} %highlight([%thread]) %-5level %logger{36} - %highlight(%msg) %n</pattern>
         </encoder>
-    </appender>
 
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>C:\DLTE_JavaFullStack-Annapoorna2024\Weekly_Review\log\app.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <maxFileSize>1KB</maxFileSize>
+            <maxHistory>1</maxHistory>
+        </rollingPolicy>
+    </appender>
     <!-- Root logger settings -->
     <root level="INFO">
         <appender-ref ref="myConsole" />
