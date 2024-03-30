@@ -111,7 +111,7 @@ public class SoapPhase {
         findByAmountResponse.getTransactions().addAll(transactionList);
         return findByAmountResponse;
     }
-//updating remarks in transactions
+    //updating remarks in transactions
     @PayloadRoot(namespace = url, localPart = "updateRemarksRequest")
     @ResponsePayload
     public UpdateRemarksResponse updatingTransaction(@RequestPayload UpdateRemarksRequest updateRemarksRequest){
@@ -140,7 +140,7 @@ public class SoapPhase {
 
         return updateRemarksResponse;
     }
-//delete transaction between dates
+    //delete transaction between dates
     @PayloadRoot(namespace = url,localPart = "deletionTransactionRequest")
     @ResponsePayload
     public DeleteTransactionResponse deleteTransaction(@RequestPayload DeleteTransactionRequest deleteTransactionRequest){

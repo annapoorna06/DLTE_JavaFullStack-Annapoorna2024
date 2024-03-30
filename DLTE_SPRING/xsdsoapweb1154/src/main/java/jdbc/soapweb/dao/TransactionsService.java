@@ -5,7 +5,7 @@ import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 
-import javax.xml.datatype.XMLGregorianCalendar;
+import java.util.Date;
 import java.util.List;
 @Service
 public class TransactionsService {
@@ -41,7 +41,7 @@ public class TransactionsService {
             else  return null;
         }
         //deleting transactions between start date and end date
-        public String deleteTransaction(XMLGregorianCalendar startDate, XMLGregorianCalendar endDate){
+        public String deleteTransaction(Date startDate, Date endDate){
             int acknowledge= jdbcTemplate.update("delete from transaction where transaction_date between ? and ?",
                     new Object[]{startDate,endDate}
             );
