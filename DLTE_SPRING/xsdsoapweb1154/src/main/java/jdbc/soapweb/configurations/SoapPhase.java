@@ -4,6 +4,7 @@ import jdbc.soapweb.dao.Transactions;
 import jdbc.soapweb.dao.TransactionsService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;
 import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
 import org.springframework.ws.server.endpoint.annotation.RequestPayload;
@@ -22,6 +23,7 @@ public class SoapPhase {
     private TransactionsService transactionsService;
 
     //adding new Transactions
+    @PreAuthorize("hasAnyAuthority('admin')")//adding security authorization only for admin
     @PayloadRoot(namespace = url,localPart = "newTransactionRequest")
     @ResponsePayload
     public NewTransactionResponse addTransactionRequest(@RequestPayload NewTransactionRequest newTransactionRequest){
@@ -47,6 +49,7 @@ public class SoapPhase {
         return newLoanResponse;
     }
 //finding transaction details using sender name
+    @PreAuthorize("hasAnyAuthority('customer')")//adding security authorization only for customer
     @PayloadRoot(namespace = url,localPart = "findBySenderRequest")
     @ResponsePayload
     public FindBySenderResponse findBySenderRequest(@RequestPayload FindBySenderRequest findBySenderRequest){
@@ -69,6 +72,7 @@ public class SoapPhase {
         return findBySenderResponse;
     }
     //finding transaction details using receiver name
+    @PreAuthorize("hasAnyAuthority('customer')") //adding security authorization only for customer
     @PayloadRoot(namespace = url,localPart = "findByReceiverRequest")
     @ResponsePayload
     public FindByReceiverResponse findByReceiverRequest(@RequestPayload FindByReceiverRequest findByReceiverRequest){
@@ -90,6 +94,7 @@ public class SoapPhase {
         return findByReceiverResponse;
     }
     //finding list of transactions using amount
+    @PreAuthorize("hasAnyAuthority('customer')")//adding security authorization only for customer
     @PayloadRoot(namespace = url,localPart = "findByAmountRequest")
     @ResponsePayload
     public FindByAmountResponse findByAmountRequest(@RequestPayload FindByAmountRequest findByAmountRequest){
@@ -112,6 +117,7 @@ public class SoapPhase {
         return findByAmountResponse;
     }
     //updating remarks in transactions
+    @PreAuthorize("hasAnyAuthority('admin','manager')") //adding security authorization only for admin and manager together
     @PayloadRoot(namespace = url, localPart = "updateRemarksRequest")
     @ResponsePayload
     public UpdateRemarksResponse updatingTransaction(@RequestPayload UpdateRemarksRequest updateRemarksRequest){
@@ -141,6 +147,7 @@ public class SoapPhase {
         return updateRemarksResponse;
     }
     //delete transaction between dates
+    @PreAuthorize("hasAnyAuthority('admin')")//adding security authorization only for admin
     @PayloadRoot(namespace = url,localPart = "deletionTransactionRequest")
     @ResponsePayload
     public DeleteTransactionResponse deleteTransaction(@RequestPayload DeleteTransactionRequest deleteTransactionRequest){
