@@ -14,15 +14,18 @@ import java.util.stream.Stream;
 
 @WebServlet("/transaction/*")
 public class WebService extends HttpServlet {
+    ArrayList<Integer> newList=(ArrayList<Integer>) Stream.of(new Integer(1),
+            new Integer(2)
+    ).collect(Collectors.toList());
     public ArrayList<Transaction> allTransaction = (ArrayList<Transaction>) Stream.of(
-            new Transaction(new Date("1/20/2024"), 5000, "Annapoorna", "Friend"),
-            new Transaction(new Date("6/10/2024"), 100, "Arundhathi", "Friend"),
-            new Transaction(new Date("7/15/2023"), 65, "Akshira", "Education"),
-            new Transaction(new Date("8/7/2022"), 70, "Divija", "Bills"),
-            new Transaction(new Date("1/20/2024"), 500000, "Akshatha", "Family")
+            new Transaction(new Date("1/20/2024"), 5000, "Annapoorna", "Friend",newList),
+            new Transaction(new Date("6/10/2024"), 100, "Arundhathi", "Friend",newList),
+            new Transaction(new Date("7/15/2023"), 65, "Akshira", "Education",newList),
+            new Transaction(new Date("8/7/2022"), 70, "Divija", "Bills",newList),
+            new Transaction(new Date("1/20/2024"), 500000, "Akshatha", "Family",newList)
     ).collect(Collectors.toList());
 
-    //doget and doPut methods overridden
+    //doGet and doPut methods overridden
 
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

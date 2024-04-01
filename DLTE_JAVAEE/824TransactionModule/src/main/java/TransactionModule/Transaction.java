@@ -1,6 +1,7 @@
 package TransactionModule;
 
 
+import java.util.ArrayList;
 import java.util.Date;
 
 public class Transaction {
@@ -8,13 +9,14 @@ public class Transaction {
         private Integer amountInTransaction;
         private String toWhom;
         private String remarks;
+        private ArrayList<Integer> phoneNumber;
         //constructors
-        public Transaction(Date dateOfTransaction, Integer amountInTransaction, String toWhom, String remarks) {
+        public Transaction(Date dateOfTransaction, Integer amountInTransaction, String toWhom, String remarks, ArrayList phoneNumber) {
             this.dateOfTransaction = dateOfTransaction;
             this.amountInTransaction = amountInTransaction;
             this.toWhom = toWhom;
             this.remarks = remarks;
-
+            this.phoneNumber= phoneNumber;
         }
 
         public Transaction() {
@@ -51,5 +53,13 @@ public class Transaction {
         public void setRemarks(String remarks) {
             this.remarks = remarks;
         }
+
+    public ArrayList getPhoneNumber() {
+        return phoneNumber;
     }
+
+    public void setPhoneNumber(ArrayList phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+}
 
