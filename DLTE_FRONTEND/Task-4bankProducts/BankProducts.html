@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bank Products</title>
+<style>
+  body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f4f4f4;
+  }
+
+  .container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    max-width: 900px;
+    padding: 200px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .product {
+    width: 200px;
+    margin: 10px;
+    text-align: center;
+  }
+
+  .product img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .product h2 {
+    margin-top: 10px;
+    font-size: 20px;
+  }
+
+  .media {
+    width: 200px;
+    height: 250px; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 10px;
+  }
+
+  .media video {
+    width: 100%;
+    height: 100%; 
+    object-fit: cover; 
+  }
+
+  .media-content {
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  .media h2 {
+    font-size: 20px;
+    margin-bottom: 5px;
+  }
+
+  .media p {
+    font-size: 16px;
+    color: #555;
+  }
+
+  .product p {
+    margin-top: 5px;
+    font-size: 16px;
+    color: #555;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <div class="product">
+    <img src="bank_product1.jpg" alt="Bank Product 1">
+    <h2>Loans</h2>
+    <p>MyBank provides various loans to assist customers.</p>
+  </div>
+  <div class="product">
+    <img src="bank_product2.jpg" alt="Bank Product 2">
+    <h2>Cards</h2>
+    <p>Card services provided</p>
+  </div>
+  <div class="product">
+    <img src="bank_product3.jpg" alt="Bank Product 3">
+    <h2>Mutual Funds</h2>
+    <p>Investment schemes</p>
+    <h6>*conditions applied</h6>
+  </div>
+  <div class="media">
+    <video controls muted autoplay>
+      <source src="bank_product4.mp4" type="video/mp4">
+    </video>
+    <div class="media-content">
+      <h2>MyBank</h2>
+      <p>MyBank video</p>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
