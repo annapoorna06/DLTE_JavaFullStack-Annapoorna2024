@@ -8,15 +8,19 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import services.transactions.*;
-import xsd.task.transaction.taskxsd.config.SoapPhase;
-
+import javax.xml.datatype.DatatypeConfigurationException;
+import javax.xml.datatype.DatatypeFactory;
+import javax.xml.datatype.XMLGregorianCalendar;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
@@ -28,7 +32,25 @@ public class EndpointsTesting {
 
     @InjectMocks
     private SoapPhase soapPhase;
+    @Test
+    public void testAddNewTransaction() throws DatatypeConfigurationException {
+        Transactions transaction1=new Transactions(1,new Date(2024,03,24),"Annapoorna",1000,"Family","Bharathi");
+        when(transactionsService.newTransaction(any(Transactions.class))).thenReturn(transaction1);
 
+        NewTransactionRequest newTransaction=new NewTransactionRequest();
+        services.transactions.Transactions transactions=new services.transactions.Transactions();
+        transactions.setTransactionId(1);
+        LocalDate date = LocalDate.of(2024,05,02);
+        XMLGregorianCalendar xmlGregorianCalendar = DatatypeFactory.newInstance().newXMLGregorianCalendar(date.toString());
+        transactions.setTransactionDate(xmlGregorianCalendar);
+        transactions.setTransactionBy("Annpoorna");
+        transactions.setTransactionTo("Bharathi");
+        transactions.setTransactionAmount(50000);
+        transactions.setTransactionRemarks("Friend");
+        newTransaction.setTransactions(transactions);
+        NewTransactionResponse response=soapPhase.addTransactionRequest(newTransaction);
+        assertTrue(transaction1.getTransactionId().equals(response.getTransactions().getTransactionId()));
+    }//fail
     @Test
     public void testFindBySender() {
         List<Transactions> mockTransactions = new ArrayList<>();
