@@ -1,14 +1,102 @@
+//package frontend.console;
+//import backend.datarepo.DatabaseRepositoryImplementation;
+//import backend.datarepo.details.Employee;
+//import backend.datarepo.details.EmployeeAddress;
+//import backend.datarepo.details.EmployeebasicDetails;
+//import exception.EmployeeException;
+//import frontend.console.pojo.EmployeebasicDetailsConsole;
+//import frontend.console.pojo.EmployeeAddressConsole;
+//import frontend.console.pojo.EmployeeConsole;
+//import org.slf4j.Logger;
+//import org.slf4j.LoggerFactory;
+//
+//import java.util.*;
+//
+//import static java.lang.System.exit;
+//
+//public class ConsoleAppNew {
+//    private static ResourceBundle resourceBundle = ResourceBundle.getBundle("application");
+//    public static void main(String[] args) {
+//        try (Scanner scanner = new Scanner(System.in)) {
+//            DatabaseRepositoryImplementation inputEmployeeDetails = new DatabaseRepositoryImplementation();
+//            Logger logger = LoggerFactory.getLogger(ConsoleAppNew.class);
+//            ValidationofData validation = new ValidationofData();
+//
+//            try {
+//                while (true) {
+//                    printMenu();
+//                    int choice = getChoice(scanner);
+//
+//                    switch (choice) {
+//                        case 1:
+//                            readEmployeeDetails(scanner, inputEmployeeDetails, validation);
+//                            break;
+//                        case 2:
+//                            displayEmployeeById(scanner, inputEmployeeDetails, logger);
+//                            break;
+//                        case 3:
+//                            displayAllEmployees(inputEmployeeDetails, logger);
+//                            break;
+//                        case 4:
+//                            displayEmployeesByPincode(scanner, inputEmployeeDetails, logger);
+//                            break;
+//                        case 5:
+//                            exit(0);
+//                    }
+//                }
+//            } finally {
+//                // Close connections
+//                inputEmployeeDetails.closeConnections();
+//            }
+//        }
+//    }
+//    private static void printMenu() {
+//        System.out.println(resourceBundle.getString("menu.display"));
+//        System.out.println(resourceBundle.getString("enter.choice"));
+//    }
+//
+//    private static int getChoice(Scanner scanner) {
+//        boolean validate = false;
+//        int choice = 0;
+//        do {
+//            try {
+//                choice = scanner.nextInt();
+//                validate = true;
+//            } catch (InputMismatchException inputMismatchException) {
+//                System.out.println(resourceBundle.getString("Enter.number1"));
+//                scanner.nextLine();
+//            }
+//        } while (!validate);
+//        return choice;
+//    }
+//
+//    private static void readEmployeeDetails(Scanner scanner, DatabaseRepositoryImplementation inputEmployeeDetails, ValidationofData validation) {
+//        List<Employee> employees = new ArrayList<>();
+//        boolean continueAddingEmployees = true;
+//        do {
+//            EmployeeConsole employeeConsole = getEmployeeDetailsFromConsole(scanner, validation);
+//            if (employeeConsole != null) {
+//                Employee employee = translateEmployee(employeeConsole);
+//                employees.add(employee);
+//                inputEmployeeDetails.create(Collections.singletonList(employee));
+//                System.out.print(resourceBundle.getString("add.more"));
+//                continueAddingEmployees = scanner.next().equalsIgnoreCase(resourceBundle.getString("yes"));
+//            }
+//        } while (continueAddingEmployees);
+//    }
 package frontend.console;
+
 import backend.datarepo.DatabaseRepositoryImplementation;
 import backend.datarepo.details.Employee;
 import backend.datarepo.details.EmployeeAddress;
 import backend.datarepo.details.EmployeebasicDetails;
 import exception.EmployeeException;
-import frontend.console.pojo.EmployeebasicDetailsConsole;
 import frontend.console.pojo.EmployeeAddressConsole;
 import frontend.console.pojo.EmployeeConsole;
+import frontend.console.pojo.EmployeebasicDetailsConsole;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 
 import java.util.*;
 
@@ -16,6 +104,7 @@ import static java.lang.System.exit;
 
 public class ConsoleAppNew {
     private static ResourceBundle resourceBundle = ResourceBundle.getBundle("application");
+
     public static void main(String[] args) {
         try (Scanner scanner = new Scanner(System.in)) {
             DatabaseRepositoryImplementation inputEmployeeDetails = new DatabaseRepositoryImplementation();
@@ -85,7 +174,6 @@ public class ConsoleAppNew {
             }
         } while (continueAddingEmployees);
     }
-
     private static EmployeeConsole getEmployeeDetailsFromConsole(Scanner scanner, ValidationofData validation) {
         System.out.println(resourceBundle.getString("enter.employeeDetails"));
 
@@ -205,8 +293,6 @@ public class ConsoleAppNew {
             logger.warn(e.getMessage());
         }
     }
-
-
     private static EmployeeConsole translate(backend.datarepo.details.Employee employee) {
         EmployeebasicDetailsConsole employeeBasicDetailsConsole = new EmployeebasicDetailsConsole();
         EmployeeAddressConsole tempAddress = new EmployeeAddressConsole();

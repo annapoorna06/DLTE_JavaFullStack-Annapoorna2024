@@ -1,0 +1,50 @@
+
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      /* background-image: url('externals/mybank_logo.jpg'); */
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      background-color: rgba(255, 255, 255, 0.5); /* Transparent background */
+    }
+
+    .container {
+      max-width: 800px;
+      padding: 20px;
+      background-color: rgba(255, 255, 255, 0.8); /* Slightly opaque background */
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .deposit-features, .available-loans {
+      margin-bottom: 20px;
+    }
+
+    .deposit-features h2, .available-loans h2 {
+      margin-bottom: 10px;
+    }
+
+    .deposit-features ul, .available-loans ol {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .deposit-features ul li, .available-loans ol li {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    /* Styling for iframe */
+    iframe {
+      width: 100%;
+      height: 500px; /* Adjust height as needed */
+      border: none;
+    }
+    
+
+    
+ 

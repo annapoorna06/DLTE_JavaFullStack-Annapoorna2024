@@ -1,13 +1,14 @@
 package backend.datarepo.details;
 
+import java.sql.SQLException;
 import java.util.List;
 
 public interface InputEmployeeDetails {
-    void create(List<Employee> employee);
+    List<Employee> create(List<Employee> employee) throws SQLException;
     Employee displayBasedOnEmployeeId(String employeeID);
     List<Employee> displayBasedOnPinCode(int pinCode);
     List<Employee> read();
-    void closeConnections();
+    void closeConnections() throws SQLException;
     boolean Validationofdata(List<Employee> employee);
 
 }
