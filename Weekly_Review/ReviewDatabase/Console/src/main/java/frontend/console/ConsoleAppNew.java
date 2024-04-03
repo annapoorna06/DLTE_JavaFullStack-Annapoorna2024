@@ -107,6 +107,7 @@ public class ConsoleAppNew {
 
     public static void main(String[] args) {
         try (Scanner scanner = new Scanner(System.in)) {
+
             DatabaseRepositoryImplementation inputEmployeeDetails = new DatabaseRepositoryImplementation();
             Logger logger = LoggerFactory.getLogger(ConsoleAppNew.class);
             ValidationofData validation = new ValidationofData();
@@ -316,8 +317,6 @@ public class ConsoleAppNew {
         tempAddress.setPinCode(employee.getEmployeeTemporaryAddress().getPinCode());
         return new EmployeeConsole(employeeBasicDetailsConsole, permAddress, tempAddress);
     }
-
-
     private static Employee translateEmployee(EmployeeConsole employeeConsole) {
         EmployeeAddress employeeTemporaryAddress = new EmployeeAddress();
         EmployeeAddress employeePermanentAddress = new EmployeeAddress();
