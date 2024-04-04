@@ -16,7 +16,7 @@ import java.util.List;
 
 @Service
 public class LoanServices implements LoansInterface {
-    private static final Logger logger = LoggerFactory.getLogger(LoanServices.class);
+    //private static final Logger logger = LoggerFactory.getLogger(LoanServices.class);
 
     @Autowired
     JdbcTemplate jdbcTemplate;
@@ -41,33 +41,38 @@ public class LoanServices implements LoansInterface {
             if (allAvailLoan == null) {
                 throw new NoLoanDataException();
             } else {
-                logger.info("All available loans retrieved successfully: {}", allAvailLoan);
+                //logger.info("All available loans retrieved successfully: {}", allAvailLoan);
             }
             return allAvailLoan;
         } catch (Exception e) {
-            logger.error("Error occurred while fetching all available loans: {}", e.getMessage());
+            //logger.error("Error occurred while fetching all available loans: {}", e.getMessage());
             return null;
         }
     }
 
     @Override
     public List<LoansAvailable> findByLoanType(String loanType) {
-        //filter using query
-        try {
-            String sql = "SELECT * FROM MYBANK_APP_LOANAVAILABLE WHERE LOAN_TYPE = ?";
-            List<LoansAvailable> loansByType = jdbcTemplate.query(sql, new Object[]{loanType}, new LoanAvailableMapper());
-            if (loansByType == null || loansByType.isEmpty()) {
-                throw new NoLoanDataException();
-            } else {
-                logger.info("Loans retrieved successfully for loan type {}: {}", loanType, loansByType);
-            }
-            return loansByType;
-        } catch (NoLoanDataException e) {
-            logger.warn("No loans found for the specified loan type: {}", loanType);
-        } catch (Exception e) {
-            logger.error("Error occurred while fetching loans by type: {}", e.getMessage());
-        }
         return null;
+    }
+
+//    @Override
+//    public List<LoansAvailable> findByLoanType(String loanType) {
+//        //filter using query
+//        try {
+//            String sql = "SELECT * FROM MYBANK_APP_LOANAVAILABLE WHERE LOAN_TYPE = ?";
+//            List<LoansAvailable> loansByType = jdbcTemplate.query(sql, new Object[]{loanType}, new LoanAvailableMapper());
+//            if (loansByType == null || loansByType.isEmpty()) {
+//                throw new NoLoanDataException();
+//            } else {
+//                logger.info("Loans retrieved successfully for loan type {}: {}", loanType, loansByType);
+//            }
+//            return loansByType;
+//        } catch (NoLoanDataException e) {
+//            logger.warn("No loans found for the specified loan type: {}", loanType);
+//        } catch (Exception e) {
+//            logger.error("Error occurred while fetching loans by type: {}", e.getMessage());
+//        }
+//        return null;
 
         //filter using stream(for Java 8 implementation)
 //        try {
@@ -96,4 +101,4 @@ public class LoanServices implements LoansInterface {
 //        }
 //        return null;
     }
-}
+

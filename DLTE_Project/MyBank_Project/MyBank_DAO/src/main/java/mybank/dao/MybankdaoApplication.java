@@ -8,6 +8,7 @@ public class MybankdaoApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(MybankdaoApplication.class, args);
+
     }
 
 }
