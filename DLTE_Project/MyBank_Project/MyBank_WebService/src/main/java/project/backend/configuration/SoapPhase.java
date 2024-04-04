@@ -45,8 +45,8 @@ public class SoapPhase {
             allLoans.add(currentLoan);
 
         }
-        serviceStatus.setStatus("SUCCESS");
-        serviceStatus.setMessage("Loan's were fetched");
+        serviceStatus.setStatus("success");
+        serviceStatus.setMessage("loans.fetched");
         response.getLoanAvailable().addAll(allLoans);
         response.setServiceStatus(serviceStatus);
 

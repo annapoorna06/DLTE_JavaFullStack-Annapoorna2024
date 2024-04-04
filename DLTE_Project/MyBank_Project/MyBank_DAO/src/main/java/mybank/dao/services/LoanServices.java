@@ -13,10 +13,12 @@ import org.springframework.stereotype.Service;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.ResourceBundle;
+import java.util.stream.Collectors;
 
 @Service
 public class LoanServices implements LoansInterface {
-    private static final Logger logger = LoggerFactory.getLogger(LoanServices.class);
+    ResourceBundle resourceBundle = ResourceBundle.getBundle("application");
 
     @Autowired
     JdbcTemplate jdbcTemplate;
@@ -40,35 +42,30 @@ public class LoanServices implements LoansInterface {
         try {
             List<LoansAvailable> allAvailLoan = jdbcTemplate.query("select * from mybank_app_loanavailable", new LoanAvailableMapper());
             if (allAvailLoan == null) {
-                throw new NoLoanDataException();
-            } else {
-                logger.info("All available loans retrieved successfully: {}", allAvailLoan);
+                throw new NoLoanDataException(resourceBundle.getString("no.loans"));
             }
             return allAvailLoan;
         } catch (Exception e) {
-            logger.error("Error occurred while fetching all available loans: {}", e.getMessage());
-            return null;
+            throw new NoLoanDataException(resourceBundle.getString("no.loans"));
         }
     }
-
+    //rest service
     @Override
     public List<LoansAvailable> findByLoanType(String loanType) {
-        //filter using query
         try {
             String sql = "SELECT * FROM MYBANK_APP_LOANAVAILABLE WHERE LOAN_TYPE = ?";
             List<LoansAvailable> loansByType = jdbcTemplate.query(sql, new Object[]{loanType}, new LoanAvailableMapper());
             if (loansByType == null || loansByType.isEmpty()) {
-                throw new NoLoanDataException();
-            } else {
-                logger.info("Loans retrieved successfully for loan type {}: {}", loanType, loansByType);
+                throw new NoLoanDataException(resourceBundle.getString("no.loanType") + loanType);
             }
             return loansByType;
         } catch (NoLoanDataException e) {
-            logger.warn("No loans found for the specified loan type: {}", loanType);
+            throw new NoLoanDataException(resourceBundle.getString("no.loanType") + loanType);
         } catch (Exception e) {
-            logger.error("Error occurred while fetching loans by type: {}", e.getMessage());
+            throw new NoLoanDataException(resourceBundle.getString("error.loanType") + e.getMessage());
         }
-        return null;
+    }
+
 
         //filter using stream(for Java 8 implementation)
 //        try {
@@ -76,7 +73,7 @@ public class LoanServices implements LoansInterface {
 //            List<LoansAvailable> allLoans = jdbcTemplate.query(sql, new LoanAvailableMapper());
 //
 //            if (allLoans == null || allLoans.isEmpty()) {
-//                throw new NoLoanDataException();
+//                throw new NoLoanDataException(resourceBundle.getString("error.noLoansFound"));
 //            }
 //
 //            List<LoansAvailable> loansByType = allLoans.stream()
@@ -84,18 +81,17 @@ public class LoanServices implements LoansInterface {
 //                    .collect(Collectors.toList());
 //
 //            if (loansByType.isEmpty()) {
-//                logger.warn("No loans found for the specified loan type: {}", loanType);
-//            } else {
-//                logger.info("Loans retrieved successfully for loan type {}: {}", loanType, loansByType);
+//                throw new NoLoanDataException(resourceBundle.getString("no.loanType") + loanType);
 //            }
 //
 //            return loansByType;
 //        } catch (NoLoanDataException e) {
-//            logger.warn("No loans found for the specified loan type: {}", loanType);
+//            throw new NoLoanDataException(resourceBundle.getString("no.loanType") + loanType);
 //        } catch (Exception e) {
-//            logger.error("Error occurred while fetching loans by type: {}", e.getMessage());
+//            throw new NoLoanDataException(resourceBundle.getString("error.LoanType") + e.getMessage());
 //        }
-//        return null;
-    }
+//
+//    }
 }
+
 
