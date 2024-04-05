@@ -1,11 +1,26 @@
 package mybank.dao.entity;
 
+
+import javax.validation.constraints.Digits;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+
 public class LoansAvailable {
     //entities form MYBANK_APP_LOANAVAILABLE table
+    @NotNull(message="{loan.num.null}")
+    @Digits(integer=3,fraction=0,message="{loan.num.invalid}")
     private int loanNumber;
+    @NotNull(message = "{loan.type.null}")
+    @Pattern(regexp = "^[a-zA-Z ]+$", message = "{loan.type.invalid}")
     private String loanType;
+    @NotNull(message = "{loan.name.null}")
+    @Pattern(regexp = "^[a-zA-Z ]+$", message = "{loan.name.invalid}")
     private String loanName;
+    @NotNull(message = "{loan.desc.null}")
+    @Pattern(regexp = "^[a-zA-Z ]+$", message = "{loan.desc.invalid}")
     private String loanDescription;
+    @NotNull(message = "{loan.roi.null}")
+    @Digits(integer = 8, fraction = 2, message = "{loan.roi.invalid}")
     private double loanRoi;
 
     //constructor

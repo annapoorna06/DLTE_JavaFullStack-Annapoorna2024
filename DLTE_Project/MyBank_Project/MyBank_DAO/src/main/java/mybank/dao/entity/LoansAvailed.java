@@ -1,8 +1,15 @@
 package mybank.dao.entity;
 
+import javax.validation.constraints.Digits;
+import javax.validation.constraints.NotNull;
+
 public class LoansAvailed {
     //entities form MYBANK_APP_LOANAVAILED table
+    @NotNull(message="{avail.num.null}")
+    @Digits(integer=3,fraction=0,message="{avail.num.invalid}")
     private int loanAvailNumber;
+    @NotNull(message="{customer.num.null}")
+    @Digits(integer=3,fraction=0,message="{customer.num.invalid}")
     private int customerNumber;
     private int loanNumber;
     private double loanAmount;
@@ -11,6 +18,7 @@ public class LoansAvailed {
 
     //constructor
     public LoansAvailed(int loanAvailNumber, int customerNumber, int loanNumber, double loanAmount, double loanEmi, int loanTenure) {
+
         this.loanAvailNumber = loanAvailNumber;
         this.customerNumber = customerNumber;
         this.loanNumber = loanNumber;

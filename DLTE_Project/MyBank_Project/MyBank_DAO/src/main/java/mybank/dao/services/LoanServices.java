@@ -1,11 +1,13 @@
 package mybank.dao.services;
 
 import mybank.dao.entity.LoansAvailable;
+import mybank.dao.exceptions.LoanServiceException;
 import mybank.dao.exceptions.NoLoanDataException;
 import mybank.dao.interfaces.LoansInterface;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Service;
@@ -19,10 +21,11 @@ import java.util.stream.Collectors;
 @Service
 public class LoanServices implements LoansInterface {
     ResourceBundle resourceBundle = ResourceBundle.getBundle("application");
+    Logger logger= LoggerFactory.getLogger(LoanServices.class);
 
     @Autowired
     JdbcTemplate jdbcTemplate;
-
+    //gets loan from db and maps to it's respective data
     public class LoanAvailableMapper implements RowMapper<LoansAvailable> {
         @Override
         public LoansAvailable mapRow(ResultSet rs, int rowNum) throws SQLException {
@@ -39,15 +42,22 @@ public class LoanServices implements LoansInterface {
     //soap web service implementation to get all the loans
     @Override
     public List<LoansAvailable> allAvailableLoans() {
+        List<LoansAvailable> allAvailLoan;
         try {
-            List<LoansAvailable> allAvailLoan = jdbcTemplate.query("select * from mybank_app_loanavailable", new LoanAvailableMapper());
+             allAvailLoan = jdbcTemplate.query("select * from mybank_app_loanavailable", new LoanAvailableMapper());
             if (allAvailLoan == null) {
                 throw new NoLoanDataException(resourceBundle.getString("no.loans"));
             }
-            return allAvailLoan;
-        } catch (Exception e) {
+        }//if any error encountered interms of database
+        catch (DataAccessException dao) {
+            logger.error(resourceBundle.getString("db.error"));
+            throw new LoanServiceException(resourceBundle.getString("no.service.exp"));
+        }//if any nullPointerException
+        if(allAvailLoan.size()==0){
+            logger.warn(resourceBundle.getString("no.loans"));
             throw new NoLoanDataException(resourceBundle.getString("no.loans"));
         }
+        return allAvailLoan;
     }
     //rest service
     @Override
@@ -56,12 +66,15 @@ public class LoanServices implements LoansInterface {
             String sql = "SELECT * FROM MYBANK_APP_LOANAVAILABLE WHERE LOAN_TYPE = ?";
             List<LoansAvailable> loansByType = jdbcTemplate.query(sql, new Object[]{loanType}, new LoanAvailableMapper());
             if (loansByType == null || loansByType.isEmpty()) {
+                logger.warn(resourceBundle.getString("no.loanType"));
                 throw new NoLoanDataException(resourceBundle.getString("no.loanType") + loanType);
             }
             return loansByType;
         } catch (NoLoanDataException e) {
+            logger.warn(resourceBundle.getString("no.loanType"));
             throw new NoLoanDataException(resourceBundle.getString("no.loanType") + loanType);
         } catch (Exception e) {
+            logger.error(resourceBundle.getString("error.loanType"));
             throw new NoLoanDataException(resourceBundle.getString("error.loanType") + e.getMessage());
         }
     }
