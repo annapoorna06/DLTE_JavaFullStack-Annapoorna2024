@@ -9,4 +9,5 @@ import java.util.List;
 public interface LoansInterface {
     public List<LoansAvailable> allAvailableLoans();
     public List<LoansAvailable> findByLoanType(String loanType);
+    public double getRateOfInterestByLoanType(String loanType);
 }

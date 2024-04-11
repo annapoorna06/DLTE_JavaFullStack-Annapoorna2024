@@ -6,8 +6,8 @@ public class Employee {
         EmployeeAddress employeeTemporaryAddress;
 
         public Employee() {
-        }
 
+        }
         @Override
         public String toString() {
             return "Employee{" +

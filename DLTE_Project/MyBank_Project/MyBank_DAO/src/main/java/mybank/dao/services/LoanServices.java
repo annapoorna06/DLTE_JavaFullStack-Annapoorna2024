@@ -1,5 +1,4 @@
 package mybank.dao.services;
-
 import mybank.dao.entity.LoansAvailable;
 import mybank.dao.exceptions.LoanServiceException;
 import mybank.dao.exceptions.NoLoanDataException;
@@ -8,10 +7,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Service;
-
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
@@ -19,7 +18,6 @@ import java.util.ResourceBundle;
 import java.util.stream.Collectors;
 
 @Service
-
 public class LoanServices implements LoansInterface {
     ResourceBundle resourceBundle = ResourceBundle.getBundle("application");
     Logger logger= LoggerFactory.getLogger(LoanServices.class);
@@ -60,52 +58,68 @@ public class LoanServices implements LoansInterface {
         }
         return allAvailLoan;
     }
-    //rest service
+
     @Override
     public List<LoansAvailable> findByLoanType(String loanType) {
 //        try {
-//            String sql = "SELECT * FROM MYBANK_APP_LOANAVAILABLE WHERE LOAN_TYPE = ?";
-//            List<LoansAvailable> loansByType = jdbcTemplate.query(sql, new Object[]{loanType}, new LoanAvailableMapper());
+//            // Call the PL/SQL procedure to read loans by type
+//            String sql = "{call read_loans_by_type(?, ?, ?, ?, ?)}";
+//            List<LoansAvailable> loansByType = jdbcTemplate.query(sql, new Object[]{loanType, null, null, null, null}, new LoanAvailableMapper());
 //            if (loansByType == null || loansByType.isEmpty()) {
-//                logger.warn(resourceBundle.getString("no.loanType"));
 //                throw new NoLoanDataException(resourceBundle.getString("no.loanType") + loanType);
 //            }
 //            return loansByType;
 //        } catch (NoLoanDataException e) {
-//            logger.warn(resourceBundle.getString("no.loanType"));
 //            throw new NoLoanDataException(resourceBundle.getString("no.loanType") + loanType);
-//        } catch (Exception e) {
-//            logger.error(resourceBundle.getString("error.loanType"));
-//            throw new NoLoanDataException(resourceBundle.getString("error.loanType") + e.getMessage());
+//        } catch (LoanServiceException e) {
+//            throw new NoLoanDataException(resourceBundle.getString("error.LoanType") + e.getMessage());
 //        }
-//    }
 
+            try {
+                // Call the PL/SQL procedure to read loans by type
+                String sql = "{call read_loans_by_type(?, ?, ?, ?, ?)}";
+                List<LoansAvailable> loansByType = jdbcTemplate.query(sql, new Object[]{loanType, null, null, null, null}, new LoanAvailableMapper());
 
-        //filter using stream(for Java 8 implementation)
-        try {
-            String sql = "SELECT * FROM MYBANK_APP_LOANAVAILABLE";
-            List<LoansAvailable> allLoans = jdbcTemplate.query(sql, new LoanAvailableMapper());
+                // Filter loans by loanType using Java Stream
+                List<LoansAvailable> filteredLoans = loansByType.stream()
+                        .filter(loan -> loan.getLoanType().equalsIgnoreCase(loanType))
+                        .collect(Collectors.toList());
 
-            if (allLoans == null || allLoans.isEmpty()) {
-                throw new NoLoanDataException(resourceBundle.getString("error.noLoansFound"));
-            }
+                if (filteredLoans.isEmpty()) {
+                    throw new NoLoanDataException(resourceBundle.getString("no.loanType") + loanType);
+                }
 
-            List<LoansAvailable> loansByType = allLoans.stream()
-                    .filter(loan -> loan.getLoanType().equalsIgnoreCase(loanType))
-                    .collect(Collectors.toList());
-
-            if (loansByType.isEmpty()) {
+                return filteredLoans;
+            } catch (NoLoanDataException e) {
                 throw new NoLoanDataException(resourceBundle.getString("no.loanType") + loanType);
+            } catch (LoanServiceException e) {
+                throw new NoLoanDataException(resourceBundle.getString("error.LoanType") + e.getMessage());
             }
-
-            return loansByType;
-        } catch (NoLoanDataException e) {
-            throw new NoLoanDataException(resourceBundle.getString("no.loanType") + loanType);
-        } catch (Exception e) {
-            throw new NoLoanDataException(resourceBundle.getString("error.LoanType") + e.getMessage());
         }
 
+    @Override
+    public double getRateOfInterestByLoanType(String loanType) {
+        try {
+            // Call the PL/SQL procedure to read loans by type
+            String sql = "SELECT loan_roi FROM mybank_app_loanavailable WHERE loan_type = ?";
+            Double rateOfInterest = jdbcTemplate.queryForObject(sql, new Object[]{loanType}, Double.class);
+
+            if (rateOfInterest == null) {
+                // Handle the case when no rate of interest is found for the given loan type
+                throw new NoLoanDataException( resourceBundle.getString("no.roi") + loanType);
+            }
+            return rateOfInterest;
+        }  catch (NoLoanDataException e) {
+            // throw NoLoanDataException with appropriate message
+            throw new NoLoanDataException(resourceBundle.getString("no.loanType") + loanType);
+        } catch (LoanServiceException e) {
+            // throw LoanServiceException with appropriate message
+            throw new NoLoanDataException(resourceBundle.getString("error.LoanType") + e.getMessage());
+        }
     }
+
+
 }
+
 
 

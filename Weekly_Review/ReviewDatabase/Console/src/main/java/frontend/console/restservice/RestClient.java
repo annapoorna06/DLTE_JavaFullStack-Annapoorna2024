@@ -18,6 +18,7 @@ public class RestClient {
         CloseableHttpClient httpClient = HttpClients.createDefault();
         HttpGet httpGet = new HttpGet("http://localhost:7001/WebServiceRest/readAllEmployee/");
         CloseableHttpResponse response = httpClient.execute(httpGet);
+
 //        try (CloseableHttpResponse response = httpClient.execute(httpGet)) {
         try{
             int statusCode = response.getStatusLine().getStatusCode();
