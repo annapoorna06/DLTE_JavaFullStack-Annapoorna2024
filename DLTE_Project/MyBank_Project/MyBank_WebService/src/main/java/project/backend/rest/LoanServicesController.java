@@ -26,39 +26,39 @@ public class LoanServicesController {
     @Autowired
     private LoansInterface loanService;
     //http://localhost:8082/loans/{LoanType}
-//    @GetMapping("/loans/{loanType}")
-//    public List<LoansAvailable> findByLoanType(@PathVariable String loanType, HttpServletResponse response) throws LoanServiceException {
-//        try {
-//            List<LoansAvailable> loans = loanService.findByLoanType(loanType);
-//            if (loans.isEmpty()) {
-//                response.setStatus(HttpServletResponse.SC_NOT_FOUND);
-//                logger.warn(resourceBundle.getString("no.loan.type"), loanType);
-//                throw new NoLoanDataException(resourceBundle.getString("no.loan.type") + loanType);
-//            }
-//            return loans;
-//        } catch (NoLoanDataException e) {
-//            response.setStatus(HttpServletResponse.SC_NOT_FOUND);
-//            logger.error(resourceBundle.getString("no.loan.type"), loanType, e);
-//            throw e;
-//        } catch (DataAccessException e) {
-//            response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
-//            logger.error(resourceBundle.getString("loan.server.error"), e);
-//            throw new LoanServiceException(resourceBundle.getString("loan.server.error"));
-//        }
-//    }
-
-
-    @GetMapping("/findByLoanType/{loanType}")
-    public ResponseEntity<List<LoansAvailable>> findByLoanType(@PathVariable String loanType) {
+    @GetMapping("/{loanType}")
+    public List<LoansAvailable> findByLoanType(@PathVariable String loanType, HttpServletResponse response) throws LoanServiceException {
         try {
             List<LoansAvailable> loans = loanService.findByLoanType(loanType);
-            return new ResponseEntity<>(loans, HttpStatus.OK);
+            if (loans.isEmpty()) {
+                response.setStatus(HttpServletResponse.SC_NOT_FOUND);
+                logger.warn(resourceBundle.getString("no.loan.type"), loanType);
+                throw new NoLoanDataException(resourceBundle.getString("no.loan.type") + loanType);
+            }
+            return loans;
         } catch (NoLoanDataException e) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        } catch (LoanServiceException e) {
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+            response.setStatus(HttpServletResponse.SC_NOT_FOUND);
+            logger.error(resourceBundle.getString("no.loan.type"), loanType, e);
+            throw e;
+        } catch (DataAccessException e) {
+            response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+            logger.error(resourceBundle.getString("loan.server.error"), e);
+            throw new LoanServiceException(resourceBundle.getString("loan.server.error"));
         }
     }
+
+
+//    @GetMapping("/findByLoanType/{loanType}")
+//    public ResponseEntity<List<LoansAvailable>> findByLoanType(@PathVariable String loanType) {
+//        try {
+//            List<LoansAvailable> loans = loanService.findByLoanType(loanType);
+//            return new ResponseEntity<>(loans, HttpStatus.OK);
+//        } catch (NoLoanDataException e) {
+//            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+//        } catch (LoanServiceException e) {
+//            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+//        }
+//    }
 
 
 
