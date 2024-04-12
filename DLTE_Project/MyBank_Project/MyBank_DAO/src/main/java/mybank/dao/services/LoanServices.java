@@ -53,7 +53,7 @@ public class LoanServices implements LoansInterface {
         }//if any error encountered interms of database
         catch (DataAccessException dao) {
             logger.error(resourceBundle.getString("db.error"));
-            throw new LoanServiceException(resourceBundle.getString("no.service.exp"));
+            throw new LoanServiceException(resourceBundle.getString("db.error"));
         }//if any nullPointerException
         if(allAvailLoan.size()==0){
             logger.warn(resourceBundle.getString("no.loans"));
@@ -61,53 +61,66 @@ public class LoanServices implements LoansInterface {
         }
         return allAvailLoan;
     }
+@Override
+public List<LoansAvailable> findByLoanType(String loanType) {
+    List<LoansAvailable> loansList = new ArrayList<>();
+    try {
+        CallableStatementCreator creator = con -> {
+            CallableStatement statement = con.prepareCall("{call read_loans_by_type(?,?,?,?,?,?,?)}");
+            statement.setString(1, loanType);
+            statement.registerOutParameter(2, Types.VARCHAR);
+            statement.registerOutParameter(3, Types.VARCHAR);
+            statement.registerOutParameter(4, Types.NUMERIC);
+            statement.registerOutParameter(5, Types.NUMERIC);
+            statement.registerOutParameter(6, Types.VARCHAR);
+            statement.registerOutParameter(7, Types.VARCHAR);
+            return statement;
+        };
+        List<SqlParameter> sqlParameters = Arrays.asList(
+                new SqlParameter(Types.VARCHAR),
+                new SqlOutParameter("loan_name", Types.VARCHAR),
+                new SqlOutParameter("loan_description", Types.VARCHAR),
+                new SqlOutParameter("loan_roi", Types.NUMERIC),
+                new SqlOutParameter("loan_number", Types.NUMERIC),
+                new SqlOutParameter("loan_info", Types.VARCHAR),
+                new SqlOutParameter("loan_type_out", Types.VARCHAR)
+        );
+        Map<String, Object> returnedLoans = jdbcTemplate.call(creator, sqlParameters);
+
+        String loanInfo = (String) returnedLoans.get("loan_info");
+        if (loanInfo != null) {
+
+            if (loanInfo.equals("NO_LOAN_FOUND")) {
+                logger.warn(resourceBundle.getString("no.loanType"));
+                throw new NoLoanDataException(resourceBundle.getString("no.loanType") + loanType);
+            } else if (loanInfo.equals("SQ001")) {
+                logger.warn(resourceBundle.getString("error.loanType"));
+                throw new LoanServiceException(resourceBundle.getString("error.loanType"));
+            } else {
+                logger.warn(resourceBundle.getString("loan.server.error"));
+                throw new LoanServiceException(resourceBundle.getString("loan.server.error"));
+            }
+        }
+        LoansAvailable loan = new LoansAvailable();
+        loan.setLoanNumber(((BigDecimal) returnedLoans.get("loan_number")).intValue());
+        loan.setLoanType((String) returnedLoans.get("loan_type_out"));
+        loan.setLoanName((String) returnedLoans.get("loan_name"));
+        loan.setLoanDescription((String) returnedLoans.get("loan_description"));
+        BigDecimal loanRoi = (BigDecimal) returnedLoans.get("loan_roi");
+        if (loanRoi != null) {
+            loan.setLoanRoi(loanRoi.doubleValue());
+        }
+        loansList.add(loan);
+    } catch (DataAccessException ex) {
+        logger.warn(resourceBundle.getString("db.error"));
+        throw new LoanServiceException(resourceBundle.getString("db.error"));
+    }
+    logger.info(resourceBundle.getString("loan.server.available"));
+    return loansList;
+}
+
 
     @Override
-    public List<LoansAvailable> findByLoanType(String loanType) {
-
-        try {
-            List<LoansAvailable> loansList = new ArrayList<>();
-            CallableStatementCreator creator = con -> {
-                CallableStatement statement = con.prepareCall("{call read_loans_by_type(?,?,?,?,?,?,?)}");
-                statement.setString(1, loanType);
-                statement.registerOutParameter(2, Types.VARCHAR);
-                statement.registerOutParameter(3, Types.VARCHAR);
-                statement.registerOutParameter(4, Types.NUMERIC);
-                statement.registerOutParameter(5, Types.NUMERIC);
-                statement.registerOutParameter(6, Types.VARCHAR);
-                statement.registerOutParameter(7, Types.VARCHAR);
-                return statement;
-            };
-            List<SqlParameter> sqlParameters = Arrays.asList(
-                    new SqlParameter(Types.VARCHAR),
-                    new SqlOutParameter("loan_name", Types.VARCHAR),
-                    new SqlOutParameter("loan_description", Types.VARCHAR),
-                    new SqlOutParameter("loan_roi", Types.NUMERIC),
-                    new SqlOutParameter("loan_number", Types.NUMERIC),
-                    new SqlOutParameter("loan_info", Types.VARCHAR),
-                    new SqlOutParameter("loan_type_out", Types.VARCHAR)
-            );
-            Map<String, Object> returnedLoans = jdbcTemplate.call(creator, sqlParameters);
-
-            LoansAvailable loan = new LoansAvailable();
-            loan.setLoanNumber(((BigDecimal) returnedLoans.get("loan_number")).intValue());
-            loan.setLoanType((String) returnedLoans.get("loan_type_out"));
-            loan.setLoanName((String) returnedLoans.get("loan_name"));
-            loan.setLoanDescription((String) returnedLoans.get("loan_description"));
-            BigDecimal loanRoi = (BigDecimal) returnedLoans.get("loan_roi");
-            if (loanRoi != null) {
-                loan.setLoanRoi(loanRoi.doubleValue());
-            }
-            loansList.add(loan);
-            return loansList;
-        } catch (NoLoanDataException e) {
-            throw new NoLoanDataException(resourceBundle.getString("no.loanType") + loanType);
-        } catch (LoanServiceException e) {
-            throw new NoLoanDataException(resourceBundle.getString("error.LoanType") + e.getMessage());
-        }
-    }
-
-        @Override
     public double getRateOfInterestByLoanType(String loanType) {
 //        try {
 //            // Call the PL/SQL procedure to read loans by type
@@ -139,6 +152,7 @@ public class LoanServices implements LoansInterface {
 
             // If no loans found for the specified loan type, throw exception
             if (loansByType.isEmpty()) {
+                logger.warn(resourceBundle.getString("no.loanType"));
                 throw new NoLoanDataException(resourceBundle.getString("no.loanType") + loanType);
             }
 
@@ -146,11 +160,11 @@ public class LoanServices implements LoansInterface {
             double rateOfInterest = loansByType.get(0).getLoanRoi();
             return rateOfInterest;
         } catch (NoLoanDataException e) {
-            // throw NoLoanDataException with appropriate message
+            logger.warn(resourceBundle.getString("no.loanType"));
             throw new NoLoanDataException(resourceBundle.getString("no.loanType") + loanType);
         } catch (LoanServiceException e) {
-            // throw LoanServiceException with appropriate message
-            throw new NoLoanDataException(resourceBundle.getString("error.LoanType") + e.getMessage());
+            logger.warn(resourceBundle.getString("error.loanType"));
+            throw new NoLoanDataException(resourceBundle.getString("error.loanType") + e.getMessage());
         }
     }
 

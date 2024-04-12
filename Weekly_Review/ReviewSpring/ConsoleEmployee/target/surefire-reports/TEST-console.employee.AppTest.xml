@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="console.employee.AppTest" time="0.047" tests="1" errors="0" skipped="0" failures="0">
+  <properties>
+    <property name="sun.desktop" value="windows"/>
+    <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
+    <property name="file.encoding.pkg" value="sun.io"/>
+    <property name="java.specification.version" value="1.8"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+    <property name="sun.jnu.encoding" value="Cp1252"/>
+    <property name="java.class.path" value="C:\DLTE_JavaFullStack-Annapoorna2024\Weekly_Review\ReviewSpring\ConsoleEmployee\target\test-classes;C:\DLTE_JavaFullStack-Annapoorna2024\Weekly_Review\ReviewSpring\ConsoleEmployee\target\classes;c:\tools\maven_repo\repository\junit\junit\4.11\junit-4.11.jar;c:\tools\maven_repo\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;c:\tools\maven_repo\repository\org\apache\httpcomponents\httpclient\4.5.1\httpclient-4.5.1.jar;c:\tools\maven_repo\repository\org\apache\httpcomponents\httpcore\4.4.3\httpcore-4.4.3.jar;c:\tools\maven_repo\repository\commons-logging\commons-logging\1.2\commons-logging-1.2.jar;c:\tools\maven_repo\repository\commons-codec\commons-codec\1.9\commons-codec-1.9.jar;c:\tools\maven_repo\repository\com\google\code\gson\gson\2.10.1\gson-2.10.1.jar;"/>
+    <property name="java.vm.vendor" value="Red Hat, Inc."/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="user.variant" value=""/>
+    <property name="java.vendor.url" value="https://developers.redhat.com/"/>
+    <property name="user.timezone" value="Asia/Calcutta"/>
+    <property name="java.vm.specification.version" value="1.8"/>
+    <property name="os.name" value="Windows 10"/>
+    <property name="user.country" value="IN"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="sun.boot.library.path" value="C:\Program Files\RedHat\java-1.8.0-openjdk-1.8.0.292-2\jre\bin"/>
+    <property name="sun.java.command" value="C:\Users\xxpaiija\AppData\Local\Temp\surefire5269847598775101822\surefirebooter1388665517128306800.jar C:\Users\xxpaiija\AppData\Local\Temp\surefire5269847598775101822 2024-04-12T09-24-21_663-jvmRun1 surefire5163175388777082234tmp surefire_07799586165810591213tmp"/>
+    <property name="surefire.test.class.path" value="C:\DLTE_JavaFullStack-Annapoorna2024\Weekly_Review\ReviewSpring\ConsoleEmployee\target\test-classes;C:\DLTE_JavaFullStack-Annapoorna2024\Weekly_Review\ReviewSpring\ConsoleEmployee\target\classes;c:\tools\maven_repo\repository\junit\junit\4.11\junit-4.11.jar;c:\tools\maven_repo\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;c:\tools\maven_repo\repository\org\apache\httpcomponents\httpclient\4.5.1\httpclient-4.5.1.jar;c:\tools\maven_repo\repository\org\apache\httpcomponents\httpcore\4.4.3\httpcore-4.4.3.jar;c:\tools\maven_repo\repository\commons-logging\commons-logging\1.2\commons-logging-1.2.jar;c:\tools\maven_repo\repository\commons-codec\commons-codec\1.9\commons-codec-1.9.jar;c:\tools\maven_repo\repository\com\google\code\gson\gson\2.10.1\gson-2.10.1.jar;"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="C:\Users\xxpaiija"/>
+    <property name="user.language" value="en"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.home" value="C:\Program Files\RedHat\java-1.8.0-openjdk-1.8.0.292-2\jre"/>
+    <property name="basedir" value="C:\DLTE_JavaFullStack-Annapoorna2024\Weekly_Review\ReviewSpring\ConsoleEmployee"/>
+    <property name="file.separator" value="\"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
+    <property name="surefire.real.class.path" value="C:\Users\xxpaiija\AppData\Local\Temp\surefire5269847598775101822\surefirebooter1388665517128306800.jar"/>
+    <property name="sun.boot.class.path" value="C:\Program Files\RedHat\java-1.8.0-openjdk-1.8.0.292-2\jre\lib\resources.jar;C:\Program Files\RedHat\java-1.8.0-openjdk-1.8.0.292-2\jre\lib\rt.jar;C:\Program Files\RedHat\java-1.8.0-openjdk-1.8.0.292-2\jre\lib\sunrsasign.jar;C:\Program Files\RedHat\java-1.8.0-openjdk-1.8.0.292-2\jre\lib\jsse.jar;C:\Program Files\RedHat\java-1.8.0-openjdk-1.8.0.292-2\jre\lib\jce.jar;C:\Program Files\RedHat\java-1.8.0-openjdk-1.8.0.292-2\jre\lib\charsets.jar;C:\Program Files\RedHat\java-1.8.0-openjdk-1.8.0.292-2\jre\lib\jfr.jar;C:\Program Files\RedHat\java-1.8.0-openjdk-1.8.0.292-2\jre\classes"/>
+    <property name="user.script" value=""/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="java.runtime.version" value="1.8.0_292-b10"/>
+    <property name="user.name" value="xxpaiija"/>
+    <property name="path.separator" value=";"/>
+    <property name="os.version" value="10.0"/>
+    <property name="java.endorsed.dirs" value="C:\Program Files\RedHat\java-1.8.0-openjdk-1.8.0.292-2\jre\lib\endorsed"/>
+    <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
+    <property name="file.encoding" value="Cp1252"/>
+    <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
+    <property name="localRepository" value="c:\tools\maven_repo\repository"/>
+    <property name="java.vendor.url.bug" value="https://bugzilla.redhat.com/enter_bug.cgi"/>
+    <property name="java.io.tmpdir" value="C:\Users\xxpaiija\AppData\Local\Temp\"/>
+    <property name="java.version" value="1.8.0_292"/>
+    <property name="user.dir" value="C:\DLTE_JavaFullStack-Annapoorna2024\Weekly_Review\ReviewSpring\ConsoleEmployee"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob"/>
+    <property name="idea.version2019.3.1" value="true"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="java.library.path" value="C:\Program Files\RedHat\java-1.8.0-openjdk-1.8.0.292-2\jre\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\oraclexe\app\oracle\product\11.2.0\server\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\RedHat\java-1.8.0-openjdk-1.8.0.292-2\bin;C:\Program Files\RedHat\java-1.8.0-openjdk-1.8.0.292-2\jre\bin;C:\Program Files\RedHat\java-1.8.0-openjdk-1.8.0.292-2\bin;C:\Maven\apache-maven-3.3.9\bin;C:\Program Files\Git\cmd;C:\Users\xxpaiija\AppData\Local\Microsoft\WindowsApps;C:\Users\xxpaiija\AppData\Local\Programs\Microsoft VS Code\bin;."/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="java.vendor" value="Red Hat, Inc."/>
+    <property name="java.vm.version" value="25.292-b10"/>
+    <property name="java.ext.dirs" value="C:\Program Files\RedHat\java-1.8.0-openjdk-1.8.0.292-2\jre\lib\ext;C:\WINDOWS\Sun\Java\lib\ext"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="java.class.version" value="52.0"/>
+  </properties>
+  <testcase name="shouldAnswerWithTrue" classname="console.employee.AppTest" time="0"/>
+</testsuite>
