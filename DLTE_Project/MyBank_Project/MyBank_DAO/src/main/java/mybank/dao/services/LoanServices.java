@@ -1,5 +1,5 @@
 package mybank.dao.services;
-import com.fasterxml.jackson.databind.ObjectMapper;
+//import com.fasterxml.jackson.databind.ObjectMapper;
 import mybank.dao.entity.LoansAvailable;
 import mybank.dao.exceptions.LoanServiceException;
 import mybank.dao.exceptions.NoLoanDataException;
@@ -96,10 +96,11 @@ public List<LoansAvailable> findByLoanType(String loanType) {
             } else if (loanInfo.equals("SQ001")) {
                 logger.warn(resourceBundle.getString("error.loanType"));
                 throw new LoanServiceException(resourceBundle.getString("error.loanType"));
-            } else {
-                logger.warn(resourceBundle.getString("loan.server.error"));
-                throw new LoanServiceException(resourceBundle.getString("loan.server.error"));
             }
+//            else {
+//                logger.warn(resourceBundle.getString("loan.server.error"));
+//                throw new LoanServiceException(resourceBundle.getString("loan.server.error"));
+//            }
         }
         LoansAvailable loan = new LoansAvailable();
         loan.setLoanNumber(((BigDecimal) returnedLoans.get("loan_number")).intValue());

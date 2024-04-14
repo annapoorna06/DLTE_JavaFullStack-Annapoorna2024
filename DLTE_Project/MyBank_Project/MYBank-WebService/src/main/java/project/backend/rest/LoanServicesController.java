@@ -50,7 +50,7 @@ public class LoanServicesController {
                                @RequestParam double amount,
                                @RequestParam int tenure,
                                HttpServletResponse response) throws LoanServiceException {
-       // http://localhost:8082/loans/Gold/emi?amount=10000&tenure=12
+        // http://localhost:8082/loans/Gold/emi?amount=10000&tenure=12
         try {
             // Retrieve rate of interest from database based on loan type
             double rateOfInterest = loanService.getRateOfInterestByLoanType(loanType);
