@@ -1,29 +1,32 @@
 //package project.backend;
 //
 //import mybank.dao.entity.LoansAvailable;
-//import mybank.dao.exceptions.LoanServiceException;
-//import mybank.dao.exceptions.NoLoanDataException;
 //import mybank.dao.interfaces.LoansInterface;
 //import org.junit.jupiter.api.Test;
+//import org.junit.jupiter.api.extension.ExtendWith;
+//import org.mockito.junit.jupiter.MockitoExtension;
 //import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 //import org.springframework.boot.test.context.SpringBootTest;
 //import org.springframework.boot.test.mock.mockito.MockBean;
-//import org.springframework.dao.DataAccessException;
+//import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+//import org.springframework.security.test.context.support.WithMockUser;
+//import org.springframework.test.web.servlet.MockMvc;
 //import project.backend.configuration.SoapPhase;
 //import project.backend.rest.LoanServicesController;
-//import services.loans.ViewAllAvailableLoanRequest;
-//import services.loans.ViewAllAvailableLoanResponse;
 //
 //import javax.servlet.http.HttpServletResponse;
 //import java.util.ArrayList;
 //import java.util.List;
-//
-//import static org.junit.Assert.assertNotEquals;
 //import static org.junit.jupiter.api.Assertions.assertEquals;
 //import static org.junit.jupiter.api.Assertions.assertNotNull;
 //import static org.mockito.Mockito.when;
 //
+//import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+//
 //@SpringBootTest
+//@ExtendWith(MockitoExtension.class)
+//@AutoConfigureMockMvc
 //public class MybankwebserviceApplicationTests {
 //
 //    @Autowired
@@ -32,6 +35,8 @@
 //    private LoanServicesController loanServicesController;
 //    @MockBean
 //    private LoansInterface interfaceServices;
+//    @Autowired
+//    private MockMvc mockMvc;
 ////    @Test
 ////    public void testViewAvailableLoanRequest_Success() {
 ////        // Arrange
@@ -85,6 +90,27 @@
 //    }
 //
 //    @Test
+//    @WithMockUser(username = "Akshatha")
+//    public void testingFindByLoanType_Success() throws Exception {
+//        String loanType = "Home"; // Adjust the loan type as needed
+//
+//        // Act & Assert
+//        mockMvc.perform(get("/loans/{loanType}", loanType))
+//                .andExpect(status().isNotFound());
+//    }
+//
+//    @Test
+//    @WithMockUser(username = "Akshatha")
+//    public void testingFindByLoanType_Failure() throws Exception {
+//        String loanType = "Gold";
+//
+//        // Act & Assert
+//        mockMvc.perform(get("http://localhost:8083/loans/{loanType}", loanType))
+//                .andExpect(status().isOk());
+//    }
+//
+//
+//    @Test
 //    public void testFindByLoanType_Failure() {
 //        // Arrange
 //        String loanType = "home";
@@ -100,35 +126,35 @@
 //        assertEquals(1, result.size());
 //    }
 //
+//
 //    @Test
-//    public void testCalculateEMI_Success() {
+//    @WithMockUser()
+//    public void testCalculateEMI_Success_Endpoint() throws Exception {
 //        // Arrange
-//        String loanType = "home_loan";
+//        String loanType = "Gold";
 //        double amount = 10000;
 //        int tenure = 12;
-//        HttpServletResponse response = null;
-//        double expectedEMI = 1000.0; // Assuming a fixed EMI for testing purposes=actual value
-//        when(interfaceServices.getRateOfInterestByLoanType(loanType)).thenReturn(10.0); // Assuming 10% rate of interest
-//        // Act
-//        double result = loanServicesController.calculateEMI(loanType, amount, tenure, response);
-//        // Assert
-//        assertEquals(expectedEMI, result);
+//
+//        // Act & Assert
+//        mockMvc.perform(get("/loans/Gold/emi")
+//                .param("amount", String.valueOf(amount))
+//                .param("tenure", String.valueOf(tenure)))
+//                .andExpect(status().isUnauthorized());
 //    }
+//
 //    @Test
-//    public void testCalculateEMI_Failure() {
+//    @WithMockUser()
+//    public void testCalculateEMI_Failure_Endpoint() throws Exception {
 //        // Arrange
-//        String loanType = "home_loan";
+//        String loanType = "Gold";
 //        double amount = 10000;
 //        int tenure = 12;
-//        HttpServletResponse response = null;
-//        double expectedEMI = 2000.0; // Incorrect expected EMI value actusl value=879
-//        when(interfaceServices.getRateOfInterestByLoanType(loanType)).thenReturn(10.0); // Assuming 10% rate of interest
 //
-//        // Act
-//        double result = loanServicesController.calculateEMI(loanType, amount, tenure, response);
-//
-//        // Assert
-//        assertEquals(expectedEMI, result); // The test should fail as the expected EMI doesn't match the calculated EMI
+//        // Act & Assert
+//        mockMvc.perform(get("/loans/Gold/emi")
+//                .param("amount", String.valueOf(amount))
+//                .param("tenure", String.valueOf(tenure)))
+//                .andExpect(status().isOk());
 //    }
 //
 //}

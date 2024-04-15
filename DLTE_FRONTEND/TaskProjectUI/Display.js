@@ -1,4 +1,3 @@
-
 function toggleLoanCards() {
     var loanCardsContainer = document.getElementById("loanCardsContainer");
     var showLoansBtn = document.getElementById("showLoansBtn");
@@ -10,5 +9,4 @@ function toggleLoanCards() {
         showLoansBtn.style.display = "block"; // Show the button when cards are hidden
     }
 }
-
 document.getElementById("showLoansBtn").addEventListener("click", toggleLoanCards);

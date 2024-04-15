@@ -1,55 +1,10 @@
-//package console.employee;
-//
-//import org.apache.http.HttpEntity;
-//import org.apache.http.client.methods.CloseableHttpResponse;
-//import org.apache.http.client.methods.HttpGet;
-//import org.apache.http.impl.client.CloseableHttpClient;
-//import org.apache.http.impl.client.HttpClients;
-//import org.apache.http.util.EntityUtils;
-//
-//import java.io.IOException;
-//
-//public class RestClient {
-//    public static void main(String[] args) throws IOException {
-//        CloseableHttpClient httpClient = HttpClients.createDefault();
-//        HttpGet httpGetCreate = new HttpGet("http://localhost:8012/employees/create");
-//        HttpGet httpGetAll = new HttpGet("http://localhost:8012/employees/allEmployee");
-//        HttpGet httpGetId = new HttpGet("http://localhost:8012/employees/employeeId/{employeeId}");
-//        HttpGet httpGetPinCode = new HttpGet("http://localhost:8012/employees/pincode/576117");
-//        //CloseableHttpResponse response = httpClient.execute(httpGetCreate);
-//        //CloseableHttpResponse response = httpClient.execute(httpGetAll);
-//        //CloseableHttpResponse response = httpClient.execute(httpGetId);
-//        CloseableHttpResponse response = httpClient.execute(httpGetPinCode);
-//
-//
-////        try (CloseableHttpResponse response = httpClient.execute(httpGet)) {
-//        try{
-//            int statusCode = response.getStatusLine().getStatusCode();
-//            System.out.println("HTTP Status Code: " + statusCode);
-//
-//            HttpEntity entity = response.getEntity();
-//            if (entity != null) {
-//                String json = EntityUtils.toString(entity);
-//                System.out.println("Employee Details:");
-//                System.out.println(json);
-//            }
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        } finally {
-//            try {
-//                httpClient.close();
-//            } catch (IOException e) {
-//                e.printStackTrace();
-//            }
-//        }
-//    }
-//}
-//
 package console.employee;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
@@ -58,45 +13,156 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class RestClient {
-    private static final String BASE_URL = "http://localhost:8012/employees";
 
-    public static void main(String[] args) throws IOException {
+    private static final String BASE_URL = "http://localhost:8012/employees/";
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
         CloseableHttpClient httpClient = HttpClients.createDefault();
 
+        boolean exit = false;
+        while (!exit) {
+            System.out.println("Menu:");
+            System.out.println("1. Read All Employees");
+            System.out.println("2. Display Employee by ID");
+            System.out.println("3. Display Employee by Pin Code");
+            System.out.println("4. Create employee");
+            System.out.println("5. Exit");
+            System.out.print("Enter your choice: ");
+            int choice = scanner.nextInt();
+            scanner.nextLine(); // Consume newline character
+
+            switch (choice) {
+                case 1:
+                    readAllEmployees(httpClient);
+                    break;
+                case 2:
+                    displayEmployeeById(httpClient, scanner);
+                    break;
+                case 3:
+                    displayEmployeeByPinCode(httpClient, scanner);
+                    break;
+                case 4:
+                    createEmployees(httpClient, scanner);
+                    break;
+                case 5:
+                    exit = true;
+                    break;
+                default:
+                    System.out.println("Invalid choice. Please enter 1, 2, 3, or 4.");
+            }
+        }
+
         try {
-            // Send HTTP GET request to create an employee
-            //sendHttpGetRequest(httpClient, BASE_URL + "/create");
-
-            // Send HTTP GET request to retrieve all employees
-            //sendHttpGetRequest(httpClient, BASE_URL + "/allEmployee");
-
-            // Send HTTP GET request to retrieve employee by ID
-
-            Scanner scanner=new Scanner(System.in);
-            String employeeId=scanner.nextLine();
-            sendHttpGetRequest(httpClient, BASE_URL + "/employeeId/" + employeeId);
-
-            // Send HTTP GET request to retrieve employees by pin code
-//            String pinCode = "576117";
-//            sendHttpGetRequest(httpClient, BASE_URL + "/pincode/" + pinCode);
-        } finally {
             httpClient.close();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
-    private static void sendHttpGetRequest(CloseableHttpClient httpClient, String url) throws IOException {
-        HttpGet httpGet = new HttpGet(url);
-        try (CloseableHttpResponse response = httpClient.execute(httpGet)) {
-            int statusCode = response.getStatusLine().getStatusCode();
-            System.out.println("HTTP Status Code: " + statusCode);
+    private static void readAllEmployees(CloseableHttpClient httpClient) {
+        try {
+            HttpGet httpGet = new HttpGet(BASE_URL + "allEmployee");
+            try (CloseableHttpResponse response = httpClient.execute(httpGet)) {
+                int statusCode = response.getStatusLine().getStatusCode();
+                System.out.println("HTTP Status Code: " + statusCode);
 
-            HttpEntity entity = response.getEntity();
-            if (entity != null) {
-                String json = EntityUtils.toString(entity);
-                System.out.println("Response Body:");
-                System.out.println(json);
-
+                HttpEntity entity = response.getEntity();
+                if (entity != null) {
+                    String json = EntityUtils.toString(entity);
+                    System.out.println("Employee Details:");
+                    System.out.println(json);
+                }
             }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static void displayEmployeeById(CloseableHttpClient httpClient, Scanner scanner) {
+        System.out.print("Enter employee ID: ");
+        String employeeId = scanner.nextLine();
+
+        try {
+            HttpGet httpGet = new HttpGet(BASE_URL + "employeeId/" + employeeId);
+            try (CloseableHttpResponse response = httpClient.execute(httpGet)) {
+                int statusCode = response.getStatusLine().getStatusCode();
+                System.out.println("HTTP Status Code: " + statusCode);
+
+                if (statusCode == 200) {
+                    HttpEntity entity = response.getEntity();
+                    if (entity != null) {
+                        String json = EntityUtils.toString(entity);
+                        System.out.println("Employee Details:");
+                        System.out.println(json);
+                    }
+                } else if (statusCode == 404) {
+                    System.out.println("Employee not found.");
+                } else {
+                    System.out.println("Error occurred. HTTP Status Code: " + statusCode);
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static void displayEmployeeByPinCode(CloseableHttpClient httpClient, Scanner scanner) {
+        System.out.print("Enter employee pin code: ");
+        int pinCode = scanner.nextInt();
+        scanner.nextLine(); // Consume newline character
+
+        try {
+            HttpGet httpGet = new HttpGet(BASE_URL + "pincode/" + pinCode);
+            try (CloseableHttpResponse response = httpClient.execute(httpGet)) {
+                int statusCode = response.getStatusLine().getStatusCode();
+                System.out.println("HTTP Status Code: " + statusCode);
+
+                if (statusCode == 200) {
+                    HttpEntity entity = response.getEntity();
+                    if (entity != null) {
+                        String json = EntityUtils.toString(entity);
+                        System.out.println("Employee Details:");
+                        System.out.println(json);
+                    }
+                } else if (statusCode == 204) {
+                    System.out.println("No employees found for the given pin code.");
+                } else {
+                    System.out.println("Error occurred. HTTP Status Code: " + statusCode);
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    private static void createEmployees(CloseableHttpClient httpClient, Scanner scanner) {
+        System.out.println("Enter employee data in JSON format:");
+        String jsonData = scanner.nextLine();
+
+        try {
+            HttpPost httpPost = new HttpPost(BASE_URL + "create");
+            StringEntity entity = new StringEntity(jsonData);
+            httpPost.setEntity(entity);
+            httpPost.setHeader("Accept", "application/json");
+            httpPost.setHeader("Content-type", "application/json");
+
+            try (CloseableHttpResponse response = httpClient.execute(httpPost)) {
+                int statusCode = response.getStatusLine().getStatusCode();
+                System.out.println("HTTP Status Code: " + statusCode);
+
+                if (statusCode == 201) {
+                    HttpEntity responseEntity = response.getEntity();
+                    if (responseEntity != null) {
+                        String jsonResponse = EntityUtils.toString(responseEntity);
+                        System.out.println("Created Employees:");
+                        System.out.println(jsonResponse);
+                    }
+                } else {
+                    System.out.println("Error occurred. HTTP Status Code: " + statusCode);
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }

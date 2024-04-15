@@ -61,20 +61,20 @@ public class LoanServices implements LoansInterface {
         }
         return allAvailLoan;
     }
-@Override
-public List<LoansAvailable> findByLoanType(String loanType) {
-    List<LoansAvailable> loansList = new ArrayList<>();
-    try {
-        CallableStatementCreator creator = con -> {
-            CallableStatement statement = con.prepareCall("{call read_loans_by_type(?,?,?,?,?,?,?)}");
-            statement.setString(1, loanType);
-            statement.registerOutParameter(2, Types.VARCHAR);
-            statement.registerOutParameter(3, Types.VARCHAR);
-            statement.registerOutParameter(4, Types.NUMERIC);
-            statement.registerOutParameter(5, Types.NUMERIC);
-            statement.registerOutParameter(6, Types.VARCHAR);
-            statement.registerOutParameter(7, Types.VARCHAR);
-            return statement;
+    @Override
+    public List<LoansAvailable> findByLoanType(String loanType) {
+        List<LoansAvailable> loansList = new ArrayList<>();
+        try {
+            CallableStatementCreator creator = con -> {
+                CallableStatement statement = con.prepareCall("{call read_loans_by_type(?,?,?,?,?,?,?)}");
+                    statement.setString(1, loanType);
+                    statement.registerOutParameter(2, Types.VARCHAR);
+                    statement.registerOutParameter(3, Types.VARCHAR);
+                    statement.registerOutParameter(4, Types.NUMERIC);
+                    statement.registerOutParameter(5, Types.NUMERIC);
+                    statement.registerOutParameter(6, Types.VARCHAR);
+                    statement.registerOutParameter(7, Types.VARCHAR);
+                    return statement;
         };
         List<SqlParameter> sqlParameters = Arrays.asList(
                 new SqlParameter(Types.VARCHAR),
@@ -97,10 +97,6 @@ public List<LoansAvailable> findByLoanType(String loanType) {
                 logger.warn(resourceBundle.getString("error.loanType"));
                 throw new LoanServiceException(resourceBundle.getString("error.loanType"));
             }
-//            else {
-//                logger.warn(resourceBundle.getString("loan.server.error"));
-//                throw new LoanServiceException(resourceBundle.getString("loan.server.error"));
-//            }
         }
         LoansAvailable loan = new LoansAvailable();
         loan.setLoanNumber(((BigDecimal) returnedLoans.get("loan_number")).intValue());
@@ -152,7 +148,7 @@ public List<LoansAvailable> findByLoanType(String loanType) {
                     .collect(Collectors.toList());
 
             // If no loans found for the specified loan type, throw exception
-            if (loansByType.isEmpty()) {
+            if (loansByType==null) {
                 logger.warn(resourceBundle.getString("no.loanType"));
                 throw new NoLoanDataException(resourceBundle.getString("no.loanType") + loanType);
             }
