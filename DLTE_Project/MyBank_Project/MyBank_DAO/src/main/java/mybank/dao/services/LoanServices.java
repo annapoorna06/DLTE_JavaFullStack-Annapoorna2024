@@ -119,52 +119,24 @@ public class LoanServices implements LoansInterface {
 
     @Override
     public double getRateOfInterestByLoanType(String loanType) {
-//        try {
-//            // Call the PL/SQL procedure to read loans by type
-//            String sql = "SELECT loan_roi FROM mybank_app_loanavailable WHERE loan_type = ?";
-//            Double rateOfInterest = jdbcTemplate.queryForObject(sql, new Object[]{loanType}, Double.class);
-//
-//            if (rateOfInterest == null) {
-//                // Handle the case when no rate of interest is found for the given loan type
-//                throw new NoLoanDataException( resourceBundle.getString("no.roi") + loanType);
-//            }
-//            return rateOfInterest;
-//        }  catch (NoLoanDataException e) {
-//            // throw NoLoanDataException with appropriate message
-//            throw new NoLoanDataException(resourceBundle.getString("no.loanType") + loanType);
-//        } catch (LoanServiceException e) {
-//            // throw LoanServiceException with appropriate message
-//            throw new NoLoanDataException(resourceBundle.getString("error.LoanType") + e.getMessage());
-//        }
-//    }
         try {
-            // Retrieve all loans from the database
-            String sql = "SELECT * FROM mybank_app_loanavailable";
-            List<LoansAvailable> allLoans = jdbcTemplate.query(sql, new LoanAvailableMapper());
+            // Call the PL/SQL procedure to read loans by type
+            String sql = "SELECT loan_roi FROM mybank_app_loanavailable WHERE loan_type = ?";
+            Double rateOfInterest = jdbcTemplate.queryForObject(sql, new Object[]{loanType}, Double.class);
 
-            // Filter loans by loanType using Java Stream
-            List<LoansAvailable> loansByType = allLoans.stream()
-                    .filter(loan -> loan.getLoanType().equalsIgnoreCase(loanType))
-                    .collect(Collectors.toList());
-
-            // If no loans found for the specified loan type, throw exception
-            if (loansByType==null) {
-                logger.warn(resourceBundle.getString("no.loanType"));
-                throw new NoLoanDataException(resourceBundle.getString("no.loanType") + loanType);
+            if (rateOfInterest == null) {
+                // Handle the case when no rate of interest is found for the given loan type
+                throw new NoLoanDataException( resourceBundle.getString("no.roi") + loanType);
             }
-
-            // Assuming only one loan with the specified type exists, retrieve its rate of interest
-            double rateOfInterest = loansByType.get(0).getLoanRoi();
             return rateOfInterest;
-        } catch (NoLoanDataException e) {
-            logger.warn(resourceBundle.getString("no.loanType"));
+        }  catch (NoLoanDataException e) {
+            // throw NoLoanDataException with appropriate message
             throw new NoLoanDataException(resourceBundle.getString("no.loanType") + loanType);
         } catch (LoanServiceException e) {
-            logger.warn(resourceBundle.getString("error.loanType"));
-            throw new NoLoanDataException(resourceBundle.getString("error.loanType") + e.getMessage());
+            // throw LoanServiceException with appropriate message
+            throw new NoLoanDataException(resourceBundle.getString("error.LoanType") + e.getMessage());
         }
     }
-
 }
 
 

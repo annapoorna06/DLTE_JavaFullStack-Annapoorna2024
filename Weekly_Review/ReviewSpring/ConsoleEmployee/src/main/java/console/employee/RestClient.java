@@ -1,5 +1,4 @@
 package console.employee;
-
 import org.apache.http.HttpEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
@@ -143,7 +142,6 @@ public class RestClient {
             HttpPost httpPost = new HttpPost(BASE_URL + "create");
             StringEntity entity = new StringEntity(jsonData);
             httpPost.setEntity(entity);
-            httpPost.setHeader("Accept", "application/json");
             httpPost.setHeader("Content-type", "application/json");
 
             try (CloseableHttpResponse response = httpClient.execute(httpPost)) {
