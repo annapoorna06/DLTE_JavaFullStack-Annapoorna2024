@@ -40,3 +40,4 @@
 2024-04-18 14:16:45 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
 2024-04-18 14:16:45 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8081 (http) with context path ''
 2024-04-18 14:16:45 [restartedMain] INFO  mybank.dao.MybankdaoApplication - Started MybankdaoApplication in 3.525 seconds (JVM running for 4.815)
+2024-04-18 20:15:17 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2h12m16s960ms991µs800ns).
