@@ -19,6 +19,7 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 @RestController
+@CrossOrigin(origins = "*")
 @RequestMapping("/loans")
 public class LoanServicesController {
 

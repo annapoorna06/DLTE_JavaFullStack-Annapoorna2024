@@ -1,5 +1,4 @@
 package mybank.dao.services;
-//import com.fasterxml.jackson.databind.ObjectMapper;
 import mybank.dao.entity.LoansAvailable;
 import mybank.dao.exceptions.LoanServiceException;
 import mybank.dao.exceptions.NoLoanDataException;
@@ -8,7 +7,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
-import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.*;
 import org.springframework.stereotype.Service;
 
@@ -18,7 +16,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Types;
 import java.util.*;
-import java.util.stream.Collectors;
 
 @Service
 public class LoanServices implements LoansInterface {
