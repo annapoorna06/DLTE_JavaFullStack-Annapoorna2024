@@ -52,13 +52,26 @@
                     }
                 });
             };
-            // Call the function with the desired loan type
-            getLoansByType("Home"); // Change "Home" to the desired loan type
+
+            $("#loanTypeForm").submit(function(event) {
+                event.preventDefault();
+                const loanType = $("#loanTypeInput").val();
+                getLoansByType(loanType);
+            });
         });
     </script>
 </head>
 <body>
     <div class="container">
+        <div class="row justify-content-center">
+            <form id="loanTypeForm">
+                <div class="mb-3">
+                    <label for="loanTypeInput" class="form-label">Enter Loan Type:</label>
+                    <input type="text" class="form-control" id="loanTypeInput" placeholder="e.g., Gold, Home, Personal">
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
         <div class="row justify-content-center" id="viewSection">
 
         </div>

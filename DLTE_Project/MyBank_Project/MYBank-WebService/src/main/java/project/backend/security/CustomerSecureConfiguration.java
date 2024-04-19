@@ -50,6 +50,7 @@ public class CustomerSecureConfiguration {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
         httpSecurity.httpBasic();
+        httpSecurity.cors();
         httpSecurity.formLogin().
                 usernameParameter("username").
                 failureHandler(customersFailureHandler).
