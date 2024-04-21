@@ -10,6 +10,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;
 import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
 import org.springframework.ws.server.endpoint.annotation.RequestPayload;
@@ -24,6 +25,7 @@ import java.util.ResourceBundle;
 
 @ComponentScan("mybank.dao")
 @Endpoint
+@CrossOrigin(origins = "http://127.0.0.1:5500")
 public class SoapPhase {
     @Autowired
     public LoansInterface interfaceServices;
