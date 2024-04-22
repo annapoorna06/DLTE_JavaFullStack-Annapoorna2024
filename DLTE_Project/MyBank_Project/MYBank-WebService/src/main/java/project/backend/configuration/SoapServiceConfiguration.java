@@ -16,7 +16,6 @@ import org.springframework.xml.xsd.XsdSchema;
 
 @EnableWs
 @Configuration
-@CrossOrigin(origins = "http://127.0.0.1:5500")
 public class SoapServiceConfiguration extends WsConfigurerAdapter {
     @Bean
     public ServletRegistrationBean servletRegistrationBean(ApplicationContext applicationContext){
@@ -25,7 +24,7 @@ public class SoapServiceConfiguration extends WsConfigurerAdapter {
         servlet.setApplicationContext(applicationContext);
         return new ServletRegistrationBean(servlet,"/loansrepo/*");
     }
-    // wsdl properties
+    //wsdl properties
     @Bean(name = "loans")
     public DefaultWsdl11Definition convertToWsdl(XsdSchema xsdSchema){
         DefaultWsdl11Definition defaultWsdl11Definition=new DefaultWsdl11Definition();
@@ -35,7 +34,7 @@ public class SoapServiceConfiguration extends WsConfigurerAdapter {
         defaultWsdl11Definition.setSchema(xsdSchema);
         return defaultWsdl11Definition;
     }
-    // identify the xsd
+    //identify the xsd
     @Bean
     public XsdSchema loansSchema(){
         return new SimpleXsdSchema(new ClassPathResource("LoanAvailable.xsd"));

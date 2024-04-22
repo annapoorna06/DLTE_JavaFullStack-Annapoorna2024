@@ -25,7 +25,7 @@ import java.util.ResourceBundle;
 
 @ComponentScan("mybank.dao")
 @Endpoint
-@CrossOrigin(origins = "http://127.0.0.1:5500")
+@CrossOrigin(origins = "*")
 public class SoapPhase {
     @Autowired
     public LoansInterface interfaceServices;

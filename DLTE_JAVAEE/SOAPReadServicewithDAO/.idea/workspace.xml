@@ -7,11 +7,51 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3f7f5418-c992-49d0-9e66-e00b221aa774" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../../DLTE_SPRING/spring-jdbctemplate/src/main/java/spring/jdbc/template/Entity/Transactions.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/service/EndPoint.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/service/EndPoint.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../DLTE_SPRING/spring-queries/src/main/java/spring/queries/controller/TransactionAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../DLTE_SPRING/spring-queries/src/main/java/spring/queries/controller/TransactionAPI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../DLTE_SPRING/spring-queries/src/main/java/spring/queries/services/TransactionServices.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../DLTE_SPRING/spring-queries/src/main/java/spring/queries/services/TransactionServices.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SOAPReadServicewithDAOClient/src/main/java/org/example/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SOAPReadServicewithDAOClient/src/main/java/org/example/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SOAPReadServicewithDAOClient/src/main/java/service/FetchTransactions.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SOAPReadServicewithDAOClient/src/main/java/service/FetchTransactions.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SOAPReadServicewithDAOClient/src/main/java/service/ObjectFactory.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SOAPReadServicewithDAOClient/src/main/java/service/ObjectFactory.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SOAPReadServicewithDAOClient/src/main/java/service/TransactionByUsername.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SOAPReadServicewithDAOClient/src/main/java/service/TransactionByUsername.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SOAPReadServicewithDAOClient/src/main/java/service/TransactionByUsernameService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SOAPReadServicewithDAOClient/src/main/java/service/TransactionByUsernameService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SOAPReadServicewithDAOClient/src/main/java/service/Transactions.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SOAPReadServicewithDAOClient/src/main/java/service/Transactions.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SOAPReadServicewithDAOClient/src/main/java/service/package-info.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SOAPReadServicewithDAOClient/src/main/java/service/package-info.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SOAPReadServicewithDAOClient/src/test/java/org/example/AppTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SOAPReadServicewithDAOClient/src/test/java/org/example/AppTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SOAPReadServicewithDAOClient/target/SOAPReadServicewithDAOClient-1.0-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SOAPReadServicewithDAOClient/target/classes/org/example/App.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SOAPReadServicewithDAOClient/target/classes/service/FetchTransactions.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SOAPReadServicewithDAOClient/target/classes/service/ObjectFactory.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SOAPReadServicewithDAOClient/target/classes/service/TransactionByUsername.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SOAPReadServicewithDAOClient/target/classes/service/TransactionByUsernameService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SOAPReadServicewithDAOClient/target/classes/service/Transactions.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SOAPReadServicewithDAOClient/target/classes/service/package-info.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SOAPReadServicewithDAOClient/target/maven-archiver/pom.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SOAPReadServicewithDAOClient/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SOAPReadServicewithDAOClient/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SOAPReadServicewithDAOClient/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SOAPReadServicewithDAOClient/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SOAPReadServicewithDAOClient/target/surefire-reports/TEST-org.example.AppTest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SOAPReadServicewithDAOClient/target/surefire-reports/org.example.AppTest.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SOAPReadServicewithDAOClient/target/test-classes/org/example/AppTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../DLTE_Project/MyBank_Project/MYBank-WebService/logs/mybank-loans.log" beforeDir="false" afterPath="$PROJECT_DIR$/../../DLTE_Project/MyBank_Project/MYBank-WebService/logs/mybank-loans.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../DLTE_Project/MyBank_Project/MYBank-WebService/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../DLTE_Project/MyBank_Project/MYBank-WebService/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../DLTE_Project/MyBank_Project/MYBank-WebService/src/main/java/project/backend/configuration/SoapPhase.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../DLTE_Project/MyBank_Project/MYBank-WebService/src/main/java/project/backend/configuration/SoapPhase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../DLTE_Project/MyBank_Project/MYBank-WebService/src/main/java/project/backend/configuration/SoapServiceConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../DLTE_Project/MyBank_Project/MYBank-WebService/src/main/java/project/backend/configuration/SoapServiceConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../DLTE_Project/MyBank_Project/MYBank-WebService/src/main/java/project/backend/security/CustomerSecureConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../DLTE_Project/MyBank_Project/MYBank-WebService/src/main/java/project/backend/security/CustomerSecureConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../DLTE_Project/MyBank_Project/MYBank-WebService/src/main/java/services/loans/LoanAvailable.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../DLTE_Project/MyBank_Project/MYBank-WebService/src/main/java/services/loans/ObjectFactory.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../DLTE_Project/MyBank_Project/MYBank-WebService/src/main/java/services/loans/ServiceStatus.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../DLTE_Project/MyBank_Project/MYBank-WebService/src/main/java/services/loans/ViewAllAvailableLoanRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../DLTE_Project/MyBank_Project/MYBank-WebService/src/main/java/services/loans/ViewAllAvailableLoanResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../DLTE_Project/MyBank_Project/MYBank-WebService/src/main/java/services/loans/package-info.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../DLTE_Project/MyBank_Project/MYBank-WebService/src/main/resources/LoanAvailable.xsd" beforeDir="false" afterPath="$PROJECT_DIR$/../../DLTE_Project/MyBank_Project/MYBank-WebService/src/main/resources/LoanAvailable.xsd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../DLTE_Project/MyBank_Project/MyBank_DAO/logs/mybank-loans.log" beforeDir="false" afterPath="$PROJECT_DIR$/../../DLTE_Project/MyBank_Project/MyBank_DAO/logs/mybank-loans.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../DLTE_Project/MyBank_Project/MyBank_DAO/src/main/java/mybank/dao/services/MyBankCustomersService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../DLTE_Project/MyBank_Project/MyBank_DAO/src/main/java/mybank/dao/services/MyBankCustomersService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,7 +80,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../SOAPReadServicewithDAOClient" />
   </component>
   <component name="RunManager" selected="Application.EndPoint">
     <configuration name="EndPoint" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -174,6 +214,7 @@
       <workItem from="1710844340144" duration="3224000" />
       <workItem from="1711078014918" duration="3896000" />
       <workItem from="1711106741820" duration="760000" />
+      <workItem from="1713761485949" duration="1371000" />
     </task>
     <servers />
   </component>
@@ -185,26 +226,26 @@
       <screen x="0" y="0" width="1536" height="816" />
     </state>
     <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.816@0.0.1536.816" timestamp="1710693757745" />
-    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1710776450147">
+    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1713761500698">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.816@0.0.1536.816" timestamp="1710776450147" />
-    <state width="1493" height="208" key="GridCell.Tab.0.bottom" timestamp="1711107506533">
+    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.816@0.0.1536.816" timestamp="1713761500698" />
+    <state width="1493" height="208" key="GridCell.Tab.0.bottom" timestamp="1713775808614">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state width="1493" height="208" key="GridCell.Tab.0.bottom/0.0.1536.816@0.0.1536.816" timestamp="1711107506533" />
-    <state width="1493" height="208" key="GridCell.Tab.0.center" timestamp="1711107506533">
+    <state width="1493" height="208" key="GridCell.Tab.0.bottom/0.0.1536.816@0.0.1536.816" timestamp="1713775808614" />
+    <state width="1493" height="208" key="GridCell.Tab.0.center" timestamp="1713775808614">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state width="1493" height="208" key="GridCell.Tab.0.center/0.0.1536.816@0.0.1536.816" timestamp="1711107506533" />
-    <state width="1493" height="208" key="GridCell.Tab.0.left" timestamp="1711107506533">
+    <state width="1493" height="208" key="GridCell.Tab.0.center/0.0.1536.816@0.0.1536.816" timestamp="1713775808614" />
+    <state width="1493" height="208" key="GridCell.Tab.0.left" timestamp="1713775808614">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state width="1493" height="208" key="GridCell.Tab.0.left/0.0.1536.816@0.0.1536.816" timestamp="1711107506533" />
-    <state width="1493" height="208" key="GridCell.Tab.0.right" timestamp="1711107506533">
+    <state width="1493" height="208" key="GridCell.Tab.0.left/0.0.1536.816@0.0.1536.816" timestamp="1713775808614" />
+    <state width="1493" height="208" key="GridCell.Tab.0.right" timestamp="1713775808614">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state width="1493" height="208" key="GridCell.Tab.0.right/0.0.1536.816@0.0.1536.816" timestamp="1711107506533" />
+    <state width="1493" height="208" key="GridCell.Tab.0.right/0.0.1536.816@0.0.1536.816" timestamp="1713775808614" />
     <state x="477" y="237" key="com.intellij.ide.util.TipDialog" timestamp="1710776152793">
       <screen x="0" y="0" width="1536" height="816" />
     </state>

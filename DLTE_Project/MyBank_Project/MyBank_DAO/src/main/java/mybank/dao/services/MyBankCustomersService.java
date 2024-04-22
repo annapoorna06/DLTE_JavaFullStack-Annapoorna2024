@@ -11,7 +11,10 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.ResourceBundle;
+import java.util.stream.Collectors;
+
 @Service
 public class MyBankCustomersService implements UserDetailsService {
     @Autowired
@@ -19,6 +22,14 @@ public class MyBankCustomersService implements UserDetailsService {
     ResourceBundle resourceBundle = ResourceBundle.getBundle("application");
 
     Logger logger= LoggerFactory.getLogger(MyBankCustomersService.class);
+
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        MyBankCustomers customers = findByUsername(username);
+        if(customers==null)
+            throw new UsernameNotFoundException(username);
+        return customers;
+    }
 
     public MyBankCustomers signingUp(MyBankCustomers myBankCustomers){
         int ack = jdbcTemplate.update(
@@ -36,12 +47,19 @@ public class MyBankCustomersService implements UserDetailsService {
     }
 
     public MyBankCustomers findByUsername(String username){
-        MyBankCustomers myBankCustomers = jdbcTemplate.queryForObject(
-                "SELECT * FROM MYBANK_APP_CUSTOMER WHERE USERNAME=?",
-                new Object[]{username},
-                new BeanPropertyRowMapper<>(MyBankCustomers.class)
-        );
-        return myBankCustomers;
+        List<MyBankCustomers> myBankCustomersList = jdbcTemplate.query(
+                "SELECT * FROM MYBANK_APP_CUSTOMER", new BeanPropertyRowMapper<>(MyBankCustomers.class));
+        MyBankCustomers customers=sortByUsername(myBankCustomersList,username);
+        return customers;
+    }
+
+    public MyBankCustomers sortByUsername(List<MyBankCustomers> myBankCustomersList, String username){
+        List<MyBankCustomers> myBankFilteredCustomers=myBankCustomersList.stream().filter(myBankCustomers -> myBankCustomers.getUsername()
+                .equals(username)).collect(Collectors.toList());
+        if (!myBankFilteredCustomers.isEmpty())
+            return myBankFilteredCustomers.get(0);
+        else
+            return null;
     }
 
     public void updateAttempts(MyBankCustomers myBankCustomers){
@@ -55,13 +73,4 @@ public class MyBankCustomersService implements UserDetailsService {
                 new Object[]{myBankCustomers.getUsername()});
         logger.info(resourceBundle.getString("status.changed"));
     }
-
-    @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        MyBankCustomers customers = findByUsername(username);
-        if(customers==null)
-            throw new UsernameNotFoundException(username);
-        return customers;
-    }
-
 }
