@@ -113,14 +113,12 @@ public class LoanServices implements LoansInterface {
     return loansList;
 }
 
-
     @Override
     public double getRateOfInterestByLoanType(String loanType) {
         try {
             // Call the PL/SQL procedure to read loans by type
             String sql = "SELECT loan_roi FROM mybank_app_loanavailable WHERE loan_type = ?";
             Double rateOfInterest = jdbcTemplate.queryForObject(sql, new Object[]{loanType}, Double.class);
-
             if (rateOfInterest == null) {
                 // Handle the case when no rate of interest is found for the given loan type
                 throw new NoLoanDataException( resourceBundle.getString("no.roi") + loanType);

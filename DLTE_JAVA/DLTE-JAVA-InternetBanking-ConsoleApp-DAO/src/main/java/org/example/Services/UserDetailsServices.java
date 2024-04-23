@@ -28,13 +28,13 @@ public class UserDetailsServices {
 //            return null;
 //        }
 //    }
-//    public void calladdusers() {
-//        try {
-//            userDetailsRepository.addUsers();
-//        } catch (UserDetailsException userDetailsException) {
-//            throw userDetailsException;
-//        }
-//    }
+    public void calladdusers() {
+        try {
+            userDetailsRepository.addUsers();
+        } catch (UserDetailsException userDetailsException) {
+            throw userDetailsException;
+        }
+    }
 
     public void callUpdate(UserDetails userDetails) {
         try {

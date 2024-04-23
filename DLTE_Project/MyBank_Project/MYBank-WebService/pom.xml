@@ -110,7 +110,7 @@
                 <configuration>
                     <schemaDirectory>src/main/resources</schemaDirectory>
                     <schemaFiles>LoanAvailable.xsd</schemaFiles>
-                    <outputDirectory>C:\DLTE_JavaFullStack-Annapoorna2024\DLTE_Project\MyBank_Project\MYBank-WebService\target\generated-sources</outputDirectory>
+                    <outputDirectory>C:/DLTE_JavaFullStack-Annapoorna2024/DLTE_Project/MyBank_Project/MYBank-WebService/target/generated-sources</outputDirectory>
                     <clearOutputDir>false</clearOutputDir>
                 </configuration>
             </plugin>

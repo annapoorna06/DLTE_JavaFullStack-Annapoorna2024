@@ -1,4 +1,4 @@
-package rest;
+package rest.endpoints;
 import com.google.gson.Gson;
 import org.example.Entity.Transactions;
 import org.example.Exceptions.UserDetailsException;

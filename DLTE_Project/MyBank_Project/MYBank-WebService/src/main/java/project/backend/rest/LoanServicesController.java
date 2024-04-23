@@ -27,7 +27,7 @@ public class LoanServicesController {
     ResourceBundle resourceBundle = ResourceBundle.getBundle("application");
     @Autowired
     private LoansInterface loanService;
-    //http://localhost:8082/loans/{LoanType}
+    //http://localhost:8083/loans/{LoanType}
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "All data fetched"),
             @ApiResponse(responseCode = "204", description = "No loans found for the specified loan type:"),
@@ -61,9 +61,8 @@ public class LoanServicesController {
                                @RequestParam double amount,
                                @RequestParam int tenure,
                                HttpServletResponse response) throws LoanServiceException {
-        // http://localhost:8082/loans/Gold/emi?amount=10000&tenure=12
+        // http://localhost:8083/loans/Gold/emi?amount=10000&tenure=12
         try {
-
             // Retrieve rate of interest from database based on loan type
             if (amount > 0 && tenure > 0) {
                 double rateOfInterest = loanService.getRateOfInterestByLoanType(loanType);
@@ -72,11 +71,9 @@ public class LoanServicesController {
                 // Calculate EMI
                 double emi = (amount * monthlyInterest * Math.pow(1 + monthlyInterest, tenure)) / (Math.pow(1 + monthlyInterest, tenure) - 1);
                 return resourceBundle.getString("emi.pay") + loanType + " is:" + emi;
-                //return "Your emi is" +emi;
             } else {
                 response.setStatus(HttpServletResponse.SC_NOT_ACCEPTABLE);
-                //throw new LoanServiceException(resourceBundle.getString("no.negative.zero"));
-               return resourceBundle.getString("no.negative.zero");
+                return resourceBundle.getString("no.negative.zero");
             }
 
         } catch (NoLoanDataException e) {
@@ -91,4 +88,4 @@ public class LoanServicesController {
 }
 
 
-//rest API document-http://localhost:8082/v3/api-docs
+//rest API document-http://localhost:8083/v3/api-docs

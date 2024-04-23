@@ -3,7 +3,6 @@
             xmlns:tns="http://loans.services"
             elementFormDefault="qualified">
 
-    <!--    Entity-->
     <xsd:complexType name="LoanAvailable">
         <xsd:sequence>
             <xsd:element name="loanNumber" type="xsd:int"/>
@@ -14,7 +13,6 @@
         </xsd:sequence>
     </xsd:complexType>
 
-    <!--    Status-->
     <xsd:complexType name="serviceStatus">
         <xsd:sequence>
             <xsd:element name="status" type="xsd:int"/>
@@ -22,10 +20,11 @@
         </xsd:sequence>
     </xsd:complexType>
 
-    <!--    List All-->
+
     <xsd:element name="viewAllAvailableLoanRequest">
         <xsd:complexType/>
     </xsd:element>
+
     <xsd:element name="viewAllAvailableLoanResponse">
         <xsd:complexType>
             <xsd:sequence>
