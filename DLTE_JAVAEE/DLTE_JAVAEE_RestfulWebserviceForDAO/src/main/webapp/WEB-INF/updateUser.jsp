@@ -46,13 +46,12 @@
     String info = (String)request.getAttribute("info");
     String error = (String)request.getAttribute("error");
 %>
-<%@ taglib prefix="elroy" uri="http://java.sun.com/jsp/jstl/sql" %>
-<%@ taglib prefix="rakchanya" uri="http://java.sun.com/jsp/jstl/core" %>
-<elroy:setDataSource var="sanakroy" driver="oracle.jdbc.driver.OracleDriver"
+<%@ taglib prefix="annapoorna" uri="http://java.sun.com/jsp/jstl/sql" %>
+<%@ taglib prefix="billu" uri="http://java.sun.com/jsp/jstl/core" %>
+<annapoorna:setDataSource var="inzio" driver="oracle.jdbc.driver.OracleDriver"
                      url="jdbc:oracle:thin:@localhost:1521:xe"
                      user="system"
-                     password="root"
-/>
+                     password="annapoorna6"/>
 <annapoorna:query var="parrot" dataSource="${sanakroy}" sql="select * from mybank_creditcard where creditcard_number=?">
     <elroy:param value="${param['number']}"/>
 </annapoorna:query>
