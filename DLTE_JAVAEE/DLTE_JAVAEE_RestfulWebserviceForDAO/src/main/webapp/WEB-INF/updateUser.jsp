@@ -46,14 +46,13 @@
     String info = (String)request.getAttribute("info");
     String error = (String)request.getAttribute("error");
 %>
-<%@ taglib prefix="elroy" uri="http://java.sun.com/jsp/jstl/sql" %>
-<%@ taglib prefix="rakchanya" uri="http://java.sun.com/jsp/jstl/core" %>
-<elroy:setDataSource var="sanakroy" driver="oracle.jdbc.driver.OracleDriver"
-                     url="jdbc:oracle:thin:@localhost:1521:xe"
-                     user="system"
-                     password="root"
-/>
-<annapoorna:query var="parrot" dataSource="${sanakroy}" sql="select * from mybank_creditcard where creditcard_number=?">
+<%@ taglib prefix="annapoorna" uri="http://java.sun.com/jsp/jstl/sql" %>
+<%@ taglib prefix="billu" uri="http://java.sun.com/jsp/jstl/core" %>
+<annapoorna:setDataSource var="inzio" driver="oracle.jdbc.driver.OracleDriver"
+                          url="jdbc:oracle:thin:@localhost:1521:xe"
+                          user="system"
+                          password="annapoorna6"/>
+<annapoorna:query var="parrot" dataSource="${inzio}" sql="select * from  userDetails where username=?">
     <elroy:param value="${param['number']}"/>
 </annapoorna:query>
 <billu:set var="user" value="${parrot.rows[0]}" />
@@ -66,10 +65,6 @@
         <h1 class="text-center text-danger"><%=error%></h1>
         <%}%>
         <form action="update" method="post" class="col-lg-4 col-md-8 col-12 p-5 rounded-5 shadow-lg align-self-center">
-            <div class="form group">
-                <label >Card Number</label>
-                <input readonly value="${oneCard.creditcard_number}" type="number" name="cardNumber" placeholder="Card number" class="form-control" />
-            </div>
             <div class="row justify-content-between">
                 <div class="col-lg-6 col-12">
                     <label >Username</label>

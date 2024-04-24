@@ -33,7 +33,8 @@ public class CustomerSecureConfiguration {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOriginPatterns(Arrays.asList("http://127.0.0.1:5500"));
+        //configuration.setAllowedOriginPatterns(Arrays.asList("http://127.0.0.1:5500"));
+        configuration.setAllowedOriginPatterns(Arrays.asList("*"));
 
         configuration.addAllowedMethod("*");
         configuration.addAllowedHeader("*");
