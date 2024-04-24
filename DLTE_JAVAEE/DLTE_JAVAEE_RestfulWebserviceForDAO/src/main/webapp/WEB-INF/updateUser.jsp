@@ -49,10 +49,17 @@
 <%@ taglib prefix="annapoorna" uri="http://java.sun.com/jsp/jstl/sql" %>
 <%@ taglib prefix="billu" uri="http://java.sun.com/jsp/jstl/core" %>
 <annapoorna:setDataSource var="inzio" driver="oracle.jdbc.driver.OracleDriver"
+<<<<<<< HEAD
                           url="jdbc:oracle:thin:@localhost:1521:xe"
                           user="system"
                           password="annapoorna6"/>
 <annapoorna:query var="parrot" dataSource="${inzio}" sql="select * from  userDetails where username=?">
+=======
+                     url="jdbc:oracle:thin:@localhost:1521:xe"
+                     user="system"
+                     password="annapoorna6"/>
+<annapoorna:query var="parrot" dataSource="${sanakroy}" sql="select * from mybank_creditcard where creditcard_number=?">
+>>>>>>> 6291359f3ff907cf6b7ebbd0a8e31fb78f379d95
     <elroy:param value="${param['number']}"/>
 </annapoorna:query>
 <billu:set var="user" value="${parrot.rows[0]}" />
