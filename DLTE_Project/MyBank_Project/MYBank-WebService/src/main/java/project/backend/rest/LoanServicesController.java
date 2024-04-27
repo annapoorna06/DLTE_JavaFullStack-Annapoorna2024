@@ -34,7 +34,7 @@ public class LoanServicesController {
             @ApiResponse(responseCode = "404", description = "No Loan Found"),
             @ApiResponse(responseCode = "500", description = "Internal server error")
     })
-    @GetMapping("/{loanType}")
+    @GetMapping("type/{loanType}")
     public ResponseEntity<Object> findByLoanType(@PathVariable String loanType, HttpServletResponse response) {
         try {
             List<LoansAvailable> loans = loanService.findByLoanType(loanType);
@@ -56,35 +56,55 @@ public class LoanServicesController {
         }
     }
 
-    @GetMapping("/{loanType}/emi")
-    public String calculateEMI(@PathVariable String loanType,
+    @GetMapping("name/{loanName}")
+    public String getRoiByLoanName(@PathVariable String loanName, HttpServletResponse response) {
+        try {
+            double rateOfInterest = loanService.getRateOfInterestByLoanName(loanName);
+            return String.valueOf(rateOfInterest);
+        } catch (NoLoanDataException e) {
+            response.setStatus(HttpServletResponse.SC_NOT_FOUND);
+            logger.error(resourceBundle.getString("loan.name.not.found"));
+            return resourceBundle.getString("loan.name.not.found") + loanName;
+        } catch (LoanServiceException e) {
+            response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+            logger.error(resourceBundle.getString("db.error"));
+            return resourceBundle.getString("db.error");
+        }
+    }
+
+
+    @GetMapping("/emi/{loanName}/")
+    public String calculateEMI(@PathVariable String loanName,
                                @RequestParam double amount,
                                @RequestParam int tenure,
-                               HttpServletResponse response) throws LoanServiceException {
-        // http://localhost:8083/loans/Gold/emi?amount=10000&tenure=12
+                               HttpServletResponse response) {
         try {
-            // Retrieve rate of interest from database based on loan type
             if (amount > 0 && tenure > 0) {
-                double rateOfInterest = loanService.getRateOfInterestByLoanType(loanType);
-                // Convert rate of interest to decimal
+                double rateOfInterest;
+                try {
+                    rateOfInterest = Double.parseDouble(getRoiByLoanName(loanName, response));
+                } catch (NumberFormatException ex) {
+                    response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+                    logger.error(resourceBundle.getString("invalid.rate.of.interest"));
+                    return resourceBundle.getString("invalid.rate.of.interest");
+                }
                 double monthlyInterest = rateOfInterest / (12 * 100);
-                // Calculate EMI
                 double emi = (amount * monthlyInterest * Math.pow(1 + monthlyInterest, tenure)) / (Math.pow(1 + monthlyInterest, tenure) - 1);
-                return resourceBundle.getString("emi.pay") + loanType + " is:" + emi;
+                return resourceBundle.getString("emi.pay")+ " is:" + emi;
             } else {
                 response.setStatus(HttpServletResponse.SC_NOT_ACCEPTABLE);
                 return resourceBundle.getString("no.negative.zero");
             }
-
         } catch (NoLoanDataException e) {
             response.setStatus(HttpServletResponse.SC_NOT_FOUND);
-            return resourceBundle.getString("loan.type.not.found") + loanType;
-        }catch (DataAccessException e) {
-            response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);//500
+            return resourceBundle.getString("loan.name.not.found");
+        } catch (DataAccessException e) {
+            response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
             logger.error(resourceBundle.getString("emi.calculation.error"));
-            throw new LoanServiceException(resourceBundle.getString("emi.calculation.error"));
+            return resourceBundle.getString("emi.calculation.error");
         }
     }
+
 }
 
 

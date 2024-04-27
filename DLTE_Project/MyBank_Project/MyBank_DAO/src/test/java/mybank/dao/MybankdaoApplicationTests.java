@@ -142,7 +142,7 @@
 //        when(jdbcTemplate.query(anyString(), any(LoanServices.LoanAvailableMapper.class))).thenReturn(mockLoanList);
 //
 //        // Calling the method under test
-//        double result = loanServices.getRateOfInterestByLoanType("Personal");
+//        double result = loanServices.getRateOfInterestByLoanName("Personal loan");
 //
 //        // Asserting the result
 //        assertEquals(8.8, result);
@@ -156,7 +156,7 @@
 //        when(jdbcTemplate.query(anyString(), any(LoanServices.LoanAvailableMapper.class))).thenReturn(mockLoanList);
 //
 //        // Calling the method under test
-//        double result = loanServices.getRateOfInterestByLoanType("Gold");
+//        double result = loanServices.getRateOfInterestByLoanName("Gold loan");
 //
 //        // Asserting the result
 //        assertEquals(8.8, result);
@@ -167,7 +167,6 @@
 //        when(jdbcTemplate.query(anyString(), any(LoanServices.LoanAvailableMapper.class))).thenThrow(new RuntimeException());
 //
 //        // Calling the method under test and expecting an exception
-//        assertThrows(LoanServiceException.class, () -> loanServices.getRateOfInterestByLoanType("Agriculture"));
+//        assertThrows(LoanServiceException.class, () -> loanServices.getRateOfInterestByLoanName("Agriculture"));
 //    }
 //}
-//////mvn test-compile test

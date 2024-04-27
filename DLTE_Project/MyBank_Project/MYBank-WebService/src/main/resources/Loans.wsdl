@@ -1,0 +1,38 @@
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch="http://loans.services"
+                  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://loans.services"
+                  targetNamespace="http://loans.services">
+    <wsdl:types>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+            <xsd:import namespace="http://loans.services" schemaLocation="LoanAvailable.xsd"/>
+        </xsd:schema>
+    </wsdl:types>
+    <wsdl:message name="viewAllAvailableLoanRequest">
+        <wsdl:part element="tns:viewAllAvailableLoanRequest" name="viewAllAvailableLoanRequest"> </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="viewAllAvailableLoanResponse">
+        <wsdl:part element="tns:viewAllAvailableLoanResponse" name="viewAllAvailableLoanResponse"> </wsdl:part>
+    </wsdl:message>
+    <wsdl:portType name="LoansPort">
+        <wsdl:operation name="viewAllAvailableLoan">
+            <wsdl:input message="tns:viewAllAvailableLoanRequest" name="viewAllAvailableLoanRequest"> </wsdl:input>
+            <wsdl:output message="tns:viewAllAvailableLoanResponse" name="viewAllAvailableLoanResponse"> </wsdl:output>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="LoansPortSoap11" type="tns:LoansPort">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="viewAllAvailableLoan">
+            <soap:operation soapAction=""/>
+            <wsdl:input name="viewAllAvailableLoanRequest">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="viewAllAvailableLoanResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="LoansPortService">
+        <wsdl:port binding="tns:LoansPortSoap11" name="LoansPortSoap11">
+            <soap:address location="http://localhost:8083/loansrepo"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

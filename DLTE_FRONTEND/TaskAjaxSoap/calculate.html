@@ -12,8 +12,8 @@
         <div class="row justify-content-center">
             <form id="emiForm">
                 <div class="mb-3">
-                    <label for="loanTypeInput" class="form-label">Loan Type:</label>
-                    <input type="text" class="form-control" id="loanTypeInput" placeholder="Enter loan type">
+                    <label for="loanNameInput" class="form-label">Loan Name:</label>
+                    <input type="text" class="form-control" id="loanNameInput" placeholder="Enter loan Name">
                 </div>
                 <div class="mb-3">
                     <label for="amountInput" class="form-label">Loan Amount:</label>
@@ -37,12 +37,12 @@
         $(document).ready(function () {
             $('#emiForm').submit(function (event) {
                 event.preventDefault();
-                var loanType = $('#loanTypeInput').val();
+                var loanName = $('#loanNameInput').val();
                 var amount = $('#amountInput').val();
                 var tenure = $('#tenureInput').val();
 
                 $.ajax({
-                    url: `http://localhost:8083/loans/${loanType}/emi?amount=${amount}&tenure=${tenure}`,
+                    url: `http://localhost:8083/loans/${loanName}/emi?amount=${amount}&tenure=${tenure}`,
                     type: 'GET',
                     beforeSend:function(handler){
                     handler.setRequestHeader("Authorization","Basic "+sessionStorage.getItem("logged"))

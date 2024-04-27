@@ -109,27 +109,27 @@ public class LoanServices implements LoansInterface {
         logger.warn(resourceBundle.getString("db.error"));
         throw new LoanServiceException(resourceBundle.getString("db.error"));
     }
-    logger.info(resourceBundle.getString("loan.server.available"));
+        logger.info(resourceBundle.getString("loan.server.available"));
     return loansList;
 }
 
     @Override
-    public double getRateOfInterestByLoanType(String loanType) {
+    public double getRateOfInterestByLoanName(String loanName) {
         try {
-            // Call the PL/SQL procedure to read loans by type
-            String sql = "SELECT loan_roi FROM mybank_app_loanavailable WHERE loan_type = ?";
-            Double rateOfInterest = jdbcTemplate.queryForObject(sql, new Object[]{loanType}, Double.class);
+            // Call the PL/SQL procedure to read loans by loanName
+            String sql = "SELECT loan_roi FROM mybank_app_loanavailable WHERE loan_name = ?";
+            Double rateOfInterest = jdbcTemplate.queryForObject(sql, new Object[]{loanName}, Double.class);
             if (rateOfInterest == null) {
-                // Handle the case when no rate of interest is found for the given loan type
-                throw new NoLoanDataException( resourceBundle.getString("no.roi") + loanType);
+                // Handle the case when no rate of interest is found for the given loan name
+                throw new NoLoanDataException( resourceBundle.getString("no.roi") + loanName);
             }
             return rateOfInterest;
         }  catch (NoLoanDataException e) {
             // throw NoLoanDataException with appropriate message
-            throw new NoLoanDataException(resourceBundle.getString("no.loanType") + loanType);
+            throw new NoLoanDataException(resourceBundle.getString("no.loanName") + loanName);
         } catch (LoanServiceException e) {
             // throw LoanServiceException with appropriate message
-            throw new NoLoanDataException(resourceBundle.getString("error.LoanType") + e.getMessage());
+            throw new NoLoanDataException(resourceBundle.getString("error.LoanName") + e.getMessage());
         }
     }
 }

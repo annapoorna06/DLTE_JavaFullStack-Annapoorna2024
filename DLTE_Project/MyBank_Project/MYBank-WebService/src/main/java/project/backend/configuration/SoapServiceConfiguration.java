@@ -34,6 +34,7 @@ public class SoapServiceConfiguration extends WsConfigurerAdapter {
     //identify the xsd
     @Bean
     public XsdSchema loansSchema(){
+
         return new SimpleXsdSchema(new ClassPathResource("LoanAvailable.xsd"));
     }
 
