@@ -70,3 +70,19 @@ img{
 .navbar-nav {
     list-style-type: none;
 }
+
+
+/* Header Styles */
+.logo {
+    width: 40px;
+    height: auto;
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+}
+
+.logout {
+    margin-left: auto;
+}

@@ -22,7 +22,7 @@ public class CustomersFailureHandler extends SimpleUrlAuthenticationFailureHandl
     @Autowired
     MyBankCustomersService myBankCustomersService;
     Logger logger= LoggerFactory.getLogger(CustomersFailureHandler.class);
-    ResourceBundle resourceBundle= ResourceBundle.getBundle("application");
+    ResourceBundle resourceBundle= ResourceBundle.getBundle("apps");
     @Override
     public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response, AuthenticationException exception) throws IOException, ServletException {
         String username = request.getParameter("username");

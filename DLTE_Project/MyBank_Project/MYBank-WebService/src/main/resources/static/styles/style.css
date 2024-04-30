@@ -14,7 +14,8 @@
     object-fit: cover;
     max-width: 100%;
     height: auto;
-}.custom-image-container {
+}
+.custom-image-container {
      position: relative;
      margin-top: 200px;
  }
@@ -23,6 +24,31 @@
     bottom: 350px;
     right: 0px;
     height: 200px;
-    width: 200px;
+    width: 220px;
+}
+.image-container {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
+.image-container .col-md-6 {
+    padding-right: 10px;
+}
+
+.image-container .col-md-3 {
+    padding-left: 5px;
+    padding-right: 5px; /* Adjust the padding as needed */
+}
+
+.image-container .col-md-2 {
+    padding-left: 0;
+    position: relative;
+    padding-top: 70px;
+}
+
+.image-container img {
+    width: 100%;
+    height: auto;
+}

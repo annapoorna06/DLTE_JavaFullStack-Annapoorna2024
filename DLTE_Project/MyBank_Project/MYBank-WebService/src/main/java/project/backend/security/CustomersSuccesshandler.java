@@ -22,7 +22,7 @@ public class CustomersSuccesshandler extends SimpleUrlAuthenticationSuccessHandl
     @Autowired
     MyBankCustomersService myBankCustomersService;
     Logger logger= LoggerFactory.getLogger(CustomersFailureHandler.class);
-    ResourceBundle resourceBundle= ResourceBundle.getBundle("application");
+    ResourceBundle resourceBundle= ResourceBundle.getBundle("apps");
     @Override
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
         try {

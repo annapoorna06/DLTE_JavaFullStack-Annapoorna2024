@@ -24,7 +24,7 @@ import java.util.ResourceBundle;
 public class LoanServicesController {
 
     Logger logger = LoggerFactory.getLogger(LoanServices.class);
-    ResourceBundle resourceBundle = ResourceBundle.getBundle("application");
+    ResourceBundle resourceBundle = ResourceBundle.getBundle("apps");
     @Autowired
     private LoansInterface loanService;
     //http://localhost:8083/loans/type/{LoanType}
@@ -37,6 +37,10 @@ public class LoanServicesController {
     @GetMapping("type/{loanType}")
     public ResponseEntity<Object> findByLoanType(@PathVariable String loanType, HttpServletResponse response) {
         try {
+            if (!isValidLoanType(loanType)) {
+                logger.warn(resourceBundle.getString("enter.proper.loantype"));
+                return ResponseEntity.badRequest().body(resourceBundle.getString("enter.proper.loantype"));
+            }
             List<LoansAvailable> loans = loanService.findByLoanType(loanType);
             if (loans.isEmpty()) {
                 return ResponseEntity.noContent().build();
@@ -46,14 +50,18 @@ public class LoanServicesController {
                 return ResponseEntity.ok(loans);
             }
         } catch (NoLoanDataException e) {
-            response.setStatus(HttpServletResponse.SC_NO_CONTENT);//204 no content
+            response.setStatus(HttpServletResponse.SC_NO_CONTENT);
             logger.error(resourceBundle.getString("no.loanType"), e);
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
+            return ResponseEntity.status(HttpStatus.OK).body(e.getMessage());
         } catch (LoanServiceException e) {
             response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);//500 no content
             logger.error(resourceBundle.getString("db.error"), e);
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());
         }
+    }
+
+    private boolean isValidLoanType(String loanType){
+        return loanType != null && !loanType.isEmpty() && loanType.matches("[A-Za-z]+");
     }
 
     @GetMapping("name/{loanName}")

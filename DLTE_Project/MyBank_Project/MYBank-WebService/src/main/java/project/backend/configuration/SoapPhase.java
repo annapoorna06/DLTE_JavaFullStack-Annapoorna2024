@@ -32,7 +32,7 @@ public class SoapPhase {
     Logger logger= LoggerFactory.getLogger(LoanServices.class);
 
     private final String url = "http://loans.services";
-    ResourceBundle resourceBundle=ResourceBundle.getBundle("application");
+    ResourceBundle resourceBundle=ResourceBundle.getBundle("apps");
     //service to fetch all the available loans
     @PayloadRoot(namespace = url, localPart = "viewAllAvailableLoanRequest")
     @ResponsePayload
