@@ -50,16 +50,22 @@ public class MyBankCustomersService implements UserDetailsService {
         List<MyBankCustomers> myBankCustomersList = jdbcTemplate.query(
                 "SELECT * FROM MYBANK_APP_CUSTOMER", new BeanPropertyRowMapper<>(MyBankCustomers.class));
         MyBankCustomers customers=sortByUsername(myBankCustomersList,username);
+        if(customers==null){
+            throw new UsernameNotFoundException(username);
+        }
         return customers;
     }
 
     public MyBankCustomers sortByUsername(List<MyBankCustomers> myBankCustomersList, String username){
         List<MyBankCustomers> myBankFilteredCustomers=myBankCustomersList.stream().filter(myBankCustomers -> myBankCustomers.getUsername()
                 .equals(username)).collect(Collectors.toList());
-        if (!myBankFilteredCustomers.isEmpty())
-            return myBankFilteredCustomers.get(0);
-        else
+        if (myBankFilteredCustomers.size()==0)
             return null;
+        else{
+            MyBankCustomers myBankCustomers=myBankFilteredCustomers.get(0);
+            logger.info(resourceBundle.getString("customer.login"));
+            return myBankCustomers;
+        }
     }
 
     public void updateAttempts(MyBankCustomers myBankCustomers){

@@ -5,6 +5,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -15,6 +16,7 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import java.util.Arrays;
 
 @Configuration
+@EnableGlobalMethodSecurity(prePostEnabled = true)
 public class CustomerSecureConfiguration {
     @Autowired
     MyBankCustomersService service;
@@ -49,13 +51,16 @@ public class CustomerSecureConfiguration {
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
         httpSecurity.httpBasic();
         httpSecurity.cors();
-        httpSecurity.formLogin().
+        httpSecurity.authorizeRequests().antMatchers("/profile/register").permitAll();
+        httpSecurity.authorizeRequests().antMatchers("/v3/api-docs").permitAll();
+        httpSecurity.authorizeRequests().antMatchers("/weblogin/**").permitAll();
+        httpSecurity.authorizeRequests().antMatchers("/images/**").permitAll();
+        httpSecurity.authorizeRequests().antMatchers("/styles/**").permitAll();
+        httpSecurity.formLogin().loginPage("/weblogin/").
                 usernameParameter("username").
                 failureHandler(customersFailureHandler).
                 successHandler(customersSuccessHandler);
         httpSecurity.csrf().disable();
-        httpSecurity.authorizeRequests().antMatchers("/profile/register").permitAll();
-        httpSecurity.authorizeRequests().antMatchers("/v3/api-docs").permitAll();
         httpSecurity.authorizeRequests().anyRequest().authenticated();
         AuthenticationManagerBuilder builder=httpSecurity.getSharedObject(AuthenticationManagerBuilder.class);
         builder.userDetailsService(service);

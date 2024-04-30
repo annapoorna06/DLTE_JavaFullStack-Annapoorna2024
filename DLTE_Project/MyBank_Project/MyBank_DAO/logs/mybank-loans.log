@@ -1,20 +1,201 @@
-2024-04-27 17:41:26 [restartedMain] INFO  mybank.dao.MybankdaoApplication - Starting MybankdaoApplication using Java 1.8.0_292 on WPF45D02X with PID 5836 (C:\DLTE_JavaFullStack-Annapoorna2024\DLTE_Project\MyBank_Project\MyBank_DAO\target\classes started by xxpaiija in C:\DLTE_JavaFullStack-Annapoorna2024\DLTE_Project\MyBank_Project\MyBank_DAO)
-2024-04-27 17:41:26 [restartedMain] INFO  mybank.dao.MybankdaoApplication - No active profile set, falling back to 1 default profile: "default"
-2024-04-27 17:41:26 [restartedMain] INFO  o.s.b.d.restart.ChangeableUrls - The Class-Path manifest attribute in C:\Users\xxpaiija\.m2\repository\com\oracle\database\security\oraclepki\21.5.0.0\oraclepki-21.5.0.0.jar referenced one or more files that do not exist: file:/C:/Users/xxpaiija/.m2/repository/com/oracle/database/security/oraclepki/21.5.0.0/osdt_core.jar,file:/C:/Users/xxpaiija/.m2/repository/com/oracle/database/security/oraclepki/21.5.0.0/osdt_cert.jar,file:/C:/Users/xxpaiija/.m2/repository/com/oracle/database/security/oraclepki/oracle.osdt/osdt_core.jar,file:/C:/Users/xxpaiija/.m2/repository/com/oracle/database/security/oraclepki/oracle.osdt/osdt_cert.jar
-2024-04-27 17:41:26 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2024-04-27 17:41:26 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2024-04-27 17:41:27 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
-2024-04-27 17:41:27 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 12 ms. Found 0 JDBC repository interfaces.
-2024-04-27 17:41:28 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8081 (http)
-2024-04-27 17:41:28 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
-2024-04-27 17:41:28 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.73]
-2024-04-27 17:41:28 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-2024-04-27 17:41:28 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2209 ms
-2024-04-27 17:41:29 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-2024-04-27 17:41:29 [restartedMain] WARN  c.z.hikari.util.DriverDataSource - Registered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
-2024-04-27 17:41:29 [restartedMain] INFO  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Driver does not support get/set network timeout for connections. (oracle.jdbc.driver.T4CConnection.getNetworkTimeout()I)
-2024-04-27 17:41:29 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-2024-04-27 17:41:30 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@396e438d, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@182dc690, org.springframework.security.web.context.SecurityContextPersistenceFilter@29cef210, org.springframework.security.web.header.HeaderWriterFilter@26d3f102, org.springframework.security.web.csrf.CsrfFilter@1fb3170, org.springframework.security.web.authentication.logout.LogoutFilter@24cdd10, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@24d3e574, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@7f633c54, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@cb5e395, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@361dad99, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@613b616f, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4db2c2c0, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@13742133, org.springframework.security.web.session.SessionManagementFilter@21b22c85, org.springframework.security.web.access.ExceptionTranslationFilter@648de2c0, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@75860ac7]
-2024-04-27 17:41:30 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
-2024-04-27 17:41:30 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8081 (http) with context path ''
-2024-04-27 17:41:30 [restartedMain] INFO  mybank.dao.MybankdaoApplication - Started MybankdaoApplication in 4.862 seconds (JVM running for 7.042)
+2024-04-30 09:08:55 [restartedMain] INFO  mybank.dao.MybankdaoApplication - Starting MybankdaoApplication using Java 1.8.0_292 on WPF45D02X with PID 19392 (C:\DLTE_JavaFullStack-Annapoorna2024\DLTE_Project\MyBank_Project\MyBank_DAO\target\classes started by xxpaiija in C:\DLTE_JavaFullStack-Annapoorna2024\DLTE_Project\MyBank_Project\MyBank_DAO)
+2024-04-30 09:08:55 [restartedMain] INFO  mybank.dao.MybankdaoApplication - No active profile set, falling back to 1 default profile: "default"
+2024-04-30 09:08:56 [restartedMain] INFO  o.s.b.d.restart.ChangeableUrls - The Class-Path manifest attribute in C:\Users\xxpaiija\.m2\repository\com\oracle\database\security\oraclepki\21.5.0.0\oraclepki-21.5.0.0.jar referenced one or more files that do not exist: file:/C:/Users/xxpaiija/.m2/repository/com/oracle/database/security/oraclepki/21.5.0.0/osdt_core.jar,file:/C:/Users/xxpaiija/.m2/repository/com/oracle/database/security/oraclepki/21.5.0.0/osdt_cert.jar,file:/C:/Users/xxpaiija/.m2/repository/com/oracle/database/security/oraclepki/oracle.osdt/osdt_core.jar,file:/C:/Users/xxpaiija/.m2/repository/com/oracle/database/security/oraclepki/oracle.osdt/osdt_cert.jar
+2024-04-30 09:08:56 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-04-30 09:08:56 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-04-30 09:08:57 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2024-04-30 09:08:57 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 12 ms. Found 0 JDBC repository interfaces.
+2024-04-30 09:08:58 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2024-04-30 09:08:58 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-04-30 09:08:58 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.73]
+2024-04-30 09:08:58 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-04-30 09:08:58 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2342 ms
+2024-04-30 09:08:58 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-04-30 09:08:58 [restartedMain] WARN  c.z.hikari.util.DriverDataSource - Registered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
+2024-04-30 09:08:59 [restartedMain] INFO  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Driver does not support get/set network timeout for connections. (oracle.jdbc.driver.T4CConnection.getNetworkTimeout()I)
+2024-04-30 09:08:59 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-04-30 09:08:59 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@2325e9a4, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3d85332f, org.springframework.security.web.context.SecurityContextPersistenceFilter@7914f2b2, org.springframework.security.web.header.HeaderWriterFilter@19cf7287, org.springframework.security.web.csrf.CsrfFilter@57fbfd0, org.springframework.security.web.authentication.logout.LogoutFilter@726a3342, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@7cd97e12, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@5a0b7cd2, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@7aeb1423, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@184f0155, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3164e7d6, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1b621727, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@72ea3b5a, org.springframework.security.web.session.SessionManagementFilter@277cdaf0, org.springframework.security.web.access.ExceptionTranslationFilter@611b63bc, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@7fda4e8f]
+2024-04-30 09:08:59 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2024-04-30 09:08:59 [restartedMain] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is org.springframework.boot.web.server.PortInUseException: Port 8080 is already in use
+2024-04-30 09:08:59 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-04-30 09:08:59 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-04-30 09:08:59 [restartedMain] INFO  o.a.catalina.core.StandardService - Stopping service [Tomcat]
+2024-04-30 09:08:59 [restartedMain] INFO  o.s.b.a.l.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2024-04-30 09:08:59 [restartedMain] ERROR o.s.b.d.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+
+2024-04-30 09:12:08 [restartedMain] INFO  mybank.dao.MybankdaoApplication - Starting MybankdaoApplication using Java 1.8.0_292 on WPF45D02X with PID 7624 (C:\DLTE_JavaFullStack-Annapoorna2024\DLTE_Project\MyBank_Project\MyBank_DAO\target\classes started by xxpaiija in C:\DLTE_JavaFullStack-Annapoorna2024\DLTE_Project\MyBank_Project\MyBank_DAO)
+2024-04-30 09:12:08 [restartedMain] INFO  mybank.dao.MybankdaoApplication - No active profile set, falling back to 1 default profile: "default"
+2024-04-30 09:12:08 [restartedMain] INFO  o.s.b.d.restart.ChangeableUrls - The Class-Path manifest attribute in C:\Users\xxpaiija\.m2\repository\com\oracle\database\security\oraclepki\21.5.0.0\oraclepki-21.5.0.0.jar referenced one or more files that do not exist: file:/C:/Users/xxpaiija/.m2/repository/com/oracle/database/security/oraclepki/21.5.0.0/osdt_core.jar,file:/C:/Users/xxpaiija/.m2/repository/com/oracle/database/security/oraclepki/21.5.0.0/osdt_cert.jar,file:/C:/Users/xxpaiija/.m2/repository/com/oracle/database/security/oraclepki/oracle.osdt/osdt_core.jar,file:/C:/Users/xxpaiija/.m2/repository/com/oracle/database/security/oraclepki/oracle.osdt/osdt_cert.jar
+2024-04-30 09:12:08 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-04-30 09:12:08 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-04-30 09:12:09 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2024-04-30 09:12:09 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 5 ms. Found 0 JDBC repository interfaces.
+2024-04-30 09:12:09 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2024-04-30 09:12:09 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-04-30 09:12:09 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.73]
+2024-04-30 09:12:09 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-04-30 09:12:09 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 943 ms
+2024-04-30 09:12:10 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-04-30 09:12:10 [restartedMain] WARN  c.z.hikari.util.DriverDataSource - Registered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
+2024-04-30 09:12:10 [restartedMain] INFO  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Driver does not support get/set network timeout for connections. (oracle.jdbc.driver.T4CConnection.getNetworkTimeout()I)
+2024-04-30 09:12:10 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-04-30 09:12:10 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@3eae479f, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@70c1d59b, org.springframework.security.web.context.SecurityContextPersistenceFilter@54e17ff8, org.springframework.security.web.header.HeaderWriterFilter@20c1638c, org.springframework.security.web.csrf.CsrfFilter@7247102, org.springframework.security.web.authentication.logout.LogoutFilter@d40b75b, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@4559e812, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@555af62f, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@4bf4eb1f, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@1031e550, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2da90925, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3049d525, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4c4e5731, org.springframework.security.web.session.SessionManagementFilter@65f79b43, org.springframework.security.web.access.ExceptionTranslationFilter@1943e46f, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@54ea33fd]
+2024-04-30 09:12:10 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2024-04-30 09:12:10 [restartedMain] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is org.springframework.boot.web.server.PortInUseException: Port 8080 is already in use
+2024-04-30 09:12:10 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-04-30 09:12:10 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-04-30 09:12:10 [restartedMain] INFO  o.a.catalina.core.StandardService - Stopping service [Tomcat]
+2024-04-30 09:12:10 [restartedMain] INFO  o.s.b.a.l.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2024-04-30 09:12:10 [restartedMain] ERROR o.s.b.d.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+
+2024-04-30 09:12:25 [restartedMain] INFO  mybank.dao.MybankdaoApplication - Starting MybankdaoApplication using Java 1.8.0_292 on WPF45D02X with PID 23136 (C:\DLTE_JavaFullStack-Annapoorna2024\DLTE_Project\MyBank_Project\MyBank_DAO\target\classes started by xxpaiija in C:\DLTE_JavaFullStack-Annapoorna2024\DLTE_Project\MyBank_Project\MyBank_DAO)
+2024-04-30 09:12:25 [restartedMain] INFO  mybank.dao.MybankdaoApplication - No active profile set, falling back to 1 default profile: "default"
+2024-04-30 09:12:25 [restartedMain] INFO  o.s.b.d.restart.ChangeableUrls - The Class-Path manifest attribute in C:\Users\xxpaiija\.m2\repository\com\oracle\database\security\oraclepki\21.5.0.0\oraclepki-21.5.0.0.jar referenced one or more files that do not exist: file:/C:/Users/xxpaiija/.m2/repository/com/oracle/database/security/oraclepki/21.5.0.0/osdt_core.jar,file:/C:/Users/xxpaiija/.m2/repository/com/oracle/database/security/oraclepki/21.5.0.0/osdt_cert.jar,file:/C:/Users/xxpaiija/.m2/repository/com/oracle/database/security/oraclepki/oracle.osdt/osdt_core.jar,file:/C:/Users/xxpaiija/.m2/repository/com/oracle/database/security/oraclepki/oracle.osdt/osdt_cert.jar
+2024-04-30 09:12:25 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-04-30 09:12:25 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-04-30 09:12:26 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2024-04-30 09:12:26 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 7 ms. Found 0 JDBC repository interfaces.
+2024-04-30 09:12:26 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8083 (http)
+2024-04-30 09:12:26 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-04-30 09:12:26 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.73]
+2024-04-30 09:12:26 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-04-30 09:12:26 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1353 ms
+2024-04-30 09:12:27 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-04-30 09:12:27 [restartedMain] WARN  c.z.hikari.util.DriverDataSource - Registered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
+2024-04-30 09:12:27 [restartedMain] INFO  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Driver does not support get/set network timeout for connections. (oracle.jdbc.driver.T4CConnection.getNetworkTimeout()I)
+2024-04-30 09:12:27 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-04-30 09:12:27 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@3c50eb8f, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@15936a02, org.springframework.security.web.context.SecurityContextPersistenceFilter@3b40ab89, org.springframework.security.web.header.HeaderWriterFilter@460821c9, org.springframework.security.web.csrf.CsrfFilter@1075566b, org.springframework.security.web.authentication.logout.LogoutFilter@674ca6f7, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@14214796, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@3e41d786, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@16140a68, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@50a2773e, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@127eebb, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@d6b80f6, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@12a6add8, org.springframework.security.web.session.SessionManagementFilter@7e187155, org.springframework.security.web.access.ExceptionTranslationFilter@2dee0a17, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@533b699e]
+2024-04-30 09:12:27 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2024-04-30 09:12:27 [restartedMain] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is org.springframework.boot.web.server.PortInUseException: Port 8083 is already in use
+2024-04-30 09:12:27 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-04-30 09:12:27 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-04-30 09:12:27 [restartedMain] INFO  o.a.catalina.core.StandardService - Stopping service [Tomcat]
+2024-04-30 09:12:27 [restartedMain] INFO  o.s.b.a.l.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2024-04-30 09:12:27 [restartedMain] ERROR o.s.b.d.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8083 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8083 or configure this application to listen on another port.
+
+2024-04-30 09:12:43 [restartedMain] INFO  mybank.dao.MybankdaoApplication - Starting MybankdaoApplication using Java 1.8.0_292 on WPF45D02X with PID 23636 (C:\DLTE_JavaFullStack-Annapoorna2024\DLTE_Project\MyBank_Project\MyBank_DAO\target\classes started by xxpaiija in C:\DLTE_JavaFullStack-Annapoorna2024\DLTE_Project\MyBank_Project\MyBank_DAO)
+2024-04-30 09:12:43 [restartedMain] INFO  mybank.dao.MybankdaoApplication - No active profile set, falling back to 1 default profile: "default"
+2024-04-30 09:12:43 [restartedMain] INFO  o.s.b.d.restart.ChangeableUrls - The Class-Path manifest attribute in C:\Users\xxpaiija\.m2\repository\com\oracle\database\security\oraclepki\21.5.0.0\oraclepki-21.5.0.0.jar referenced one or more files that do not exist: file:/C:/Users/xxpaiija/.m2/repository/com/oracle/database/security/oraclepki/21.5.0.0/osdt_core.jar,file:/C:/Users/xxpaiija/.m2/repository/com/oracle/database/security/oraclepki/21.5.0.0/osdt_cert.jar,file:/C:/Users/xxpaiija/.m2/repository/com/oracle/database/security/oraclepki/oracle.osdt/osdt_core.jar,file:/C:/Users/xxpaiija/.m2/repository/com/oracle/database/security/oraclepki/oracle.osdt/osdt_cert.jar
+2024-04-30 09:12:43 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-04-30 09:12:43 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-04-30 09:12:44 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2024-04-30 09:12:44 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 8 ms. Found 0 JDBC repository interfaces.
+2024-04-30 09:12:45 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8082 (http)
+2024-04-30 09:12:45 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-04-30 09:12:45 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.73]
+2024-04-30 09:12:45 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-04-30 09:12:45 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1332 ms
+2024-04-30 09:12:45 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-04-30 09:12:45 [restartedMain] WARN  c.z.hikari.util.DriverDataSource - Registered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
+2024-04-30 09:12:45 [restartedMain] INFO  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Driver does not support get/set network timeout for connections. (oracle.jdbc.driver.T4CConnection.getNetworkTimeout()I)
+2024-04-30 09:12:45 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-04-30 09:12:45 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@404d24fb, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@fb196be, org.springframework.security.web.context.SecurityContextPersistenceFilter@7b759677, org.springframework.security.web.header.HeaderWriterFilter@11f3878e, org.springframework.security.web.csrf.CsrfFilter@5bc15c9b, org.springframework.security.web.authentication.logout.LogoutFilter@329dba1b, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@6f9f9c76, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@1b6b3e01, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@4c690bf1, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@27db51f8, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@60e41b58, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7c0fbb46, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3c50eb8f, org.springframework.security.web.session.SessionManagementFilter@273de5bf, org.springframework.security.web.access.ExceptionTranslationFilter@1075566b, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@1a2aec4f]
+2024-04-30 09:12:46 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2024-04-30 09:12:46 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8082 (http) with context path ''
+2024-04-30 09:12:46 [restartedMain] INFO  mybank.dao.MybankdaoApplication - Started MybankdaoApplication in 2.735 seconds (JVM running for 3.382)
+2024-04-30 09:16:37 [File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 10 class path changes (0 additions, 0 deletions, 10 modifications)
+2024-04-30 09:16:37 [Thread-11] INFO  o.a.catalina.core.StandardService - Stopping service [Tomcat]
+2024-04-30 09:16:37 [Thread-11] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-04-30 09:16:37 [Thread-11] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-04-30 09:16:37 [restartedMain] INFO  mybank.dao.MybankdaoApplication - Starting MybankdaoApplication using Java 1.8.0_292 on WPF45D02X with PID 23636 (C:\DLTE_JavaFullStack-Annapoorna2024\DLTE_Project\MyBank_Project\MyBank_DAO\target\classes started by xxpaiija in C:\DLTE_JavaFullStack-Annapoorna2024\DLTE_Project\MyBank_Project\MyBank_DAO)
+2024-04-30 09:16:37 [restartedMain] INFO  mybank.dao.MybankdaoApplication - No active profile set, falling back to 1 default profile: "default"
+2024-04-30 09:16:38 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2024-04-30 09:16:38 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 3 ms. Found 0 JDBC repository interfaces.
+2024-04-30 09:16:38 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8082 (http)
+2024-04-30 09:16:38 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-04-30 09:16:38 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.73]
+2024-04-30 09:16:38 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-04-30 09:16:38 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 294 ms
+2024-04-30 09:16:38 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Starting...
+2024-04-30 09:16:38 [restartedMain] WARN  c.z.hikari.util.DriverDataSource - Registered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
+2024-04-30 09:16:38 [restartedMain] INFO  com.zaxxer.hikari.pool.PoolBase - HikariPool-2 - Driver does not support get/set network timeout for connections. (oracle.jdbc.driver.T4CConnection.getNetworkTimeout()I)
+2024-04-30 09:16:38 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Start completed.
+2024-04-30 09:16:38 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@68c5fbd7, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@37defc11, org.springframework.security.web.context.SecurityContextPersistenceFilter@23bdbbc7, org.springframework.security.web.header.HeaderWriterFilter@4d5b6061, org.springframework.security.web.csrf.CsrfFilter@80b3f8b, org.springframework.security.web.authentication.logout.LogoutFilter@7e44a184, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@453f90e6, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@a944790, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@edfe2ac, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@72426751, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@37c1b0dd, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@218f862c, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6fc664c9, org.springframework.security.web.session.SessionManagementFilter@729b3578, org.springframework.security.web.access.ExceptionTranslationFilter@15d0370a, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@5930ce90]
+2024-04-30 09:16:38 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2024-04-30 09:16:38 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8082 (http) with context path ''
+2024-04-30 09:16:38 [restartedMain] INFO  mybank.dao.MybankdaoApplication - Started MybankdaoApplication in 0.478 seconds (JVM running for 235.672)
+2024-04-30 09:16:38 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2024-04-30 09:17:00 [File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 10 class path changes (0 additions, 0 deletions, 10 modifications)
+2024-04-30 09:17:00 [Thread-17] INFO  o.a.catalina.core.StandardService - Stopping service [Tomcat]
+2024-04-30 09:17:00 [Thread-17] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown initiated...
+2024-04-30 09:17:00 [Thread-17] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown completed.
+2024-04-30 09:17:00 [restartedMain] INFO  mybank.dao.MybankdaoApplication - Starting MybankdaoApplication using Java 1.8.0_292 on WPF45D02X with PID 23636 (C:\DLTE_JavaFullStack-Annapoorna2024\DLTE_Project\MyBank_Project\MyBank_DAO\target\classes started by xxpaiija in C:\DLTE_JavaFullStack-Annapoorna2024\DLTE_Project\MyBank_Project\MyBank_DAO)
+2024-04-30 09:17:00 [restartedMain] INFO  mybank.dao.MybankdaoApplication - No active profile set, falling back to 1 default profile: "default"
+2024-04-30 09:17:00 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2024-04-30 09:17:00 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 2 ms. Found 0 JDBC repository interfaces.
+2024-04-30 09:17:00 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8082 (http)
+2024-04-30 09:17:00 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-04-30 09:17:00 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.73]
+2024-04-30 09:17:00 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-04-30 09:17:00 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 204 ms
+2024-04-30 09:17:00 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Starting...
+2024-04-30 09:17:00 [restartedMain] WARN  c.z.hikari.util.DriverDataSource - Registered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
+2024-04-30 09:17:00 [restartedMain] INFO  com.zaxxer.hikari.pool.PoolBase - HikariPool-3 - Driver does not support get/set network timeout for connections. (oracle.jdbc.driver.T4CConnection.getNetworkTimeout()I)
+2024-04-30 09:17:01 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Start completed.
+2024-04-30 09:17:01 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@3b6e37c7, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@27f7b3f1, org.springframework.security.web.context.SecurityContextPersistenceFilter@2668bbaf, org.springframework.security.web.header.HeaderWriterFilter@46d2fcc3, org.springframework.security.web.csrf.CsrfFilter@33684548, org.springframework.security.web.authentication.logout.LogoutFilter@40c66f47, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@c62e975, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@18995a19, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@3c45cf3b, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@2bb83ba5, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@419f45b5, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@10fa9da1, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@564abe05, org.springframework.security.web.session.SessionManagementFilter@575be609, org.springframework.security.web.access.ExceptionTranslationFilter@6b81922d, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@27777e4d]
+2024-04-30 09:17:01 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2024-04-30 09:17:01 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8082 (http) with context path ''
+2024-04-30 09:17:01 [restartedMain] INFO  mybank.dao.MybankdaoApplication - Started MybankdaoApplication in 0.375 seconds (JVM running for 258.338)
+2024-04-30 09:17:01 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2024-04-30 09:17:24 [restartedMain] INFO  mybank.dao.MybankdaoApplication - Starting MybankdaoApplication using Java 1.8.0_292 on WPF45D02X with PID 23920 (C:\DLTE_JavaFullStack-Annapoorna2024\DLTE_Project\MyBank_Project\MyBank_DAO\target\classes started by xxpaiija in C:\DLTE_JavaFullStack-Annapoorna2024\DLTE_Project\MyBank_Project\MyBank_DAO)
+2024-04-30 09:17:24 [restartedMain] INFO  mybank.dao.MybankdaoApplication - No active profile set, falling back to 1 default profile: "default"
+2024-04-30 09:17:24 [restartedMain] INFO  o.s.b.d.restart.ChangeableUrls - The Class-Path manifest attribute in C:\Users\xxpaiija\.m2\repository\com\oracle\database\security\oraclepki\21.5.0.0\oraclepki-21.5.0.0.jar referenced one or more files that do not exist: file:/C:/Users/xxpaiija/.m2/repository/com/oracle/database/security/oraclepki/21.5.0.0/osdt_core.jar,file:/C:/Users/xxpaiija/.m2/repository/com/oracle/database/security/oraclepki/21.5.0.0/osdt_cert.jar,file:/C:/Users/xxpaiija/.m2/repository/com/oracle/database/security/oraclepki/oracle.osdt/osdt_core.jar,file:/C:/Users/xxpaiija/.m2/repository/com/oracle/database/security/oraclepki/oracle.osdt/osdt_cert.jar
+2024-04-30 09:17:24 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-04-30 09:17:24 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-04-30 09:17:25 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2024-04-30 09:17:25 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 6 ms. Found 0 JDBC repository interfaces.
+2024-04-30 09:17:25 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8082 (http)
+2024-04-30 09:17:25 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-04-30 09:17:25 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.73]
+2024-04-30 09:17:25 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-04-30 09:17:25 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 889 ms
+2024-04-30 09:17:26 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-04-30 09:17:26 [restartedMain] WARN  c.z.hikari.util.DriverDataSource - Registered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
+2024-04-30 09:17:26 [restartedMain] INFO  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Driver does not support get/set network timeout for connections. (oracle.jdbc.driver.T4CConnection.getNetworkTimeout()I)
+2024-04-30 09:17:26 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-04-30 09:17:26 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@15936a02, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@16140a68, org.springframework.security.web.context.SecurityContextPersistenceFilter@3c88b2a6, org.springframework.security.web.header.HeaderWriterFilter@3847e116, org.springframework.security.web.csrf.CsrfFilter@2dc0d0a4, org.springframework.security.web.authentication.logout.LogoutFilter@6e81630e, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@74e1548, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@61d3ff37, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@12a6add8, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@2d0ba843, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@334969f5, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@748f0e7f, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@29913090, org.springframework.security.web.session.SessionManagementFilter@3c41c3a1, org.springframework.security.web.access.ExceptionTranslationFilter@2cba4167, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@1e3eaf22]
+2024-04-30 09:17:26 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2024-04-30 09:17:26 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8082 (http) with context path ''
+2024-04-30 09:17:26 [restartedMain] INFO  mybank.dao.MybankdaoApplication - Started MybankdaoApplication in 1.818 seconds (JVM running for 2.428)

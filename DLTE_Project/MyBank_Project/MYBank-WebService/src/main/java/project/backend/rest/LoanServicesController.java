@@ -27,7 +27,7 @@ public class LoanServicesController {
     ResourceBundle resourceBundle = ResourceBundle.getBundle("application");
     @Autowired
     private LoansInterface loanService;
-    //http://localhost:8083/loans/{LoanType}
+    //http://localhost:8083/loans/type/{LoanType}
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "All data fetched"),
             @ApiResponse(responseCode = "204", description = "No loans found for the specified loan type:"),
@@ -39,7 +39,7 @@ public class LoanServicesController {
         try {
             List<LoansAvailable> loans = loanService.findByLoanType(loanType);
             if (loans.isEmpty()) {
-                return ResponseEntity.notFound().build();
+                return ResponseEntity.noContent().build();
             } else {
                 response.setStatus(HttpServletResponse.SC_OK);
                 logger.info(resourceBundle.getString("loan.server.available"));

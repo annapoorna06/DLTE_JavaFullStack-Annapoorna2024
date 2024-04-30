@@ -1,0 +1,28 @@
+
+.carousel-container {
+    padding-top: 30px;
+    max-width: 50%;
+    margin: auto;
+}
+
+.carousel {
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.carousel-item img {
+    object-fit: cover;
+    max-width: 100%;
+    height: auto;
+}.custom-image-container {
+     position: relative;
+     margin-top: 200px;
+ }
+.custom-image {
+    position: absolute;
+    bottom: 350px;
+    right: 0px;
+    height: 200px;
+    width: 200px;
+}
+

@@ -1,0 +1,35 @@
+
+body {
+    color: white;
+}
+.footer {
+    border-top-right-radius: 25px;
+    border-top-left-radius: 25px;
+    background-color: #182052;
+}
+.footer-content h2 {
+    color: #fff;
+}
+.footer-content h5,
+.footer-content p,
+.footer-links a {
+    color: #fff;
+}
+.footer-links a:hover {
+    text-decoration: underline;
+}
+.footer hr {
+    background-color: #fff;
+}
+span{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+}
+ul,li{
+    font-family: "Poppins", sans-serif;
+}
+img{
+    width:30px;
+    height: 30px;
+    margin-left: 10px;
+}

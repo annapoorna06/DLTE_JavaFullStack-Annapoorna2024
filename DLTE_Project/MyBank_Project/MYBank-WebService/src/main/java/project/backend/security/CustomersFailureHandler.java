@@ -6,6 +6,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.LockedException;
 import org.springframework.security.core.AuthenticationException;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.web.authentication.SimpleUrlAuthenticationFailureHandler;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -25,6 +26,7 @@ public class CustomersFailureHandler extends SimpleUrlAuthenticationFailureHandl
     @Override
     public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response, AuthenticationException exception) throws IOException, ServletException {
         String username = request.getParameter("username");
+        try{
         MyBankCustomers myBankCustomers = myBankCustomersService.findByUsername(username);
         if(myBankCustomers!=null){
             if(!myBankCustomers.getCustomerStatus().equals("Inactive")){
@@ -32,19 +34,28 @@ public class CustomersFailureHandler extends SimpleUrlAuthenticationFailureHandl
                     myBankCustomers.setAttempts(myBankCustomers.getAttempts()+1);
                     myBankCustomersService.updateAttempts(myBankCustomers);
                     logger.warn(resourceBundle.getString("credentials.invalid"));
-                    exception=new LockedException(resourceBundle.getString("attempts.taken"));
+                    exception=new LockedException((4-myBankCustomers.getAttempts()) + " " +resourceBundle.getString("attempts.taken"));
+                    String err = myBankCustomers.getAttempts() + " " + exception.getMessage();
+                    logger.warn(err);
+                    setDefaultFailureUrl("/weblogin/?error=" + exception.getMessage());
                 }
                 else{
                     myBankCustomersService.updateStatus(myBankCustomers);
-                    logger.warn(resourceBundle.getString("account.suspend"));
-                    exception=new LockedException(resourceBundle.getString("account.suspend"));
+                    logger.warn(resourceBundle.getString("attempts.suspend"));
+                    exception=new LockedException(resourceBundle.getString("attempts.suspend"));
+                    setDefaultFailureUrl("/weblogin/?error=" + exception.getMessage());
                 }
             }
-            else{
-                logger.warn(resourceBundle.getString("account.redeem"));
-            }
+        }else{
+            logger.warn(resourceBundle.getString("account.suspend"));
+            exception = new LockedException("no account");
+            super.setDefaultFailureUrl("/weblogin/?error=" + exception.getMessage());
         }
-        super.setDefaultFailureUrl("/login?error=true");
+        }catch (UsernameNotFoundException e){
+            logger.warn(resourceBundle.getString("account.suspend"));
+            exception = new LockedException(resourceBundle.getString("incorrect.username"));
+            super.setDefaultFailureUrl("/weblogin/?error=" + exception.getMessage());
+        }
         super.onAuthenticationFailure(request, response, exception);
     }
 }
