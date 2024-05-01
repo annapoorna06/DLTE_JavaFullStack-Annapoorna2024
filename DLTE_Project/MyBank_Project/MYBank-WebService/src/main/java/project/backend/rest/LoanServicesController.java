@@ -15,6 +15,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;
+import java.util.Collections;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -34,37 +35,38 @@ public class LoanServicesController {
             @ApiResponse(responseCode = "404", description = "No Loan Found"),
             @ApiResponse(responseCode = "500", description = "Internal server error")
     })
-    @GetMapping("type/{loanType}")
-    public ResponseEntity<Object> findByLoanType(@PathVariable String loanType, HttpServletResponse response) {
-        try {
-            if (!isValidLoanType(loanType)) {
-                logger.warn(resourceBundle.getString("enter.proper.loantype"));
-                return ResponseEntity.badRequest().body(resourceBundle.getString("enter.proper.loantype"));
-            }
-            List<LoansAvailable> loans = loanService.findByLoanType(loanType);
-            if (loans.isEmpty()) {
-                return ResponseEntity.noContent().build();
-            } else {
-                response.setStatus(HttpServletResponse.SC_OK);
-                logger.info(resourceBundle.getString("loan.server.available"));
-                return ResponseEntity.ok(loans);
-            }
-        } catch (NoLoanDataException e) {
-            response.setStatus(HttpServletResponse.SC_NO_CONTENT);
-            logger.error(resourceBundle.getString("no.loanType"), e);
-            return ResponseEntity.status(HttpStatus.OK).body(e.getMessage());
-        } catch (LoanServiceException e) {
-            response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);//500 no content
-            logger.error(resourceBundle.getString("db.error"), e);
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());
-        }
-    }
+
+//    @GetMapping("/type/{loanType}")
+//    public ResponseEntity<List<LoansAvailable>> findByLoanType(@PathVariable String loanType, HttpServletResponse response) {
+//        try {
+//            if (!isValidLoanType(loanType)) {
+//                logger.warn(resourceBundle.getString("enter.proper.loantype"));
+//                return ResponseEntity.badRequest().body(Collections.emptyList());
+//            }
+//            List<LoansAvailable> loans = loanService.findByLoanType(loanType);
+//            if (loans == null || loans.isEmpty()) {
+//                return ResponseEntity.noContent().build();
+//            } else {
+//                response.setStatus(HttpServletResponse.SC_OK);
+//                logger.info(resourceBundle.getString("loan.server.available"));
+//                return ResponseEntity.ok(loans);
+//            }
+//        } catch (NoLoanDataException e) {
+//            response.setStatus(HttpServletResponse.SC_NO_CONTENT);
+//            logger.error(resourceBundle.getString("no.loanType"), e);
+//            return ResponseEntity.status(HttpStatus.NO_CONTENT).body(Collections.emptyList());
+//        } catch (LoanServiceException e) {
+//            response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+//            logger.error(resourceBundle.getString("db.error"), e);
+//            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(Collections.emptyList());
+//        }
+//    }
 
     private boolean isValidLoanType(String loanType){
         return loanType != null && !loanType.isEmpty() && loanType.matches("[A-Za-z]+");
     }
 
-    @GetMapping("name/{loanName}")
+    @GetMapping("/name/{loanName}")
     public String getRoiByLoanName(@PathVariable String loanName, HttpServletResponse response) {
         try {
             double rateOfInterest = loanService.getRateOfInterestByLoanName(loanName);

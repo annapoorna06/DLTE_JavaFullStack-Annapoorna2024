@@ -53,13 +53,14 @@ public class CustomerSecureConfiguration {
         httpSecurity.cors();
         httpSecurity.authorizeRequests().antMatchers("/profile/register").permitAll();
         httpSecurity.authorizeRequests().antMatchers("/v3/api-docs").permitAll();
-        httpSecurity.authorizeRequests().antMatchers("/weblogin/**").permitAll();
+
         httpSecurity.authorizeRequests().antMatchers("/images/**").permitAll();
         httpSecurity.authorizeRequests().antMatchers("/styles/**").permitAll();
         httpSecurity.formLogin().loginPage("/weblogin/").
                 usernameParameter("username").
                 failureHandler(customersFailureHandler).
                 successHandler(customersSuccessHandler);
+        httpSecurity.authorizeRequests().antMatchers("/weblogin/**").permitAll();
         httpSecurity.csrf().disable();
         httpSecurity.authorizeRequests().anyRequest().authenticated();
         AuthenticationManagerBuilder builder=httpSecurity.getSharedObject(AuthenticationManagerBuilder.class);

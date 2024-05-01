@@ -11,10 +11,10 @@
         $(document).ready(() => {
             const getLoansByType = (loanType) => {
                 $.ajax({
-                    url: `http://localhost:8083/loans/${loanType}`,
+                    url: `http://localhost:8083/loans/type/${loanType}`,
                     type: "GET",
                     beforeSend:function(handler){
-                    handler.setRequestHeader("Authorization","Basic "+sessionStorage.getItem("logged"))
+                    handler.setRequestHeader("Authorization","Basic "+btoa("Akshatha : nayak"))
                      },
                     success: function (response) {
                         let viewPart = $("#viewSection");

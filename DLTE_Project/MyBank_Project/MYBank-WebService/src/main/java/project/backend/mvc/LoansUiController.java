@@ -19,7 +19,20 @@ public class LoansUiController {
     }
     @GetMapping("/dashboard")
     public String dashboard(){
-
         return "dashboard";
+    }
+
+    @GetMapping("/search")
+    public String search(){
+        return "search";
+    }
+
+    @GetMapping("/calculate")
+    public String calculate(){
+        return "calculate";
+    }
+    @GetMapping("viewAll")
+    public String viewAll(){
+        return "viewAll";
     }
 }
