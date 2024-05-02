@@ -37,22 +37,22 @@ public class CustomersFailureHandler extends SimpleUrlAuthenticationFailureHandl
                     exception=new LockedException((4-myBankCustomers.getAttempts()) + " " +resourceBundle.getString("attempts.taken"));
                     String err = myBankCustomers.getAttempts() + " " + exception.getMessage();
                     logger.warn(err);
-                    setDefaultFailureUrl("/weblogin/?error=" + exception.getMessage());
+                    super.setDefaultFailureUrl("/weblogin/?error=" + exception.getMessage());
                 }
                 else{
                     myBankCustomersService.updateStatus(myBankCustomers);
                     logger.warn(resourceBundle.getString("attempts.suspend"));
                     exception=new LockedException(resourceBundle.getString("attempts.suspend"));
-                    setDefaultFailureUrl("/weblogin/?error=" + exception.getMessage());
+                    super.setDefaultFailureUrl("/weblogin/?error=" + exception.getMessage());
                 }
             }
         }else{
-            logger.warn(resourceBundle.getString("account.suspend"));
-            exception = new LockedException("no account");
+            logger.warn(resourceBundle.getString("no.account"));
+            exception = new LockedException(resourceBundle.getString("no.account"));
             super.setDefaultFailureUrl("/weblogin/?error=" + exception.getMessage());
         }
         }catch (UsernameNotFoundException e){
-            logger.warn(resourceBundle.getString("account.suspend"));
+            logger.warn(resourceBundle.getString("no.account"));
             exception = new LockedException(resourceBundle.getString("incorrect.username"));
             super.setDefaultFailureUrl("/weblogin/?error=" + exception.getMessage());
         }

@@ -1,5 +1,4 @@
 package project.backend.security;
-
 import mybank.dao.entity.MyBankCustomers;
 import mybank.dao.services.MyBankCustomersService;
 import org.slf4j.Logger;
@@ -10,7 +9,6 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.web.authentication.SimpleUrlAuthenticationSuccessHandler;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.CrossOrigin;
-
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -32,14 +30,13 @@ public class CustomersSuccesshandler extends SimpleUrlAuthenticationSuccessHandl
                     myBankCustomers.setAttempts(1);
                     myBankCustomersService.updateAttempts(myBankCustomers);
                 }
-                //super.setDefaultTargetUrl("/loansrepo/loans.wsdl");
                 super.setDefaultTargetUrl("/weblogin/dashboard");
             } else {
                 logger.warn(resourceBundle.getString("account.redeem"));
-                super.setDefaultTargetUrl("/weblogin");
+                super.setDefaultTargetUrl("/weblogin/?error="+ resourceBundle.getString("account.redeem"));
             }
         }catch (UsernameNotFoundException e){
-            logger.info(resourceBundle.getString("no.user"));
+            logger.info(resourceBundle.getString("no.account"));
         }
         super.onAuthenticationSuccess(request, response, authentication);
     }

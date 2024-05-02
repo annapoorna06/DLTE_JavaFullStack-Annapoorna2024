@@ -31,6 +31,7 @@ public class LoansUiController {
     public String calculate(){
         return "calculate";
     }
+
     @GetMapping("viewAll")
     public String viewAll(){
         return "viewAll";

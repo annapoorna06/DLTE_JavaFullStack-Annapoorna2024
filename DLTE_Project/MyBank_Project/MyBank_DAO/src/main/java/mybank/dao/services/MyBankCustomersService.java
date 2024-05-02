@@ -63,7 +63,7 @@ public class MyBankCustomersService implements UserDetailsService {
             return null;
         else{
             MyBankCustomers myBankCustomers=myBankFilteredCustomers.get(0);
-            logger.info(resourceBundle.getString("customer.login"));
+            logger.info(resourceBundle.getString("no.customer"));
             return myBankCustomers;
         }
     }

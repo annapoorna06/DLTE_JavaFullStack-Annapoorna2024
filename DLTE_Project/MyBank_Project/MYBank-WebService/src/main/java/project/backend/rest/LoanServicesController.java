@@ -62,9 +62,9 @@ public class LoanServicesController {
 //        }
 //    }
 
-    private boolean isValidLoanType(String loanType){
-        return loanType != null && !loanType.isEmpty() && loanType.matches("[A-Za-z]+");
-    }
+//    private boolean isValidLoanType(String loanType){
+//        return loanType != null && !loanType.isEmpty() && loanType.matches("[A-Za-z]+");
+//    }
 
     @GetMapping("/name/{loanName}")
     public String getRoiByLoanName(@PathVariable String loanName, HttpServletResponse response) {
