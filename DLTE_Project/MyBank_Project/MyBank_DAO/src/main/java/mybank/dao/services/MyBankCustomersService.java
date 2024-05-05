@@ -79,4 +79,15 @@ public class MyBankCustomersService implements UserDetailsService {
                 new Object[]{myBankCustomers.getUsername()});
         logger.info(resourceBundle.getString("status.changed"));
     }
+
+    public String getCustomerName(String username) {
+        try {
+            String sql = "SELECT customer_name FROM MYBANK_APP_CUSTOMER  WHERE username =  ?";//during login
+            return jdbcTemplate.queryForObject(sql, new Object[]{username}, String.class);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
 }

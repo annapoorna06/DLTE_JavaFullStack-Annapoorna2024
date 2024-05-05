@@ -28,6 +28,7 @@ public class CustomerSecureConfiguration {
 
     @Bean
     public PasswordEncoder passwordEncoder(){
+
         return new BCryptPasswordEncoder();
     }
 
@@ -37,11 +38,9 @@ public class CustomerSecureConfiguration {
         CorsConfiguration configuration = new CorsConfiguration();
         //configuration.setAllowedOriginPatterns(Arrays.asList("http://127.0.0.1:5500"));
         configuration.setAllowedOriginPatterns(Arrays.asList("*"));
-
         configuration.addAllowedMethod("*");
         configuration.addAllowedHeader("*");
         configuration.setAllowCredentials(true);
-
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", configuration);
         return source;
@@ -54,15 +53,17 @@ public class CustomerSecureConfiguration {
         httpSecurity.authorizeRequests().antMatchers("/profile/register").permitAll();
         httpSecurity.authorizeRequests().antMatchers("/v3/api-docs").permitAll();
 
-        httpSecurity.authorizeRequests().antMatchers("/images/**").permitAll();
-        httpSecurity.authorizeRequests().antMatchers("/styles/**").permitAll();
         httpSecurity.formLogin().loginPage("/weblogin/").
                 usernameParameter("username").
                 failureHandler(customersFailureHandler).
                 successHandler(customersSuccessHandler);
-        httpSecurity.authorizeRequests().antMatchers("/weblogin/**").permitAll();
+        httpSecurity.authorizeRequests().antMatchers("/images/**").permitAll();
+        httpSecurity.authorizeRequests().antMatchers("/styles/**").permitAll();
+        httpSecurity.authorizeRequests().antMatchers("/weblogin/").permitAll();
         httpSecurity.csrf().disable();
         httpSecurity.authorizeRequests().anyRequest().authenticated();
+        httpSecurity.logout().permitAll();
+
         AuthenticationManagerBuilder builder=httpSecurity.getSharedObject(AuthenticationManagerBuilder.class);
         builder.userDetailsService(service);
         authenticationManager=builder.build();

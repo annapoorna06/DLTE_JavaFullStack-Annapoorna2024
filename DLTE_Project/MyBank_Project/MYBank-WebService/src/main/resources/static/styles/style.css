@@ -61,7 +61,55 @@
     height: auto;
 }
 
+/*for index*/
+body.loginpage {
+    background-image:url("../images/mybank_login.jpg");
+}
+.login-container {
+    background-color: rgba(194, 195, 221, 0.8);
+    padding: 20px;
+    border-radius: 25px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    max-width: 400px;
+    width: 100%;
+    margin-left: 60px;
+}
 
 
+
+.heading {
+    background-color: #fff; /* White background color */
+    padding: 10px 0;
+    display: flex; /* Use flexbox for horizontal alignment */
+    justify-content: space-between; /* Align items horizontally */
+    align-items: center; /* Align items vertically */
+    height: 40px;
+}
+
+.heading span {
+    font-size: 24px; /* Larger font size */
+    color: #020082; /* Dark text color */
+    margin-left: 0px; /* Add some left margin */
+    font-family: 'Montserrat', sans-serif;
+    margin-top: 13px;
+}
+
+.logout button {
+    background-color: #182052; /* Red background color for logout button */
+    color: #fff; /* White text color for logout button */
+    border: none; /* Remove border */
+    padding: 5px 15px; /* Add padding */
+    border-radius: 15px; /* Rounded corners */
+    cursor: pointer; /* Add cursor pointer */
+    margin-right: 10px; /* Add some right margin */
+    margin-top: 5px;
+}
+.navbar-dark .navbar-nav .nav-link {
+    color: white;
+}
+.navbar {
+    background-color: #182052 ;  /* Blue background color for navbar */
+    margin-top: 8px;
+}
 
 

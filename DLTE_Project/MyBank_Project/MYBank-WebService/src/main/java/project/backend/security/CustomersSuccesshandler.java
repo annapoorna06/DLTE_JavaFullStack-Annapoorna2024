@@ -33,7 +33,7 @@ public class CustomersSuccesshandler extends SimpleUrlAuthenticationSuccessHandl
                 super.setDefaultTargetUrl("/weblogin/dashboard");
             } else {
                 logger.warn(resourceBundle.getString("account.redeem"));
-                super.setDefaultTargetUrl("/weblogin/?error="+ resourceBundle.getString("account.redeem"));
+                super.setDefaultTargetUrl("/weblogin/?errors="+ resourceBundle.getString("account.redeem"));
             }
         }catch (UsernameNotFoundException e){
             logger.info(resourceBundle.getString("no.account"));

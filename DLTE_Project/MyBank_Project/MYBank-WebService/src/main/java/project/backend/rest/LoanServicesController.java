@@ -6,12 +6,15 @@ import mybank.dao.exceptions.LoanServiceException;
 import mybank.dao.exceptions.NoLoanDataException;
 import mybank.dao.interfaces.LoansInterface;
 import mybank.dao.services.LoanServices;
+import mybank.dao.services.MyBankCustomersService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;
@@ -23,7 +26,8 @@ import java.util.ResourceBundle;
 @CrossOrigin(origins = "*")
 @RequestMapping("/loans")
 public class LoanServicesController {
-
+    @Autowired
+    MyBankCustomersService myBankCustomersService;
     Logger logger = LoggerFactory.getLogger(LoanServices.class);
     ResourceBundle resourceBundle = ResourceBundle.getBundle("apps");
     @Autowired
@@ -114,7 +118,17 @@ public class LoanServicesController {
             return resourceBundle.getString("emi.calculation.error");
         }
     }
-
+    @GetMapping("/name")
+    public String getCustomerName() {
+        String name = getUser();
+        String user = myBankCustomersService.getCustomerName(name);
+        return user;
+    }
+    public String getUser() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String name = authentication.getName();
+        return name;
+    }
 }
 
 

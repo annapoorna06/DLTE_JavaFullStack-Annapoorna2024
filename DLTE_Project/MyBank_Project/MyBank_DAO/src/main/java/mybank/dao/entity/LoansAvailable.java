@@ -1,10 +1,5 @@
 package mybank.dao.entity;
 
-
-import javax.validation.constraints.Digits;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
-
 public class LoansAvailable {
     //entities form MYBANK_APP_LOANAVAILABLE table
     private int loanNumber;
@@ -13,31 +8,31 @@ public class LoansAvailable {
     private String loanDescription;
     private double loanRoi;
 
-    //constructor
-    public LoansAvailable(int loanNumber, String loanType, String loanName, String loanDescription, double loanRoi) {
-        this.loanNumber = loanNumber;
-        this.loanType = loanType;
-        this.loanName = loanName;
-        this.loanDescription = loanDescription;
-        this.loanRoi = loanRoi;
-    }
+//    //constructor
+//    public LoansAvailable(int loanNumber, String loanType, String loanName, String loanDescription, double loanRoi) {
+//        this.loanNumber = loanNumber;
+//        this.loanType = loanType;
+//        this.loanName = loanName;
+//        this.loanDescription = loanDescription;
+//        this.loanRoi = loanRoi;
+//    }
 
     //empty constructor
-    public LoansAvailable() {
-
-    }
+//    public LoansAvailable() {
+//
+//    }
 
     // to string
-    @Override
-    public String toString() {
-        return "Loans{" +
-                "loanNumber=" + loanNumber +
-                ", loanType='" + loanType + '\'' +
-                ", loanName='" + loanName + '\'' +
-                ", loanDescription='" + loanDescription + '\'' +
-                ", loanRoi=" + loanRoi +
-                '}';
-    }
+//    @Override
+//    public String toString() {
+//        return "Loans{" +
+//                "loanNumber=" + loanNumber +
+//                ", loanType='" + loanType + '\'' +
+//                ", loanName='" + loanName + '\'' +
+//                ", loanDescription='" + loanDescription + '\'' +
+//                ", loanRoi=" + loanRoi +
+//                '}';
+//    }
     //getters and setters
     public int getLoanNumber() {
         return loanNumber;
