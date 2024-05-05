@@ -8,31 +8,17 @@ public class LoansAvailable {
     private String loanDescription;
     private double loanRoi;
 
-//    //constructor
-//    public LoansAvailable(int loanNumber, String loanType, String loanName, String loanDescription, double loanRoi) {
-//        this.loanNumber = loanNumber;
-//        this.loanType = loanType;
-//        this.loanName = loanName;
-//        this.loanDescription = loanDescription;
-//        this.loanRoi = loanRoi;
-//    }
+    public LoansAvailable(int loanNumber, String loanType, String loanName, String loanDescription, double loanRoi) {
+        this.loanNumber = loanNumber;
+        this.loanType = loanType;
+        this.loanName = loanName;
+        this.loanDescription = loanDescription;
+        this.loanRoi = loanRoi;
+    }
 
-    //empty constructor
-//    public LoansAvailable() {
-//
-//    }
+    public LoansAvailable() {
+    }
 
-    // to string
-//    @Override
-//    public String toString() {
-//        return "Loans{" +
-//                "loanNumber=" + loanNumber +
-//                ", loanType='" + loanType + '\'' +
-//                ", loanName='" + loanName + '\'' +
-//                ", loanDescription='" + loanDescription + '\'' +
-//                ", loanRoi=" + loanRoi +
-//                '}';
-//    }
     //getters and setters
     public int getLoanNumber() {
         return loanNumber;

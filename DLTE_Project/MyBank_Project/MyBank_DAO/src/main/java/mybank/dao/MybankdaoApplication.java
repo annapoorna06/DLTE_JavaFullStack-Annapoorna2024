@@ -11,8 +11,6 @@ public class MybankdaoApplication {
 
     public static void main(String[] args) throws SQLException {
         SpringApplication.run(MybankdaoApplication.class, args);
-        LoanServices loanServices=new LoanServices();
-        loanServices.findByLoanType("Gold");
     }
 
 }

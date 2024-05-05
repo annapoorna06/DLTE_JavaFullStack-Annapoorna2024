@@ -102,7 +102,8 @@ public class LoanServicesController {
                     logger.error(resourceBundle.getString("invalid.rate.of.interest"));
                     return resourceBundle.getString("invalid.rate.of.interest");
                 }
-                double monthlyInterest = rateOfInterest / (12 * 100);
+                //double monthlyInterest = rateOfInterest / (12 * 100);
+                double monthlyInterest = (rateOfInterest / 100)/12;
                 double emi = (amount * monthlyInterest * Math.pow(1 + monthlyInterest, tenure)) / (Math.pow(1 + monthlyInterest, tenure) - 1);
                 return resourceBundle.getString("emi.pay")+ " is:" + emi;
             } else {

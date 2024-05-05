@@ -9,6 +9,6 @@ import java.util.List;
 @Repository
 public interface LoansInterface {
     public List<LoansAvailable> allAvailableLoans();
-    public List<LoansAvailable> findByLoanType(String loanType) throws SQLException;
+    //public List<LoansAvailable> findByLoanType(String loanType) throws SQLException;
     public double getRateOfInterestByLoanName(String loanName);
 }
