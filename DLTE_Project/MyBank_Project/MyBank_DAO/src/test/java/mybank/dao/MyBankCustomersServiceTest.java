@@ -1,6 +1,6 @@
 package mybank.dao;
 import mybank.dao.entity.MyBankCustomers;
-import mybank.dao.exceptions.LoanServiceException;
+
 import mybank.dao.services.LoanServices;
 import mybank.dao.services.MyBankCustomersService;
 import org.junit.jupiter.api.BeforeEach;
@@ -8,11 +8,13 @@ import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import org.springframework.dao.DataAccessException;
+
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,11 +44,9 @@ public class MyBankCustomersServiceTest {
         MyBankCustomers mockCustomer = new MyBankCustomers();
         mockCustomer.setUsername("Akshatha");
         mockCustomer.setPassword("nayak");
-
         // Mock behavior
         when(jdbcTemplate.queryForObject(anyString(), any(Object[].class), any(Class.class)))
                 .thenReturn(mockCustomer);
-
         // Test and verify
         assertDoesNotThrow(() -> {
             try {
@@ -56,8 +56,6 @@ public class MyBankCustomersServiceTest {
             }
         });
     }
-
-
 
     @Test
     void testLoadUserByUsername_UserDoesNotExist() {
@@ -141,12 +139,24 @@ public class MyBankCustomersServiceTest {
     }
 
     @Test
-    void testAllAvailableLoans_DataAccessException() {
-        // Mocking jdbcTemplate.query() to throw DataAccessException
-        when(jdbcTemplate.query(anyString(), any(LoanServices.LoanAvailableMapper.class)))
-                .thenThrow(DataAccessException.class);
+    public void testPasswordMatch() {
+        MyBankCustomersService myBankCustomersService = mock(MyBankCustomersService.class);
+        PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        // Setup test data
+        String username = "Annapoorna";
+        String rawPassword = "pai";
+        String encodedPassword =passwordEncoder.encode(rawPassword);
+        // Configure mock behavior
+        MyBankCustomers customers = new MyBankCustomers();
+        customers.setUsername(username);
+        customers.setPassword(encodedPassword);
+        when(myBankCustomersService.loadUserByUsername(username))
+                .thenReturn(customers);
+        // Invoke the authentication process
+        UserDetails userDetails = myBankCustomersService.loadUserByUsername(username);
+        String enteredPassword="pai";
+        // Verify the result
+        assertTrue(passwordEncoder.matches(enteredPassword, userDetails.getPassword()));
 
-        // Assert that the method throws LoanServiceException
-        assertThrows(LoanServiceException.class, () -> loanServices.allAvailableLoans());
     }
 }

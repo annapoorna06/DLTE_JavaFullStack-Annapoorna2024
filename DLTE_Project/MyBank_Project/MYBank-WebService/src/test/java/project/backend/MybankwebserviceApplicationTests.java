@@ -8,14 +8,17 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
+import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 
 import static org.junit.Assert.assertNotEquals;
+import static org.mockito.Mockito.verify;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.web.servlet.MockMvc;
@@ -45,6 +48,8 @@ public class MybankwebserviceApplicationTests {
     private SoapPhase loanService;
     @Autowired
     private MockMvc mockMvc;
+    @Mock
+    private SpringApplicationBuilder mockApplicationBuilder;
     @BeforeEach
     void setUp() {
         MockitoAnnotations.initMocks(this);
@@ -159,6 +164,14 @@ public class MybankwebserviceApplicationTests {
                 .param("amount", String.valueOf(amount))
                 .param("tenure", String.valueOf(tenure)))
                 .andExpect(status().isNotFound());
+    }
+
+    @Test
+    void configureTest() {
+        ServletInitializer servletInitializer = new ServletInitializer();
+        servletInitializer.configure(mockApplicationBuilder);
+        verify(mockApplicationBuilder).sources(MybankwebserviceApplication.class);
+
     }
 
 }

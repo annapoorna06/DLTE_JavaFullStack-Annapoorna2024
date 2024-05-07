@@ -23,12 +23,12 @@
     <link rel="stylesheet" th:href="@{/styles/headerStyle.css}" type="text/css">
     <link rel="stylesheet" th:href="@{/styles/footerStyle.css}" type="text/css">
     <link rel="stylesheet" th:href="@{/styles/style.css}" type="text/css">
-<!--    <script th:src="@{'/script/greet.js'}"></script>-->
 </head>
 
 <body>
 <!-- Header -->
-<header th:insert="header::menu"></header>
+//<header th:insert="header::menu"></header>
+<div th:fragment="header"></div>
 <div id="usernameField"></div>
 <div class="welcome-text text-center mt-5">
     <h1 style="font-family: 'Montserrat', sans-serif; font-size: 46px; color: #182052">Welcome to My bank</h1>

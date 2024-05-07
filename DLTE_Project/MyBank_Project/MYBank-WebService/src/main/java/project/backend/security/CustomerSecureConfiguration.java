@@ -32,20 +32,6 @@ public class CustomerSecureConfiguration {
         return new BCryptPasswordEncoder();
     }
 
-    //cors config
-    @Bean
-    public CorsConfigurationSource corsConfigurationSource() {
-        CorsConfiguration configuration = new CorsConfiguration();
-        //configuration.setAllowedOriginPatterns(Arrays.asList("http://127.0.0.1:5500"));
-        configuration.setAllowedOriginPatterns(Arrays.asList("*"));
-        configuration.addAllowedMethod("*");
-        configuration.addAllowedHeader("*");
-        configuration.setAllowCredentials(true);
-        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-        source.registerCorsConfiguration("/**", configuration);
-        return source;
-    }
-
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
         httpSecurity.httpBasic();

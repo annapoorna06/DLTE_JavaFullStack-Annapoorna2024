@@ -3,8 +3,12 @@ package project.backend.mvc;
 import mybank.dao.interfaces.LoansInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 @Controller
 @RequestMapping("/weblogin")
@@ -14,7 +18,6 @@ public class LoansUiController {
 
     @GetMapping("/")
     public String landing(){
-
         return "index";
     }
     @GetMapping("/dashboard")
@@ -22,10 +25,6 @@ public class LoansUiController {
         return "dashboard";
     }
 
-    @GetMapping("/search")
-    public String search(){
-        return "search";
-    }
 
     @GetMapping("/calculate")
     public String calculate(){
@@ -35,5 +34,12 @@ public class LoansUiController {
     @GetMapping("viewAll")
     public String viewAll(){
         return "viewAll";
+    }
+
+    @ExceptionHandler(Exception.class)
+    public ModelAndView handleException(HttpServletRequest request, HttpServletResponse response, Exception ex) {
+        ModelAndView modelAndView = new ModelAndView("error");
+        modelAndView.addObject("errorMessage", ex.getMessage());
+        return modelAndView;
     }
 }

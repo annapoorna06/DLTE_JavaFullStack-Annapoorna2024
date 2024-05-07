@@ -6,4 +6,6 @@ public class LoanServiceException extends RuntimeException {
         super(message);
     }
 
+//    public LoanServiceException() {
+//    }
 }

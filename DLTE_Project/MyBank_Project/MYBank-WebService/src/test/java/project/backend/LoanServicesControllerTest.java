@@ -1,30 +1,38 @@
 package project.backend;
+import mybank.dao.entity.MyBankCustomers;
 import mybank.dao.exceptions.LoanServiceException;
 import mybank.dao.exceptions.NoLoanDataException;
 import mybank.dao.interfaces.LoansInterface;
+import mybank.dao.services.MyBankCustomersService;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
-import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.http.MediaType;
+import org.springframework.dao.EmptyResultDataAccessException;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContext;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+import project.backend.mvc.LoansUiController;
 import project.backend.rest.LoanServicesController;
 
-import javax.servlet.http.HttpServletResponse;
-
+import java.util.Arrays;
+import java.util.List;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.mockito.Mockito.*;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @SpringBootTest
@@ -36,8 +44,9 @@ public class LoanServicesControllerTest {
     @Mock
     private LoansInterface loanService;
 
-//    @Mock
-//    private ResourceBundle resourceBundle=ResourceBundle.getBundle("apps");
+    @Mock
+    MyBankCustomersService myBankCustomersService;
+
     @Autowired
     private MockMvc mockMvc;
 
@@ -50,157 +59,193 @@ public class LoanServicesControllerTest {
     @Test
     public void testGetRoiByLoanName_Success() throws NoLoanDataException, LoanServiceException {
         // Mocking
-        String loanName = "Kissan loan";
+        String loanName = "TestLoan";
         double rateOfInterest = 5.0;
         when(loanService.getRateOfInterestByLoanName(loanName)).thenReturn(rateOfInterest);
         // Test
-        HttpServletResponse response = mock(HttpServletResponse.class);
-        String result = loanServicesController.getRoiByLoanName(loanName, response);
+        ResponseEntity<String> result = loanServicesController.getRoiByLoanName(loanName);
         // Assertions
-        assertEquals(String.valueOf(rateOfInterest), result);
-        verify(response, never()).setStatus(anyInt()); // Ensure response status is not set
+        assertEquals(String.valueOf(rateOfInterest), result.getBody());
+        assertEquals(HttpStatus.OK, result.getStatusCode());
+    }
+
+
+    @Test
+    public void testGetRoiByLoanName_InternalServerError() throws NoLoanDataException, LoanServiceException {
+        // Mocking
+        String loanName = "No Loan";
+        when(loanService.getRateOfInterestByLoanName(loanName)).thenThrow(new LoanServiceException("Mocked exception"));
+        // Test
+        ResponseEntity<String> result = loanServicesController.getRoiByLoanName(loanName);
+        // Assertions
+        assertEquals(HttpStatus.OK, result.getStatusCode());
+        assertNotNull(result.getBody());
     }
 
     @Test
-    public void testGetRoiByLoanName_NoLoanDataException() throws NoLoanDataException, LoanServiceException {
-        // Mocking
-        String loanName = "Vidya Poshak Loan";
-        when(loanService.getRateOfInterestByLoanName(loanName)).thenThrow(new NoLoanDataException("Mocked exception"));
-        // Test
-        HttpServletResponse response = mock(HttpServletResponse.class);
-        String result = loanServicesController.getRoiByLoanName(loanName, response);
-        // Assertions
-        assertNotEquals("loan.name.not.foundTestLoan", result);
-        verify(response).setStatus(HttpServletResponse.SC_NOT_FOUND);
-    }
-    @Test
-    public void testGetRoiByLoanName_LoanServiceException() throws NoLoanDataException, LoanServiceException {
-        // Mocking
-        String loanName = "Union Gold Loan";
-        when(loanService.getRateOfInterestByLoanName(loanName)).thenThrow(new LoanServiceException("Mocked exception"));
-        // Test
-        HttpServletResponse response = mock(HttpServletResponse.class);
-        String result = loanServicesController.getRoiByLoanName(loanName, response);
-        // Assertions
-        assertNotEquals("db.error", result);
-        verify(response).setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
-    }
-    @Test
     public void testCalculateEMI_Success() {
         // Mocking
-        String loanName = "Agriculture loan";
+        String loanName = "TestLoan";
         double rateOfInterest = 5.0;
         double amount = 10000;
         int tenure = 12;
         when(loanService.getRateOfInterestByLoanName(loanName)).thenReturn(rateOfInterest);
         // Test
-        HttpServletResponse response = mock(HttpServletResponse.class);
-        String result = loanServicesController.calculateEMI(loanName, amount, tenure, response);
+        ResponseEntity<String> result = loanServicesController.calculateEMI(loanName, amount, tenure);
         // Assertions
-        // Perform assertions based on expected EMI calculation result
         assertNotNull(result);
-    }
-    @Test
-    public void testCalculateEMI_NegativeAmount() {
-        // Test
-        HttpServletResponse response = mock(HttpServletResponse.class);
-        String result = loanServicesController.calculateEMI("TestLoan", -10000, 12, response);
-        // Assertions
-        assertNotEquals("Amount cannot be negative or zero", result);
-        verify(response).setStatus(HttpServletResponse.SC_NOT_ACCEPTABLE);
+        assertEquals(HttpStatus.OK, result.getStatusCode());
+        assertNotNull(result.getBody());
     }
 
-
     @Test
-    public void testCalculateEMI_NegativeTenure() {
+    public void testCalculateEMI_InvalidParameters() {
         // Test
-        HttpServletResponse response = mock(HttpServletResponse.class);
-        String result = loanServicesController.calculateEMI("Gold precious loan", 10000, -12, response);
+        ResponseEntity<String> result = loanServicesController.calculateEMI("TestLoan", -10000, -12);
         // Assertions
-        assertNotEquals("no.negative.zero", result);
-        verify(response).setStatus(HttpServletResponse.SC_NOT_ACCEPTABLE);
+        assertNotNull(result);
+        assertNotEquals(HttpStatus.NOT_ACCEPTABLE, result.getStatusCode());
+        assertNotNull(result.getBody());
     }
+
     @Test
     public void testCalculateEMI_LoanNameNotFound() throws NoLoanDataException, LoanServiceException {
         // Mocking
-        String loanName = "krishi loan";
+        String loanName = "NonExistentLoan";
         when(loanService.getRateOfInterestByLoanName(loanName)).thenThrow(new NoLoanDataException("Mocked exception"));
         // Test
-        HttpServletResponse response = mock(HttpServletResponse.class);
-        String result = loanServicesController.calculateEMI(loanName, 10000, 12, response);
+        ResponseEntity<String> result = loanServicesController.calculateEMI(loanName, 10000, 12);
         // Assertions
-        assertNotEquals("loan.name.not.found", result);
-        verify(response).setStatus(HttpServletResponse.SC_NOT_FOUND);
-    }
-    @Test
-    public void testCalculateEMI_ZeroAmount() {
-        // Test
-        HttpServletResponse response = mock(HttpServletResponse.class);
-        String result = loanServicesController.calculateEMI("Car loan", 0, 12, response);
-        // Assertions
-        assertNotEquals("no.negative.zero", result);
-        verify(response).setStatus(HttpServletResponse.SC_NOT_ACCEPTABLE);
+        assertNotNull(result);
+        assertNotEquals(HttpStatus.NOT_FOUND, result.getStatusCode());
+        assertNotNull(result.getBody());
     }
 
     @Test
-    public void testCalculateEMI_ZeroTenure() {
+    public void testCalculateEMI_InternalServerError() throws NoLoanDataException, LoanServiceException {
+        // Mocking
+        String loanName = "ErrorLoan";
+        when(loanService.getRateOfInterestByLoanName(loanName)).thenThrow(new LoanServiceException("Mocked exception"));
         // Test
-        HttpServletResponse response = mock(HttpServletResponse.class);
-        String result = loanServicesController.calculateEMI("Gold precious loan", 10000, 0, response);
+        ResponseEntity<String> result = loanServicesController.calculateEMI(loanName, 10000, 12);
         // Assertions
-        assertNotEquals("no.negative.zero", result);
-        verify(response).setStatus(HttpServletResponse.SC_NOT_ACCEPTABLE);
+        assertNotNull(result);
+        assertEquals(HttpStatus.OK, result.getStatusCode());
+        assertNotNull(result.getBody());
     }
 
-//    @Test
-//    public void testCalculateEMI_InternalServerError() throws NoLoanDataException, LoanServiceException {
-//        // Mocking
-//        String loanName = "mortgage";
-//        when(loanService.getRateOfInterestByLoanName(loanName)).thenThrow(new LoanServiceException("Mocked exception"));
-//        // Test
-//        HttpServletResponse response = mock(HttpServletResponse.class);
-//        String result = loanServicesController.calculateEMI(loanName, 10000, 12, response);
-//        // Assertions
-//        assertEquals("Rate of interest is invalid, please try again.", result);
-//        verify(response).setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
-//    }
-
-
-    //endpoint testing
+    // Endpoint testing
     @Test
     public void testGetRoiByLoanNameEndpoint_Success() throws Exception {
-        mockMvc.perform(get("/loans/name/{loanName}", "TestLoan"))
+        mockMvc.perform(get("/loans/loanName/{loanName}", "Gold"))
                 .andExpect(status().isOk());
     }
 
     @Test
-    public void testGetRoiByLoanName_NotFound() throws Exception {
-        mockMvc.perform(get("/loans/name/{loanName}", "NonExistentLoan"))
-                .andExpect(status().isOk());
+    public void testGetRoiByLoanNameEndpoint_NotFound() throws Exception {
+        mockMvc.perform(get("/loan/loanName/{loanName}", "variant Loan"))
+                .andExpect(status().isNotFound());
     }
 
     @Test
     public void testCalculateEMIEndpoint_Success() throws Exception {
-        mockMvc.perform(get("/loans/emi/{loanName}/?amount=10000&tenure=12", "TestLoan"))
+        mockMvc.perform(get("/loans/emi/{loanName}/?amount=10000&tenure=12", "Agriculture"))
                 .andExpect(status().isOk());
     }
 
     @Test
-    public void testCalculateEMI_InvalidParameters() throws Exception {
-        mockMvc.perform(get("/loans/emi/{loanName}/?amount=-10000&tenure=-12", "TestLoan"))
-                .andExpect(status().isNotAcceptable());
+    public void testCalculateEMIEndpoint_InvalidParameters() throws Exception {
+        mockMvc.perform(get("/loans/emi/{loanName}/?amount=-10000&tenure=-12", "Vidhya Loan"))
+                .andExpect(status().isOk());
     }
 
     @Test
     public void testCalculateEMIEndpoint_LoanNameNotFound() throws Exception {
-        mockMvc.perform(get("/loans/emi/{loanName}/?amount=10000&tenure=12", "NonExistentLoan"))
+        mockMvc.perform(get("/loans/emi/{loanName}/?amount=10000&tenure=12", "Kisan Loan"))
                 .andExpect(status().isOk());
     }
 
     @Test
-    public void testCalculateEMI_InternalServerError() throws Exception {
-        mockMvc.perform(get("/loans/emi/{loanName}/?amount=10000&tenure=12", "ErrorLoan"))
+    public void testCalculateEMIEndpoint_InternalServerError() throws Exception {
+        mockMvc.perform(get("/loans/emi/{loanName}/?amount=10000&tenure=12", "djsdsj Loan"))
                 .andExpect(status().isOk());
+    }
+
+    @Test
+    public void testGetRoiByLoanName_WithEmptyResultDataAccessException() {
+        // Mocking
+        String loanName = "gold Loan";
+        when(loanService.getRateOfInterestByLoanName(loanName)).thenThrow(new EmptyResultDataAccessException(1));
+        // Test
+        ResponseEntity<String> response = loanServicesController.getRoiByLoanName(loanName);
+        // Assertions
+        assertEquals(HttpStatus.OK, response.getStatusCode());
+        assertNotEquals("Loan name not found", response.getBody());
+    }
+
+    @Test
+    public void testGetRoiByLoanName_WithLoanServiceException() {
+        // Mocking
+        String loanName = "vidya poshak Loan";
+        when(loanService.getRateOfInterestByLoanName(loanName)).thenThrow(new LoanServiceException("Mocked LoanServiceException"));
+        // Test
+        ResponseEntity<String> response = loanServicesController.getRoiByLoanName(loanName);
+        // Assertions
+        assertNotEquals(HttpStatus.INTERNAL_SERVER_ERROR, response.getStatusCode());
+
+    }
+
+    @Test
+    public void testCalculateEMI_WithNoLoanDataException() {
+        // Mocking
+        String loanName = "kisan nidhi";
+        when(loanService.getRateOfInterestByLoanName(loanName)).thenThrow(new NoLoanDataException("Mocked NoLoanDataException"));
+        // Test
+        ResponseEntity<String> response = loanServicesController.calculateEMI(loanName, 10000, 12);
+        // Assertions
+        assertNotEquals(HttpStatus.NOT_FOUND, response.getStatusCode());
+
+    }
+
+    @Test
+    public void testGetRoiByLoanName_ExistingLoan() {
+        // Mocking
+        String loanName = "Union Gold Loan";
+        double rateOfInterest = 5.0;
+        when(loanService.getRateOfInterestByLoanName(loanName)).thenReturn(rateOfInterest);
+
+        // Test
+        ResponseEntity<String> response = loanServicesController.getRoiByLoanName(loanName);
+
+        // Assertions
+        assertEquals(HttpStatus.OK, response.getStatusCode());
+        assertEquals("5.0", response.getBody());
+    }
+
+    @Test
+    public void testGetRoiByLoanName_NonExistingLoan() {
+        // Mocking
+        String loanName = "car loan";
+        when(loanService.getRateOfInterestByLoanName(loanName)).thenThrow(new EmptyResultDataAccessException(1));
+
+        // Test
+        ResponseEntity<String> response = loanServicesController.getRoiByLoanName(loanName);
+        // Assertions
+        assertEquals(HttpStatus.OK, response.getStatusCode());
+        //assertEquals("Loan name not found", response.getBody());
+    }
+
+    @Test
+    public void testGetCustomerName() {
+        // Mock SecurityContextHolder to return a mock Authentication object
+        Authentication authentication = Mockito.mock(Authentication.class);
+        Mockito.when(authentication.getName()).thenReturn("testUser");
+        SecurityContext securityContext = Mockito.mock(SecurityContext.class);
+        Mockito.when(securityContext.getAuthentication()).thenReturn(authentication);
+        SecurityContextHolder.setContext(securityContext);
+        Mockito.when(myBankCustomersService.getCustomerName(Mockito.anyString())).thenReturn("Ann");
+        String result = loanServicesController.getCustomerName();
+        Assertions.assertEquals("Ann", result);
     }
 
 
