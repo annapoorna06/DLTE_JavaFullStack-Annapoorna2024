@@ -1,0 +1,255 @@
+create sequence CUSTOMERID_SEQ start with 100 increment by 1;
+create table MYBANK_APP_CUSTOMER(
+CUSTOMER_ID INT,
+CUSTOMER_NAME VARCHAR2(255) NOT NULL,
+CUSTOMER_ADRESS VARCHAR2(255) NOT NULL,
+CUSTOMER_STATUS VARCHAR2(255) NOT NULL,
+CUSTOMER_CONTACT NUMBER(10) NOT NULL,
+USERNAME VARCHAR2(255) NOT NULL,
+PASSWORD VARCHAR2(255) NOT NULL
+);
+alter table MYBANK_APP_CUSTOMER add constraint CUSTOMERID_SEQ primary key(CUSTOMER_ID);
+
+create sequence KYC_SEQ start with 100 increment by 1;
+CREATE TABLE MYBANK_APP_KYC(
+KYC_NUMBER INT,
+CUSTOMER_ID INT NOT NULL,
+KYC_PAN VARCHAR2(255) NOT NULL,
+KYC_AADHAAR NUMBER(16) NOT NULL,
+KYC_STATUS VARCHAR2(255) NOT NULL,
+FOREIGN KEY(CUSTOMER_ID) REFERENCES MYBANK_APP_CUSTOMER(CUSTOMER_ID) on delete cascade
+);
+alter table MYBANK_APP_KYC add constraint KYC_SEQ primary key(KYC_NUMBER);
+
+create sequence ACC_SEQ start with 100 increment by 1;
+CREATE TABLE MYBANK_APP_ACCOUNT(
+ACCOUNT_ID INT,
+CUSTOMER_ID INT,
+ACCOUNT_TYPE VARCHAR(50) NOT NULL,
+ACCOUNT_NUMBER VARCHAR(225) NOT NULL UNIQUE,
+ACCOUNT_STATUS NUMBER(2) NOT NULL,
+FOREIGN KEY (CUSTOMER_ID) REFERENCES MYBANK_APP_CUSTOMER(CUSTOMER_ID) on delete cascade
+);
+alter table MYBANK_APP_ACCOUNT add constraint ACC_SEQ  primary key(ACCOUNT_ID);
+
+create sequence DEPOSIT_SEQ start with 100 increment by 1;
+CREATE TABLE MYBANK_APP_DEPOSITAVAILABLE(
+DEPOSIT_ID INT,
+DEPOSIT_NAME VARCHAR2(255) NOT NULL,
+DEPOSIT_ROI DECIMAL(15,2) NOT NULL,
+DEPOSIT_TYPE VARCHAR(255) NOT NULL,
+DEPOSIT_DESCRIPTION CLOB NOT NULL
+);
+alter table MYBANK_APP_DEPOSITAVAILABLE add constraint DEPOSIT_SEQ primary key(DEPOSIT_ID);
+
+CREATE SEQUENCE DEPOSITAVAIL_SEQ START WITH 100 INCREMENT BY 1;
+CREATE TABLE MYBANK_APP_DEPOSITAVAILED(
+DEPOSIT_AVAIL_ID INT,
+CUSTOMER_ID INT NOT NULL,
+DEPOSIT_ID INT NOT NULL,
+DEPOSITED_AMOUNT DECIMAL(15,2) NOT NULL,
+DEPOSIT_DURATION INT NOT NULL,
+DEPOSIT_MATURITY DATE NOT NULL,
+FOREIGN KEY (CUSTOMER_ID) REFERENCES MYBANK_APP_CUSTOMER(CUSTOMER_ID) on delete cascade,
+FOREIGN KEY (DEPOSIT_ID) REFERENCES MYBANK_APP_DEPOSITAVAILABLE(DEPOSIT_ID) on delete cascade
+);
+alter table MYBANK_APP_DEPOSITAVAILED add constraint DEPOSITAVAIL_SEQ primary key(DEPOSIT_AVAIL_ID);
+
+CREATE SEQUENCE INSURANCEID_SEQ START WITH 100 INCREMENT BY 1;
+CREATE TABLE MYBANK_APP_INSURANCEAVAILABLE(
+INSURANCE_ID INT ,
+INSURANCE_TYPE VARCHAR2(50) NOT NULL,
+INSURANCE_NAME VARCHAR2(255)NOT NULL,
+INSURANCE_KEY_BENEFITS CLOB NOT NULL,
+INSURANCE_LIFETIME INT NOT NULL);
+alter table MYBANK_APP_INSURANCEAVAILABLE add constraint INSURANCEID_SEQ  primary key(INSURANCE_ID);
+
+CREATE SEQUENCE INSURANCE_AVAIL_ID_SEQ START WITH 100 INCREMENT BY 1;
+CREATE TABLE MYBANK_APP_INSURANCEAVAILED(
+INSURANCE_AVAIL_ID INT,
+CUSTOMER_ID INT ,
+INSURANCE_ID INT ,
+INSURANCE_COVERAGE DECIMAL(15,2) NOT NULL,
+INSURANCE_PREMIUM DECIMAL(15,2) NOT NULL,
+FOREIGN KEY(CUSTOMER_ID) REFERENCES MYBANK_APP_CUSTOMER(CUSTOMER_ID) on delete cascade,
+FOREIGN KEY(INSURANCE_ID) REFERENCES MYBANK_APP_INSURANCEAVAILABLE(INSURANCE_ID) on delete cascade
+);
+alter table MYBANK_APP_INSURANCEAVAILED add constraint INSURANCE_AVAIL_ID_SEQ  primary key(INSURANCE_AVAIL_ID);
+
+create sequence DEBIT_SEQ start with 100 increment by 1;
+CREATE TABLE MYBANK_APP_DebitCard(
+DEBITCARD_NUMBER NUMBER(20),
+ACCOUNT_NUMBER number(20),
+DEBITCARD_CVV INT NOT NULL,
+DEBITCARD_EXPIRY DATE NOT NULL,
+DEBITCARD_STATUS NUMBER(4) NOT NULL,
+DEBITCARD_DOMESTIC_LIMIT NUMBER(20) NOT NULL,
+DEBITCARD_INTERNATIONAL_LIMIT NUMBER(20) NOT NULL,
+DEBITCARD_PIN NUMBER(4) NOT NULL,
+CUSTOMER_ID int NOT NULL,
+FOREIGN KEY(CUSTOMER_ID) REFERENCES  MYBANK_APP_CUSTOMER(CUSTOMER_ID) ON DELETE CASCADE,
+FOREIGN KEY(ACCOUNT_NUMBER) REFERENCES  MYBANK_APP_ACCOUNT(ACCOUNT_NUMBER) ON DELETE CASCADE
+);
+alter table MYBANK_APP_DebitCard add constraint DEBIT_SEQ  primary key(DEBITCARD_NUMBER);
+
+create sequence LOAN_SEQ start with 100 increment by 1; 
+create table MYBANK_APP_LOANAVAILABLE(
+loan_number int,
+loan_type varchar2(255) not null,
+loan_name varchar(255) not null,
+loan_description clob not null,
+loan_roi decimal(15,2) not  null
+);
+alter table MYBANK_APP_LOANAVAILABLE add constraint LOAN_SEQ  primary key(loan_number);
+
+create sequence LOANAVAIL_SEQ start with 100 increment by 1;
+create table MYBANK_APP_LOANAVAILED(
+loan_avail_number int,
+customer_number int,
+loan_number int,
+loan_amount decimal(15,2) not null,
+loan_emi decimal(15,2) not null,
+loan_tenure int not null,
+FOREIGN KEY (customer_number) REFERENCES MYBANK_APP_Customer(customer_ID) on delete cascade,
+FOREIGN KEY (loan_number) REFERENCES MYBANK_APP_LOANAVAILABLE(loan_number) on delete cascade
+);
+alter table MYBANK_APP_LOANAVAILED add constraint LOANAVAIL_SEQ  primary key(loan_avail_number);
+
+create sequence transactionid_seq start with 100 increment by 1;
+CREATE TABLE MYBANK_APP_Transaction (
+    transaction_id INT,
+    transaction_type VARCHAR(50) not null,
+    transaction_from number(20) not null,
+    transaction_to number(20) not null,
+    transaction_date DATE not null,
+    transaction_amount DECIMAL(15,2) not null,
+    transaction_status VARCHAR(50) not null,
+    FOREIGN KEY (TRANSACTION_FROM) REFERENCES MYBANK_APP_Account(ACCOUNT_NUMBER) on delete cascade,
+    FOREIGN KEY (TRANSACTION_TO) REFERENCES MYBANK_APP_Account(ACCOUNT_NUMBER) on delete cascade
+); 
+alter table MYBANK_APP_Transaction add constraint transactionid_seq  primary key(transaction_id);
+
+create sequence payee_seq start with 100 increment by 1;
+CREATE TABLE MYBANK_APP_Payee (
+    payee_id INT ,
+    SENDER_ACCOUNT_NUMBER NUMBER(20),
+    BENEFICIARY_ACCOUNT_NUMBER NUMBER(20),
+    payee_name VARCHAR(255) not null,
+    FOREIGN KEY (SENDER_ACCOUNT_NUMBER) REFERENCES MYBANK_APP_ACCOUNT(ACCOUNT_NUMBER) on delete cascade,
+    FOREIGN KEY (BENEFICIARY_ACCOUNT_NUMBER) REFERENCES MYBANK_APP_Account(account_number) on delete cascade
+); 
+alter table MYBANK_APP_Payee add constraint payee_seq  primary key(payee_id);
+
+
+INSERT INTO MYBANK_APP_CUSTOMER VALUES (CUSTOMERID_SEQ.NEXTVAL, 'Annapoorna Pai', 'Karkala', 'Active', 6363276256, 'annapoornapai6', 'annapoo6');
+INSERT INTO MYBANK_APP_CUSTOMER VALUES (CUSTOMERID_SEQ.NEXTVAL, 'Divija', 'Ujire', 'Active', 7019594061, 'divijap', 'divijap6');
+INSERT INTO MYBANK_APP_CUSTOMER VALUES (CUSTOMERID_SEQ.NEXTVAL, 'Shreya', 'Moodbidri', 'Active', 9812746359, 'shreyam', 'shreya12');
+
+INSERT INTO MYBANK_APP_LOANAVAILABLE VALUES (LOAN_SEQ.NEXTVAL, 'Personal', 'Personal Loan', 'education, medical expenses, travel', 10.5);
+INSERT INTO MYBANK_APP_LOANAVAILABLE VALUES (LOAN_SEQ.NEXTVAL, 'Gold', 'Gold Loan', 'education, medical expenses, travel or use for personal cases',9.75);
+INSERT INTO MYBANK_APP_LOANAVAILABLE VALUES (LOAN_SEQ.NEXTVAL, 'Home', 'Home Loan', 'to build home of dreams',11.2);
+INSERT INTO MYBANK_APP_LOANAVAILABLE VALUES (LOAN_SEQ.NEXTVAL, 'Education', 'Vidhya sahaya', 'to achieve your dreams',7.4);
+INSERT INTO MYBANK_APP_LOANAVAILABLE VALUES (LOAN_SEQ.NEXTVAL, 'Business', 'Start Up loan', 'bring your ideas into reality',9.75);
+INSERT INTO MYBANK_APP_LOANAVAILABLE VALUES (LOAN_SEQ.NEXTVAL, 'Agriculture', 'Krishi Loan', 'buying inputs such as fertilizers, seeds, insecticides ',7.0);
+
+INSERT INTO MYBANK_APP_LOANAVAILED VALUES(LOANAVAIL_SEQ.NEXTVAL,100,100,200000.0,3500,5);
+INSERT INTO MYBANK_APP_LOANAVAILED VALUES(LOANAVAIL_SEQ.NEXTVAL,101,101,500000.0,5500,7);
+INSERT INTO MYBANK_APP_LOANAVAILED VALUES(LOANAVAIL_SEQ.NEXTVAL,102,102,100000.0,2000,6);
+
+
+
+CREATE OR REPLACE PROCEDURE read_loans_by_type (
+    loan_type       IN VARCHAR2,
+    loan_name       OUT VARCHAR2,
+    loan_description OUT VARCHAR2,
+    loan_roi        OUT NUMBER,
+    loan_number     OUT NUMBER,
+    loan_info       OUT VARCHAR2,
+    loan_type_out   OUT VARCHAR2 
+) AS
+    -- Define custom exceptions
+    NO_LOANS_FOUND EXCEPTION;
+    ERROR_SQ001 EXCEPTION;
+    ERR_NO_LOANS_FOUND CONSTANT NUMBER := -20001;
+    ERR_SQ001 CONSTANT NUMBER := -20002; 
+BEGIN
+    BEGIN
+        SELECT
+            loan_name, loan_description, loan_roi, loan_number, loan_type
+        INTO
+            loan_name, loan_description, loan_roi, loan_number, loan_type_out
+        FROM
+            mybank_app_loanavailable
+        WHERE
+            loan_type = read_loans_by_type.loan_type;
+        loan_info := 'Loan details fetched successfully';
+    EXCEPTION
+        WHEN NO_DATA_FOUND THEN
+            -- If no data found, set error message and code
+            loan_info := 'No loans found for the specified loan type';
+            raise_application_error(ERR_NO_LOANS_FOUND, loan_info);
+        WHEN OTHERS THEN
+            -- For other errors, check for SQ001 error and set appropriate message and code
+            IF SQLCODE = ERR_SQ001 THEN
+                loan_info := 'SQ001 error occurred';
+                raise_application_error(ERR_SQ001, loan_info);
+            ELSE
+                loan_info := 'Error occurred: ' || SQLERRM;
+                raise_application_error(-20000, loan_info); -- Generic error code
+            END IF;
+    END;
+END;
+/
+
+
+
+
+CREATE OR REPLACE PROCEDURE get_loan_roi (
+    loan_name       IN VARCHAR2,
+    loan_roi_out    OUT NUMBER,
+    loan_info       OUT VARCHAR2
+) AS
+    -- Define error code constants
+    ERR_NO_LOAN_FOUND CONSTANT NUMBER := -20001; 
+    ERR_SQ001 CONSTANT NUMBER := -20002; 
+
+BEGIN
+    SELECT
+        loan_roi
+    INTO
+        loan_roi_out
+    FROM
+        mybank_app_loanavailable
+    WHERE
+        loan_name = get_loan_roi.loan_name;
+
+    loan_info := 'Loan ROI fetched successfully';
+    
+EXCEPTION
+    WHEN NO_DATA_FOUND THEN
+        loan_info := 'NO_LOAN_FOUND';
+    
+    WHEN OTHERS THEN
+        IF SQLCODE = ERR_SQ001 THEN
+            loan_info := 'SQ001' || SQLERRM;
+        END IF;
+END;
+/
+
+
+DECLARE
+    loan_name_input VARCHAR2(100) := 'Union Gold Loan';
+    loan_roi_output NUMBER;
+    loan_info_output VARCHAR2(100);
+BEGIN
+    get_loan_roi(loan_name_input, loan_roi_output, loan_info_output);
+    IF loan_info_output = 'NO_LOAN_FOUND' THEN
+        DBMS_OUTPUT.PUT_LINE('Loan not found');
+    ELSE
+        DBMS_OUTPUT.PUT_LINE('Loan ROI: ' || loan_roi_output);
+    END IF;
+END;
+/
+
+
+print loan_roi_output;
