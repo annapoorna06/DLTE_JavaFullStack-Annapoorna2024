@@ -1,0 +1,118 @@
+https://github.com/razzaksr/DLTE-Java-Full-Stack-Development-Razak-Mohamed-2024/tree/master
+19/02/2024
+
+#Operators:
+>Arithmetc: +-*/
+>Unary    : ++ --
+>Bitwise  : >> << &|^
+>Shorthand: += -= *= /= %= >>= <<=
+>boolean  : true or false
+>rational : > < >= <=
+>logical  : && ||
+
+* as soon as finishing objet then close the object.
+
+#Control statements:understand user requirement and provide solution.
+>if
+>Switch == ||
+>if else we can use all the operations while switch cannot
+
+* or operator in switch case ex: case "lumpsum": case "LUMPSUM".
+
+#Loop statements:
+>while
+>do while
+>for - depends on the ranges
+>for each - does not depend on ranges,does not have index system, it will have a copy of array with index reference, 
+   if we want to store element, it does not impact in original array.
+
+* mention only iterative parameter in iteration part of loops.
+
+*System.out.println()-System is a class where Printstream is sub class so in main method System.out.println() is called.
+
+#Two types of conversion:
+Type parsing: Conversion from string to other types using respective Wrapper class parse method.
+Type casting: Casting between any types.
+              int accountType='S'; -
+              1) implicit casting (conversion) >> whenever we try to convert low size datatype to large size datatype.
+              char transcationType='d'; -> int transType=trasnsactionType;
+              2) explicit casting: double
+
+* String to double conversion is done by type parsing.
+
+
+
+----------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------STRINGS-------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------
+
+
+* it is class in both java and python.
+* trim is used to remove white spaces.
+* replace is used to update the string elements.
+* contains checks if that particular word is there or not. 
+* initialization of strings:
+1) literal-String myportfolio="gold,jsw";
+
+2) non literal-String mystocks=new String("Wipro, Reliance, HP, Infosys");
+
+--------------------------------------
+Regular Expressions
+--------------------------------------
+* used for data validation.
+* Class Pattern: compile, match
+* Class Matcher: matches password etc
+* ^: start
+* $: end
+* [0-9]: numbers
+* [a-zA-Z]: alphabets
+* ?= grouping
+* {start,limit}: length of the string.
+
+------------------------------------------
+Array
+------------------------------------------
+* Storage logic: temporary, fixed size, type specific
+* types of array:
+  a)single
+  b)multi
+  c)jagged
+* declaration:
+  type[] var/obj={v1,v2,...,vn}
+  type[] var/obj=new type[size]; initialized to some value stores default values in all indices.
+* Operations:
+  CRUD
+  SEARCH
+  SORT 
+  ANALYSIS
+* Methods:
+  Reduces Space compplexity by distributed code of grouping statement based on nature.
+  executed when made a call 
+* types:
+  a)inbuilt
+  b)user defined
+*category:
+  param with return: type parsing
+  param without return: println
+  no param without return: finalize
+  no param with return: scanner methods
+* if the size is specified with 2 digit number then we can append elements in the array within the limit.
+* if the elememts are specified or initialized in the arrat then we cannot append elements in the array.
+* for each syntax: for(double each:income){ each=scanner.next();}
+* deletion in array is not possible.
+* object[] storage=new object[7]- object class array, can adopt any type of data.
+
+
+
+--------------------------------------------------------------------------------------------------------------------------
+==========================================================================================================================
+
+20/02/2024
+
+* array of objects
+* for retrieval and simple operations use "for each" as it won't effect original array.
+============================================================
+21/02/24
+
+INHERITANCE
+* derivedClass extends baseClass

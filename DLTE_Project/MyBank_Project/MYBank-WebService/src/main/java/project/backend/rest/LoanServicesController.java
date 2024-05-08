@@ -89,8 +89,6 @@ public class LoanServicesController {
     }
 
 
-
-
     @GetMapping("/name")
     public String getCustomerName() {
         String name = getUser();

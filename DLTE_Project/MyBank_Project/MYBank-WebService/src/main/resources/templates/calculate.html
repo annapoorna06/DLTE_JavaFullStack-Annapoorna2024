@@ -47,13 +47,13 @@
                 <div class="form-group row mb-3">
                     <label for="loanNameInput" class="col-sm-4 col-form-label" style="color: black; font-family: Poppins">Loan Name:</label>
                     <div class="col-sm-8">
-                        <input type="text" id="loanNameInput" class="form-control" placeholder="Loan Name" style="color: #a5aaa8" readonly>
+                        <input type="text" id="loanNameInput" class="form-control" placeholder="Loan Name" style="color: black;background-color: #a5aaa8" readonly>
                     </div>
                 </div>
                 <div class="form-group row mb-3">
                     <label for="roiInput" class="col-sm-4 col-form-label" style="color: black; font-family: Poppins">ROI:</label>
                     <div class="col-sm-8">
-                        <input type="number" id="roiInput" class="form-control" placeholder="Loan ROI" style="color: #a5aaa8" readonly>
+                        <input type="number" id="roiInput" class="form-control" placeholder="Loan ROI" style="color: black;background-color: #a5aaa8" readonly>
                     </div>
                 </div>
                 <div class="form-group row mb-3">
@@ -82,7 +82,7 @@
                         </div>
                         <!-- Right-aligned button -->
                         <div class="col-sm-4 d-flex align-items-center justify-content-end">
-                            <button id="apply" class="btn btn me-3 d-none" style="color: white; background-color: #003870" th:href="@{'/weblogin/error?code=404&msg=Page Under Construction'}">Apply</button>
+                            <button id="apply" class="btn btn me-3 d-none" style="color: white; background-color: #003870" onclick="window.location.href='/mybank/weblogin/errors?code=404&msg=Page Under Construction'" >Apply</button>
                         </div>
                     </div>
                 </div>
@@ -102,27 +102,38 @@
             let results = regex.exec(location.search);
             return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
         };
+
         // Get loan name and ROI from URL
         const data = JSON.parse(sessionStorage.getItem('calculate'));
         $('#loanNameInput').val(data.name);
         $('#roiInput').val(data.roi);
+        $('#amountInput').val(1000);
+
         // Handle form submission
         $('#emiForm').submit(function (event) {
             event.preventDefault();
             var loanName = $('#loanNameInput').val();
-            var amount = $('#amountInput').val();
+            var amount = $('#amountInput').val() || 1000; // Default amount to 1000 if empty
             var tenure = $('#tenureInput').val();
             var roi = $('#roiInput').val();
-            // Validate amount and tenure for negative values
-            if (amount < 0 || tenure < 0) {
+
+            // Validate amount and tenure for negative values and empty fields
+            if (amount < 0 || tenure < 0 || tenure === "") {
                 if (amount < 0) {
-                    $('#amountError').text('Amount cannot be negative.');
+                    $('#amountError').text('Enter valid amount.');
                 }
-                if (tenure < 0) {
-                    $('#tenureError').text('Tenure cannot be negative.');
+                if (tenure < 0 || tenure === "") {
+                    $('#tenureError').text('Enter valid tenure.');
                 }
                 return; // Exit the function if validation fails
             }
+
+            // Check if amount is less than the default value (1000)
+            if (amount < 1000) {
+                $('#amountError').text('Enter amount above 1000');
+                return; // Exit the function if amount is less than the default value
+            }
+
             // Clear error messages
             $('#amountError').text('');
             $('#tenureError').text('');
@@ -142,6 +153,7 @@
             });
         });
     });
+
 </script>
 <footer th:insert="footer::footer"></footer>
 </body>
