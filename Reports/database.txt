@@ -1,0 +1,132 @@
+---------------------------------------------------------
+                        DATABASE 20/2/24
+---------------------------------------------------------
+* NoSQL:
+  Firbase
+  MongoDB
+* SQL:
+  PostgreSQL
+  MS SQL
+  MySQL
+  Oracle:
+      SQL Developer >>gui
+      sql plus      >>cli
+* Tables: columns, rows
+* Data Types: varchar, number, int, bigint, text, double, float, blob, date.
+* Data Definition Language: create, drop, alter.
+   can create db, tables, views, types, users, procedure, triggers, sequence.
+* Data Control Language: Grant, Revoke-- useful to users.
+* Data Manipulation Language: Insert, update, delete, truncate
+* Data Query Language: select useful in joins.
+* Transaction Control Language: committ, rollback.
+
+--------------------QUERIES------------------------------
+* Create table DDL: create table transaction_2024(transaction_id number(10) not null, transaction_date date not null,
+  transaction_to varchar(255) not null, transaction_amount number(10) not null, transaction_remarks varchar(100));
+* desc tablename;
+* Alter table:  alter table transaction_2024 add primary key(transaction_id);
+* Creating Sequence: create sequence transaction_seq start with 2024001 increment by 1;
+* making primary key: alter table transaction_2024 add constraint transaction_seq primary key(transaction_id);
+* insert with sequence DML: insert into transaction_2024 (transaction_id, transaction_amount, transaction_date, transaction_receiver, transaction_remarks) values (1, 2000, '20Feb2024','Aru', 'PK');
+* insert with sequence with next val:  insert into transaction_2024 (transaction_id, transaction_amount, transaction_date, transaction_receiver, transaction_remarks) values (transaction_seq.nextval, 2001, '21Feb2024','AruParu', 'shagun');
+* rollback; TCL
+* commit; everytime as it is not set as autosave.
+* Creating views DDL: create view emergency_name as select transaction_receiver from transaction_2024 where transaction_remarks='PK';
+* deleting just the records DDL: truncate table transaction_2024;
+
+
+
+---------------------------------------------------------
+                        DATABASE 22/2/24
+---------------------------------------------------------
+PROCEDURES:
+* write complex or repeated queries once in a procedure to compile once and execute     whenever it requires.
+  network traffic.
+  compilation.
+  comes under DDL.
+  exception handling.
+* Syntax-create procedure Procedure_name
+* in,out,inout
+---------------
+* Example: 
+create or replace procedure read_bankers_info (
+  emp_id number;
+  emp_name out varchar2
+)
+as
+begin
+     select banker_name into emp_name form bankers where banker_id emp_id;
+end;
+/
+---------------
+variable found_one varchar2(255);
+variable info_or_error varchar2(255); >>error handling
+---------------
+create or replace procedure update_customers(
+  acc_num number,
+  acc_name varchar2,
+  acc_cnt number,
+  acc_bal float,
+  acc_pass varchar2, 
+  acc_info out varchar2
+)
+as 
+begin
+update customers set account_holder=acc_name, contact=acc_cnt, account_passcode=acc_pass, 
+acc_info:='KYC updated';
+exception
+when others then
+acc_info:='Updation failed'||SQLERRM;
+end;
+/
+
+variable err_or_info varchar2(255);
+execute update_customers(1011,''Annapoorna',10000000,234444445,'annapoo',:err_or_info);
+print err_or_info;
+
+
+---------------------------------------------------------
+                        TRIGGERS
+---------------------------------------------------------
+* cannot be called manually
+* based on:
+  when it has to happen >>before and after
+  perform triggers on>> insert, update, delete
+
+*syntax:
+  create or replace triggers Trigger_name
+  TIME EVENT on TABLE
+  for each row
+  CONDITION
+  begin 
+  ...
+  end;
+  /
+* create or replace trigger check_some
+  before insert on borrowers
+  for each row
+  begin
+    if :new.borrower_contact is null then :new.borrower_contact:=0;
+    end if;
+  end;
+  /
+* create or replace trigger record_log
+  after update on borrowers
+  for each row
+  when(borrower_id>0)
+  begin
+    insert into my_logs(sysdate,'Updated the borrower_table'|| :borrower_id)
+  end;
+  /
+-------------------------------------
+DCL
+-------------------------------------
+
+* select * from all_users;
+* create user annapoorna 
+
+-------------------------------------
+DQL
+-------------------------------------
+* select * from table_name where constraint=" "
+* select * from table_name where constraint like '% constraint %';

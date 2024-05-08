@@ -1,0 +1,8 @@
+1/3/2024
+
+Normalization:
+
+1)create table mybank_CreditCard_before_nom(creditCard_number number, creditcard_cvv number, ..........., merchant_name varchar255, transaction_date date,
+transaction_amount number......);
+
+2)create 3 different tables creditCard, transaction and merchant according to normalization.

@@ -1,0 +1,11 @@
+Java programs: 19/02/2024
+
+1. Credit card EMI processing fee calculation:
+principle amount=50000
+processing fee in percentage=1% with GST >>500+90=590
+Roi >>21.25% >> 10500
+principle + roi>>60500
+tenure >>10
+EMI=6500
+First EMI =6640
+2. SIP calculator:
