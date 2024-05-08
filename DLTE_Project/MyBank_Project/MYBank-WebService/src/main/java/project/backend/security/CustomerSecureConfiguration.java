@@ -24,7 +24,6 @@ public class CustomerSecureConfiguration {
 
     @Bean
     public PasswordEncoder passwordEncoder(){
-
         return new BCryptPasswordEncoder();
     }
 

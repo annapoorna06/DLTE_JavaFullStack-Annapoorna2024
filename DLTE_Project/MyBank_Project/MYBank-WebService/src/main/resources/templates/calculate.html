@@ -59,7 +59,7 @@
                 <div class="form-group row mb-3">
                     <label for="amountInput" class="col-sm-4 col-form-label" style="color: black; font-family: Poppins">Amount:</label>
                     <div class="col-sm-8">
-                        <input type="number" id="amountInput" class="form-control" placeholder="Enter loan amount">
+                        <input type="text" id="amountInput" class="form-control" placeholder="Enter loan amount">
                         <div id="amountError" class="error-message"></div>
                     </div>
                 </div>
@@ -108,30 +108,42 @@
         $('#loanNameInput').val(data.name);
         $('#roiInput').val(data.roi);
         $('#amountInput').val(1000);
+        $('#tenureInput').val(12);
 
         // Handle form submission
         $('#emiForm').submit(function (event) {
             event.preventDefault();
             var loanName = $('#loanNameInput').val();
-            var amount = $('#amountInput').val() || 1000; // Default amount to 1000 if empty
+            var amount = $('#amountInput').val() ;
             var tenure = $('#tenureInput').val();
             var roi = $('#roiInput').val();
 
             // Validate amount and tenure for negative values and empty fields
-            if (amount < 0 || tenure < 0 || tenure === "") {
+            if (amount < 0 || tenure < 0 || amount===""|| tenure === "") {
                 if (amount < 0) {
                     $('#amountError').text('Enter valid amount.');
+                    $('#emiResult').addClass("d-none");
+                    $('#apply').addClass('d-none');
                 }
                 if (tenure < 0 || tenure === "") {
                     $('#tenureError').text('Enter valid tenure.');
+                    $('#emiResult').addClass("d-none");
+                    $('#apply').addClass('d-none');
                 }
-                return; // Exit the function if validation fails
+                return;// Exit the function if validation fails
             }
-
             // Check if amount is less than the default value (1000)
-            if (amount < 1000) {
-                $('#amountError').text('Enter amount above 1000');
+            if (amount < 1000 || amount >1000000) {
+                $('#amountError').text('The limit is 1000 to 10,00,000');
+                $('#emiResult').addClass("d-none");
+                $('#apply').addClass('d-none');
                 return; // Exit the function if amount is less than the default value
+            }
+            if(tenure < 12){
+                $('#tenureError').text('Enter tenure above 12 months');
+                $('#emiResult').addClass("d-none");
+                $('#apply').addClass('d-none');
+                return;
             }
 
             // Clear error messages
@@ -146,10 +158,12 @@
                     $('#apply').removeClass('d-none'); // Show the Apply button
                     $('#apply').addClass('bg-apply'); // Apply background color to the button
                 },
+
                 error: function (xhr, status, error) {
                     var errorMessage = xhr.responseJSON ? xhr.responseJSON.message : 'An error occurred while calculating EMI.';
                     $('#emiResult').text(errorMessage).removeClass('d-none');
                 }
+
             });
         });
     });
